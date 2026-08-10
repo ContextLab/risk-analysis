@@ -827,26 +827,32 @@ git commit -m "feat: D12Client with robots gate, cache, and rate limiting"
 ### Task 7: Map catalog parser
 
 **Files:**
-- Create: `riskdyn/maps/model.py`, `riskdyn/sources/d12/parse_catalog.py`, `tests/fixtures/maps_page.html`
+- Create: `riskdyn/maps/model.py`, `riskdyn/sources/d12/parse_catalog.py`
 - Test: `tests/test_parse_catalog.py`
+- Fixture (ALREADY CAPTURED, committed): `tests/fixtures/maps_page.html`
 
 **Interfaces:**
 - Consumes: nothing at runtime (pure parser)
 - Produces: `MapSummary` dataclass with fields `map_id: int, name: str, width: int, height: int, num_territories: int, num_regions: int, num_games_total: int, num_games_recent: int, caps: int, image_url: str, thumbnail_url: str, size: str, recommended_min_players: int, recommended_max_players: int`; `parse_catalog(html: str) -> list[MapSummary]`
 
-- [ ] **Step 1: Capture the real fixture**
+- [ ] **Step 1: Confirm the fixture is present**
+
+Already captured and committed — **do not fetch anything from D12 in this task.**
+
+`tests/fixtures/maps_page.html` holds the real catalog for all 77 maps, extracted from `/maps` on
+2026-08-10 and wrapped in minimal markup that preserves the `new CreateGame({...}, true);` call
+the parser keys on. The per-map `author`/`authors` fields were removed: they embed 77 third-party
+usernames and `/user/<id>` links that `MapSummary` never reads. All other site markup and scripts
+were stripped.
 
 ```bash
-mkdir -p tests/fixtures
-python -c "
-from riskdyn.config import Settings
-from riskdyn.sources.d12.fetch import D12Client
-c = D12Client()
-open('tests/fixtures/maps_page.html','w').write(c.get_text('/maps'))
-c.close()
-"
+test -f tests/fixtures/maps_page.html || { echo "BLOCKED: fixture missing"; exit 1; }
 grep -c 'new CreateGame(' tests/fixtures/maps_page.html   # expect 1
 ```
+
+Two real-data properties the tests below depend on: map 1 is `World Classic` (42 territories,
+6 regions, 1021x689), and map 77 is `Brecourt Manor` with **`num_regions == 0`** — a genuine
+variant with no continent bonuses. Do not "fix" that to 1.
 
 - [ ] **Step 2: Write the failing test**
 
