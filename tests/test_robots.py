@@ -28,3 +28,38 @@ def test_blocks_disallowed_paths(path):
 def test_prefix_match_does_not_overreach():
     # "/userlist" must not block "/users-something-else"
     assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("/usersettings") is True
+
+
+def test_blocks_dot_segment_traversal():
+    # /maps/../game/123 resolves to /game/123, which is disallowed
+    assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("/maps/../game/123") is False
+
+
+def test_blocks_percent_encoded_slash():
+    # /game%2F123 decodes to /game/123, which is disallowed
+    assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("/game%2F123") is False
+
+
+def test_case_sensitivity():
+    # robots.txt paths are case-sensitive; /GAME/123 != /game/123
+    assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("/GAME/123") is True
+
+
+def test_allows_dot_segment_normalization():
+    # /maps/./index normalizes to /maps/index, which is allowed
+    assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("/maps/./index") is True
+
+
+def test_allows_traversal_out_of_disallowed():
+    # /userlist/../maps resolves to /maps, which is allowed
+    assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("/userlist/../maps") is True
+
+
+def test_allows_empty_string():
+    # Empty string should be allowed and not raise
+    assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("") is True
+
+
+def test_allows_bare_slash():
+    # Bare "/" should be allowed and not raise
+    assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("/") is True

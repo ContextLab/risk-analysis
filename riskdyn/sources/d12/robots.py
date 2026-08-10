@@ -5,8 +5,9 @@ publishes. Directives are prefix matches, per the robots.txt convention.
 """
 from __future__ import annotations
 
+import posixpath
 from dataclasses import dataclass
-from urllib.parse import urlsplit
+from urllib.parse import unquote, urlsplit
 
 
 class RobotsDisallowed(Exception):
@@ -35,5 +36,21 @@ class RobotsPolicy:
 
     def is_allowed(self, path: str) -> bool:
         """True if ``path`` (a path, or a full URL) may be fetched."""
-        candidate = urlsplit(path).path or "/"
+        # Handle empty string as "/" (canonicalize root)
+        if not path:
+            candidate = "/"
+        else:
+            # Extract path from full URL or use bare path
+            candidate = urlsplit(path).path or "/"
+            # Percent-decode the path
+            candidate = unquote(candidate)
+            # Resolve dot-segments (.. and .)
+            candidate = posixpath.normpath(candidate)
+            # normpath collapses "" to "." and removes trailing slashes
+            # Ensure path starts with "/" (normpath may remove it)
+            if not candidate.startswith("/"):
+                candidate = "/" + candidate
+            # If result is ".", it means root was requested; treat as "/"
+            if candidate == ".":
+                candidate = "/"
         return not any(candidate.startswith(rule) for rule in self.disallowed)
