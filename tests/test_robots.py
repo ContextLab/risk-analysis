@@ -63,3 +63,33 @@ def test_allows_empty_string():
 def test_allows_bare_slash():
     # Bare "/" should be allowed and not raise
     assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("/") is True
+
+
+def test_blocks_double_leading_slash():
+    # //game//123 collapses to /game/123 after slash normalization and normpath
+    assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("//game//123") is False
+
+
+def test_blocks_triple_leading_slash():
+    # ///game/123 collapses to /game/123 after slash normalization
+    assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("///game/123") is False
+
+
+def test_blocks_nested_percent_encoding():
+    # /game%252F123 decodes in two passes: %25 -> %, leaving %2F, which decodes to /
+    assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("/game%252F123") is False
+
+
+def test_blocks_triple_percent_encoding():
+    # /game%25252F123 requires multiple decode iterations to resolve
+    assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("/game%25252F123") is False
+
+
+def test_allows_double_leading_slash_to_allowed():
+    # //maps collapses to /maps, which is allowed
+    assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("//maps") is True
+
+
+def test_allows_interior_slash_normalization():
+    # /maps//index normalizes to /maps/index, which is allowed
+    assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("/maps//index") is True

@@ -2,10 +2,14 @@
 
 Only the ``User-agent: *`` group is honored, which is the only group D12
 publishes. Directives are prefix matches, per the robots.txt convention.
+
+Path matching is case-sensitive per RFC 9309; this implements standard
+robots.txt behavior and should not be overridden.
 """
 from __future__ import annotations
 
 import posixpath
+import re
 from dataclasses import dataclass
 from urllib.parse import unquote, urlsplit
 
@@ -40,12 +44,32 @@ class RobotsPolicy:
         if not path:
             candidate = "/"
         else:
+            # Collapse leading slashes BEFORE urlsplit to prevent protocol-relative misinterpretation
+            # (e.g., //host/path would be parsed as netloc='host', path='/path')
+            normalized_input = re.sub(r'^/+', '/', path)
+
             # Extract path from full URL or use bare path
-            candidate = urlsplit(path).path or "/"
-            # Percent-decode the path
-            candidate = unquote(candidate)
+            candidate = urlsplit(normalized_input).path or "/"
+
+            # Percent-decode repeatedly (max 5 iterations) to foil nested encoding attacks
+            # If still changing after 5 iterations, treat as hostile and block
+            for attempt in range(5):
+                decoded = unquote(candidate)
+                if decoded == candidate:
+                    # Decoding stopped making changes; we're done
+                    break
+                candidate = decoded
+            else:
+                # Loop completed without breaking (still changing after 5 iterations)
+                return False
+
+            # Collapse all interior slash runs to single slash
+            # (leading slash already normalized above, so we preserve single leading slash)
+            candidate = re.sub(r'/+', '/', candidate)
+
             # Resolve dot-segments (.. and .)
             candidate = posixpath.normpath(candidate)
+
             # normpath collapses "" to "." and removes trailing slashes
             # Ensure path starts with "/" (normpath may remove it)
             if not candidate.startswith("/"):
