@@ -24,8 +24,9 @@ not permit use of any data mining, robots, scraping or similar data gathering or
 methods." User Conduct separately prohibits "automated scripts to collect information from …
 the Site." `robots.txt` disallows `/game/`, `/user/`, and `/userlist` — and nothing else.
 
-A permission request is drafted at `notes/d12-permission-request.md` for Jeremy to send via
-https://dominating12.com/contact. Written permission is the remedy the ToS itself names.
+A permission request was **sent 2026-08-10** via https://dominating12.com/contact; text and
+status are tracked in `notes/d12-permission-request.md`. Written permission is the remedy the ToS
+itself names. Phases 2+ below are gated on the reply.
 
 Two things are on firmer footing regardless:
 
@@ -113,7 +114,7 @@ Layering rules:
 
 - **Only `sources/*/fetch` touches the network.** Everything downstream runs offline.
 - **`parse` is pure.** Raw payload in, typed records out. Tested against checked-in fixtures.
-- Package name `riskdyn` is a proposal; easy to change before implementation starts.
+- Package name `riskdyn` is confirmed.
 
 ## Data model
 
@@ -276,6 +277,6 @@ which is why the letter is the long pole and was drafted first.
    Determines whether per-player clustering is powered.
 2. **Chat visibility** — whether completed-game chat is retrievable in bulk, or only via the
    incremental live protocol. Affects retrieval design; resolve with an authenticated session.
-3. **Package name** — `riskdyn` is a placeholder.
-4. **Permission outcome** — scope of what D12 grants determines how much of the corpus is
-   reachable. The simulator (#2) is the fallback if the answer is restrictive.
+3. **Permission outcome** — sent 2026-08-10; awaiting reply. The scope of what D12 grants
+   determines how much of the corpus is reachable. The simulator (#2) is the fallback if the
+   answer is restrictive. Follow up 2026-08-24 if no response.

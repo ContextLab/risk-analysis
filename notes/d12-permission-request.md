@@ -1,6 +1,8 @@
 # Data-use permission request — Dominating 12
 
-**Status:** drafted, NOT sent. Jeremy to review, fill the `[bracketed]` bits, and submit.
+**Status:** **SENT 2026-08-10** by Jeremy via the D12 contact form. Awaiting reply.
+
+Follow-up date if no response: **2026-08-24** (~2 weeks). Log any reply below, dated.
 
 **Why this exists:** the D12 Terms of Use (`/legal/terms`, rev. 2009-12-05) prohibit scraping
 "without the Company's prior written permission," and `robots.txt` disallows `/game/`, `/user/`,
