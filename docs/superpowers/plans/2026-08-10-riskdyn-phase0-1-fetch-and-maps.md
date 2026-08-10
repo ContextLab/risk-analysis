@@ -656,14 +656,15 @@ def test_second_get_is_served_from_cache_without_network(tmp_path):
     client = D12Client(Settings(cache_dir=tmp_path))
     try:
         first = client.get("/maps")
-        client.close()
-        # New client, same cache dir, and the transport is closed: a cache miss
-        # here would raise rather than silently re-fetch.
-        offline = D12Client(Settings(cache_dir=tmp_path))
-        offline.close()
-        assert offline.get("/maps") == first
     finally:
-        pass
+        client.close()
+
+    # New client, same cache dir, transport closed immediately. A cache miss
+    # would now raise instead of silently re-fetching, so passing proves the
+    # bytes came from disk.
+    offline = D12Client(Settings(cache_dir=tmp_path))
+    offline.close()
+    assert offline.get("/maps") == first
 
 
 def test_disallowed_path_is_refused_without_permission(tmp_path):
@@ -1007,11 +1008,16 @@ grep -c 'data-adjacencies' tests/fixtures/mappanel_map1.html   # expect 42 for W
 
 ```python
 # tests/test_parse_topology.py
+import pathlib
+
 import pytest
+
 from riskdyn.sources.d12.parse_topology import parse_topology
 
+FIXTURE = pathlib.Path(__file__).parent / "fixtures" / "mappanel_map1.html"
+
 pytestmark = pytest.mark.skipif(
-    not (__import__("pathlib").Path(__file__).parent / "fixtures" / "mappanel_map1.html").exists(),
+    not FIXTURE.exists(),
     reason="requires an authenticated map-panel fixture; see plan Task 8 Step 1",
 )
 
