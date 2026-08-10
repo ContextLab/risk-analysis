@@ -7,7 +7,9 @@ keep directory sizes reasonable across a large corpus.
 from __future__ import annotations
 
 import hashlib
+import os
 import pathlib
+import tempfile
 
 
 class ResponseCache:
@@ -19,11 +21,36 @@ class ResponseCache:
         return self.root / digest[:2] / digest[2:4] / digest
 
     def get(self, url: str) -> bytes | None:
+        """Return cached bytes for url, or None if not cached or unreadable.
+
+        Returns None for any non-hit: missing, is a directory, or read error.
+        """
         path = self.path_for(url)
-        return path.read_bytes() if path.exists() else None
+        try:
+            if path.is_file():
+                return path.read_bytes()
+        except OSError:
+            pass
+        return None
 
     def put(self, url: str, body: bytes) -> pathlib.Path:
         path = self.path_for(url)
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_bytes(body)
+        # Atomic write: write to temp file in the same directory, then rename.
+        fd, tmp_path = tempfile.mkstemp(dir=path.parent)
+        try:
+            os.write(fd, body)
+            os.close(fd)
+            os.replace(tmp_path, path)
+        except Exception:
+            # Clean up temp file on write failure.
+            try:
+                os.close(fd)
+            except OSError:
+                pass
+            try:
+                os.remove(tmp_path)
+            except OSError:
+                pass
+            raise
         return path
