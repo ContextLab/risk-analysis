@@ -11,6 +11,8 @@ import pathlib
 
 import matplotlib
 matplotlib.use("Agg")
+# Emit SVG labels as real <text> elements, not path-based glyphs, for editability in Illustrator.
+matplotlib.rcParams["svg.fonttype"] = "none"
 import matplotlib.pyplot as plt  # noqa: E402
 
 from riskdyn.maps.graph import to_graph  # noqa: E402
@@ -37,6 +39,22 @@ def render_map(
     title: str | None = None,
     colour_by_region: bool = True,
 ) -> pathlib.Path:
+    """Render a map to a vector or raster image file.
+
+    Args:
+        topology: MapTopology with territory coordinates and adjacency.
+        out_path: Output file path (.pdf, .svg, or .png).
+        width: Aspect ratio width (not output pixel width); combined with height
+               to set figure aspect ratio. Output dimensions are determined by
+               content via bbox_inches="tight".
+        height: Aspect ratio height (not output pixel height); combined with width
+                to set figure aspect ratio.
+        title: Optional title for the plot.
+        colour_by_region: If True, color nodes by region_id; if False, all white.
+
+    Returns:
+        pathlib.Path to the saved file.
+    """
     out_path = pathlib.Path(out_path)
     graph = to_graph(topology)
 

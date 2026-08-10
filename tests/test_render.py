@@ -32,3 +32,24 @@ def test_svg_contains_every_territory_label(tmp_path):
     svg = out.read_text()
     for name in ("Alpha", "Beta", "Gamma", "Delta"):
         assert name in svg
+
+
+def test_svg_labels_are_real_text_elements(tmp_path):
+    """SVG labels must be real <text> elements, not path-based glyphs."""
+    out = render_map(square(), tmp_path / "map.svg", width=1021, height=689)
+    svg = out.read_text()
+    assert "<text" in svg
+
+
+def test_svg_territory_name_appears_as_text_content(tmp_path):
+    """Territory names must appear as text content inside <text>, not just comments."""
+    out = render_map(square(), tmp_path / "map.svg", width=1021, height=689)
+    svg = out.read_text()
+    # Check that at least one territory name appears as text content
+    # between opening and closing text tags, not inside a comment
+    for name in ("Alpha", "Beta", "Gamma", "Delta"):
+        # Find a text element containing this name
+        import re
+        # Match <text...>...name...</text> patterns, ensuring it's not in a comment
+        pattern = rf"<text[^>]*>(?:(?!</)(?!<!--).)*{re.escape(name)}(?:(?!</)(?!<!--).)*</text>"
+        assert re.search(pattern, svg), f"Territory name '{name}' not found as text content in <text> element"
