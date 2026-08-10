@@ -161,3 +161,7 @@ data/processed/*
 
 # SDD scratch workspace (ledgers, briefs, review packages)
 .superpowers/
+
+# Raw saved D12 page — contains a live CSRF token and site markup. Never commit.
+# The parser fixture is the scrubbed, topology-only file beside it.
+tests/fixtures/mappanel_map1.html

@@ -981,70 +981,108 @@ git commit -m "feat: parse the 77-map D12 catalog from the /maps page"
 
 **Files:**
 - Modify: `riskdyn/maps/model.py`
-- Create: `riskdyn/sources/d12/parse_topology.py`, `tests/fixtures/mappanel_map1.html`
+- Create: `riskdyn/sources/d12/parse_topology.py`
 - Test: `tests/test_parse_topology.py`
+- Fixture (ALREADY CAPTURED, committed): `tests/fixtures/game_map1_territories.html`
 
 **Interfaces:**
 - Consumes: `MapSummary` (Task 7)
 - Produces: `Territory(territory_id: int, name: str, region_id: int, x: int, y: int, adjacencies: tuple[int, ...])`; `MapTopology(map_id: int, territories: tuple[Territory, ...])` with `.by_id: dict[int, Territory]`; `parse_topology(html: str, map_id: int) -> MapTopology`
 
-**Note for the implementer:** the fixture in Step 1 requires an authenticated D12 session. **If `config/d12_session.txt` does not exist, stop and report — do not fabricate a fixture.** A hand-written fixture would test the parser against imagined markup, which is worse than no test.
+**REVISED 2026-08-10 against real markup.** The original brief guessed at attribute names from
+`bundle.js`. A real page has since been captured and the guesses were wrong. Corrections:
 
-- [ ] **Step 1: Capture the real fixture (requires session cookie)**
+| assumed | actual |
+|-|-|
+| `data-territory-id` | **`data-territory`** |
+| `data-region-id` | **does not exist** — continent membership is absent from the markup entirely |
+| topology at `/mappanel/map/<id>` | `/mappanel/map/<id>` is not a real route; topology is on `/game/<id>` |
+| territory name in `title` | **`data-name`** |
+
+Real element, verbatim:
+
+```html
+<a href="#5" id="territory-5" class="js_territory" data-territory="5"
+   data-adjacencies="7,11,66,69" data-x="92" data-y="68" data-name="Northwest Territory">
+```
+
+Continent membership must come from a separate source — see issue #4 (map image segmentation).
+`region_id` therefore stays on the model but defaults to `0`, which `check_invariants` already
+treats as a legitimate region-less map (the Brecourt Manor case in Task 9).
+
+- [ ] **Step 1: Confirm the fixture is present**
+
+The fixture is already captured and committed. It is a scrubbed, topology-only extract of a real
+`/game/1889` page (World Classic): the 42 territory anchors with their `data-*` attributes, and
+nothing else — no scripts, no session tokens, no account identifiers, no chat.
 
 ```bash
-test -f config/d12_session.txt || { echo "BLOCKED: no session cookie; stop here"; exit 1; }
-python -c "
-from riskdyn.sources.d12.fetch import D12Client
-cookie = open('config/d12_session.txt').read().strip()
-c = D12Client(session_cookie=cookie)
-open('tests/fixtures/mappanel_map1.html','w').write(c.get_text('/mappanel/map/1'))
-c.close()
-"
-grep -c 'data-adjacencies' tests/fixtures/mappanel_map1.html   # expect 42 for World Classic
+test -f tests/fixtures/game_map1_territories.html || { echo "BLOCKED: fixture missing"; exit 1; }
+grep -c 'data-adjacencies' tests/fixtures/game_map1_territories.html   # expect 42
 ```
+
+Do NOT fetch anything from D12 in this task, and do not fabricate additional fixtures.
 
 - [ ] **Step 2: Write the failing test**
 
 ```python
 # tests/test_parse_topology.py
-import pathlib
-
 import pytest
 
 from riskdyn.sources.d12.parse_topology import parse_topology
 
-FIXTURE = pathlib.Path(__file__).parent / "fixtures" / "mappanel_map1.html"
-
-pytestmark = pytest.mark.skipif(
-    not FIXTURE.exists(),
-    reason="requires an authenticated map-panel fixture; see plan Task 8 Step 1",
-)
+FIXTURE_NAME = "game_map1_territories.html"
 
 
-def test_world_classic_has_42_territories(fixtures_dir):
-    topo = parse_topology((fixtures_dir / "mappanel_map1.html").read_text(), map_id=1)
-    assert len(topo.territories) == 42
+@pytest.fixture
+def world_classic(fixtures_dir):
+    return parse_topology((fixtures_dir / FIXTURE_NAME).read_text(), map_id=1)
 
 
-def test_adjacency_is_symmetric(fixtures_dir):
-    topo = parse_topology((fixtures_dir / "mappanel_map1.html").read_text(), map_id=1)
-    for t in topo.territories:
+def test_world_classic_has_42_territories(world_classic):
+    assert len(world_classic.territories) == 42
+
+
+def test_adjacency_is_symmetric(world_classic):
+    for t in world_classic.territories:
         for neighbour_id in t.adjacencies:
-            assert t.territory_id in topo.by_id[neighbour_id].adjacencies, (
+            assert t.territory_id in world_classic.by_id[neighbour_id].adjacencies, (
                 f"{t.territory_id} -> {neighbour_id} is not reciprocated"
             )
 
 
-def test_every_territory_has_a_region_and_coordinates(fixtures_dir):
-    topo = parse_topology((fixtures_dir / "mappanel_map1.html").read_text(), map_id=1)
-    assert all(t.region_id > 0 for t in topo.territories)
-    assert all(t.x > 0 and t.y > 0 for t in topo.territories)
+def test_world_classic_has_83_edges(world_classic):
+    # Verified against the real page: 42 territories, 83 undirected borders.
+    edges = sum(len(t.adjacencies) for t in world_classic.territories)
+    assert edges % 2 == 0
+    assert edges // 2 == 83
 
 
-def test_world_classic_has_six_regions(fixtures_dir):
-    topo = parse_topology((fixtures_dir / "mappanel_map1.html").read_text(), map_id=1)
-    assert len({t.region_id for t in topo.territories}) == 6
+def test_every_adjacency_refers_to_a_known_territory(world_classic):
+    known = set(world_classic.by_id)
+    for t in world_classic.territories:
+        assert set(t.adjacencies) <= known, f"{t.territory_id} cites unknown neighbours"
+
+
+def test_every_territory_has_a_name_and_coordinates(world_classic):
+    # NOTE: region_id is deliberately NOT asserted here. D12's markup carries no
+    # continent membership at all (see the revision table above); it defaults to 0.
+    assert all(t.name for t in world_classic.territories)
+    assert all(t.x > 0 and t.y > 0 for t in world_classic.territories)
+
+
+def test_known_territory_names_are_parsed(world_classic):
+    names = {t.name for t in world_classic.territories}
+    assert {"Northwest Territory", "Ontario", "Greenland", "Kamchatka"} <= names
+
+
+def test_no_territory_is_isolated(world_classic):
+    assert all(t.adjacencies for t in world_classic.territories)
+
+
+def test_raises_on_markup_without_territories():
+    with pytest.raises(ValueError, match="territory"):
+        parse_topology("<html><body>nothing here</body></html>", map_id=1)
 ```
 
 - [ ] **Step 3: Run test to verify it fails**
@@ -1081,10 +1119,12 @@ class MapTopology:
 # riskdyn/sources/d12/parse_topology.py
 """Extract territory topology from D12 page markup.
 
-Territory elements carry everything we need as data attributes:
-``data-territory-id``, ``data-region-id``, ``data-x``, ``data-y``, and
-``data-adjacencies`` (a comma-separated list of territory ids). The same markup
-appears in the map panel and in game pages, so this parser serves both.
+Territory anchors carry everything the markup exposes as data attributes:
+``data-territory`` (the id), ``data-name``, ``data-x``, ``data-y``, and
+``data-adjacencies`` (a comma-separated list of territory ids).
+
+Continent membership is NOT present anywhere in D12's markup, so ``region_id``
+defaults to 0 and must be supplied from another source — see issue #4.
 """
 from __future__ import annotations
 
@@ -1093,27 +1133,26 @@ import re
 
 from riskdyn.maps.model import MapTopology, Territory
 
-_ELEMENT = re.compile(r"<[^>]*\bdata-adjacencies\s*=\s*\"[^\"]*\"[^>]*>")
+_ELEMENT = re.compile(r"<a\b[^>]*\bdata-adjacencies\s*=\s*\"[^\"]*\"[^>]*>")
 _ATTR = re.compile(r"\bdata-([a-z\-]+)\s*=\s*\"([^\"]*)\"")
-_TITLE = re.compile(r"\b(?:title|data-name)\s*=\s*\"([^\"]*)\"")
 
 
 def parse_topology(html: str, map_id: int) -> MapTopology:
     territories: list[Territory] = []
     for element in _ELEMENT.findall(html):
         attrs = dict(_ATTR.findall(element))
-        if "territory-id" not in attrs:
+        if "territory" not in attrs:
             continue
         raw_adj = attrs.get("adjacencies", "").strip()
         adjacencies = tuple(
             int(part) for part in raw_adj.split(",") if part.strip()
         )
-        name_match = _TITLE.search(element)
         territories.append(
             Territory(
-                territory_id=int(attrs["territory-id"]),
-                name=html_module.unescape(name_match.group(1)) if name_match else "",
-                region_id=int(attrs.get("region-id", 0)),
+                territory_id=int(attrs["territory"]),
+                name=html_module.unescape(attrs.get("name", "")),
+                # D12 exposes no continent membership; 0 means "unknown region".
+                region_id=int(attrs.get("region", 0)),
                 x=int(float(attrs.get("x", 0))),
                 y=int(float(attrs.get("y", 0))),
                 adjacencies=adjacencies,
