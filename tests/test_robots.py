@@ -66,12 +66,12 @@ def test_allows_bare_slash():
 
 
 def test_blocks_double_leading_slash():
-    # //game//123 collapses to /game/123 after slash normalization and normpath
+    # //game//123 is parsed as netloc='game', so it's refused (fail-closed)
     assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("//game//123") is False
 
 
 def test_blocks_triple_leading_slash():
-    # ///game/123 collapses to /game/123 after slash normalization
+    # ///game/123 is also parsed as netloc='game' by urlsplit, so it's refused
     assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("///game/123") is False
 
 
@@ -85,11 +85,45 @@ def test_blocks_triple_percent_encoding():
     assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("/game%25252F123") is False
 
 
-def test_allows_double_leading_slash_to_allowed():
-    # //maps collapses to /maps, which is allowed
-    assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("//maps") is True
+def test_refuses_double_leading_slash_protocol_relative():
+    # //maps is parsed as netloc='maps', not as a bare path /maps.
+    # The // prefix is ambiguous (could be protocol-relative or literal //)
+    # so the gate refuses it to close this ambiguity attack class.
+    assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("//maps") is False
 
 
 def test_allows_interior_slash_normalization():
     # /maps//index normalizes to /maps/index, which is allowed
     assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("/maps//index") is True
+
+
+def test_blocks_protocol_relative_to_disallowed():
+    # //dominating12.com/game/1 has netloc, so it's refused (fail-closed)
+    assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("//dominating12.com/game/1") is False
+
+
+def test_blocks_protocol_relative_to_evil_host():
+    # //evil.example/game/1 has netloc, so it's refused (fail-closed)
+    assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("//evil.example/game/1") is False
+
+
+def test_blocks_protocol_relative_to_allowed_path():
+    # //dominating12.com/maps has netloc, so it's refused even though /maps is innocent.
+    # This is intentional fail-closed behavior: the ambiguity is too risky.
+    assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("//dominating12.com/maps") is False
+
+
+def test_blocks_absolute_url_to_allowed_path():
+    # https://dominating12.com/maps has a scheme and netloc, so it's refused.
+    # is_allowed accepts bare paths only, not full URLs.
+    assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("https://dominating12.com/maps") is False
+
+
+def test_allows_bare_path_with_query_string():
+    # /maps?page=2 is a bare path with query; the path component /maps is allowed
+    assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("/maps?page=2") is True
+
+
+def test_blocks_disallowed_path_with_query_string():
+    # /userlist?page=2 is a bare path with query; the path component /userlist is disallowed
+    assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("/userlist?page=2") is False

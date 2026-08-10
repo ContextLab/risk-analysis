@@ -39,17 +39,26 @@ class RobotsPolicy:
         return cls(tuple(rules))
 
     def is_allowed(self, path: str) -> bool:
-        """True if ``path`` (a path, or a full URL) may be fetched."""
+        """True if ``path`` (a bare path optionally with query/fragment) may be fetched.
+
+        Refuses any input with an authority component (netloc): the `//host/path` form
+        is genuinely ambiguous between protocol-relative URLs and bare paths starting
+        with //, and this gate cannot disambiguate safely, so it errs closed.
+        """
         # Handle empty string as "/" (canonicalize root)
         if not path:
             candidate = "/"
         else:
-            # Collapse leading slashes BEFORE urlsplit to prevent protocol-relative misinterpretation
-            # (e.g., //host/path would be parsed as netloc='host', path='/path')
-            normalized_input = re.sub(r'^/+', '/', path)
+            # Parse to check for netloc (authority component)
+            parts = urlsplit(path)
 
-            # Extract path from full URL or use bare path
-            candidate = urlsplit(normalized_input).path or "/"
+            # Refuse any input with a netloc: includes //host/path, //evil.example/...
+            # and https://host/path. This is fail-closed and correct for this gate's use case.
+            if parts.netloc:
+                return False
+
+            # Extract path component, defaulting to "/" for empty paths
+            candidate = parts.path or "/"
 
             # Percent-decode repeatedly (max 5 iterations) to foil nested encoding attacks
             # If still changing after 5 iterations, treat as hostile and block
@@ -63,8 +72,7 @@ class RobotsPolicy:
                 # Loop completed without breaking (still changing after 5 iterations)
                 return False
 
-            # Collapse all interior slash runs to single slash
-            # (leading slash already normalized above, so we preserve single leading slash)
+            # Collapse all slash runs to single slash (leading and interior)
             candidate = re.sub(r'/+', '/', candidate)
 
             # Resolve dot-segments (.. and .)
