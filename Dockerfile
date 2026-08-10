@@ -1,19 +1,14 @@
-FROM contextlab/cdl-python:3.7
+FROM python:3.11-slim
 
-RUN conda install -c brainiak \
-        brainiak=0.10 \
-        matplotlib=3.2.2 \
-        notebook=6.0.3 \
-        pandas=1.0.5 \
-        seaborn=0.10.1 \
-        xlrd=1.2.0 \
-    && conda clean -afy \
-    && pip install hypertools==0.6.2 \
-    && rm -rf ~/.cache/pip
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        git build-essential \
+    && rm -rf /var/lib/apt/lists/*
 
-# Set default working directory to repo mountpoint
 WORKDIR /mnt
 
-# Unset Python shell command from parent
+RUN pip install --no-cache-dir \
+        jupyter notebook \
+        httpx networkx matplotlib pydantic platformdirs pytest
+
 ENTRYPOINT ["/usr/bin/env"]
 CMD ["bash"]
