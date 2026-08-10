@@ -26,6 +26,42 @@ Disallow: /userlist
 """
 
 
+class UnexpectedRedirect(Exception):
+    """Raised when a request receives a 3xx response instead of content.
+
+    D12Client never follows redirects (`follow_redirects=False`, deliberately
+    kept that way): the redirect target has not passed `_check_allowed`, so
+    auto-following it could silently fetch — and cache — a resource that
+    robots.txt or the permission record would otherwise refuse. Nothing is
+    written to the cache when this is raised.
+    """
+
+    def __init__(self, path: str, status_code: int, location: str | None) -> None:
+        self.path = path
+        self.status_code = status_code
+        self.location = location
+        super().__init__(
+            f"GET {path!r} returned {status_code} redirecting to "
+            f"{location!r}; D12Client does not follow redirects because the "
+            f"target has not passed the robots/permission gate."
+        )
+
+
+def _union_robots(base: RobotsPolicy, additional: RobotsPolicy) -> RobotsPolicy:
+    """Combine two robots policies, keeping the union of their disallow rules.
+
+    A safety gate must never get weaker by talking to the network: a
+    malformed, truncated, or narrower robots.txt response must not be able to
+    silently drop a protection that's already in effect. So merging only ever
+    adds rules, never removes them.
+    """
+    merged = list(base.disallowed)
+    for rule in additional.disallowed:
+        if rule not in merged:
+            merged.append(rule)
+    return RobotsPolicy(tuple(merged))
+
+
 class D12Client:
     def __init__(
         self,
@@ -81,6 +117,12 @@ class D12Client:
                 return cached
         self.limiter.wait()
         response = self._client.get(path)
+        if 300 <= response.status_code < 400:
+            # follow_redirects=False is deliberate: the redirect target has
+            # not passed _check_allowed. Raise before touching the cache.
+            raise UnexpectedRedirect(
+                path, response.status_code, response.headers.get("Location")
+            )
         response.raise_for_status()
         body = response.content
         self.cache.put(url, body)
@@ -93,11 +135,18 @@ class D12Client:
         return json.loads(self.get_text(path, use_cache=use_cache))
 
     def refresh_robots(self) -> RobotsPolicy:
-        """Re-read robots.txt from the live site and adopt it."""
+        """Re-read robots.txt from the live site and merge it into the current policy.
+
+        Merging (not replacing) means a malformed, truncated, or narrower
+        response can only ever add disallow rules, never remove one already
+        in effect — the gate can get stricter from a live fetch, never
+        weaker.
+        """
         self.limiter.wait()
         response = self._client.get("/robots.txt")
         response.raise_for_status()
-        self.robots = RobotsPolicy.parse(response.text)
+        fetched = RobotsPolicy.parse(response.text)
+        self.robots = _union_robots(self.robots, fetched)
         return self.robots
 
     def close(self) -> None:
