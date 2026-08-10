@@ -22,3 +22,23 @@ class MapSummary:
     size: str
     recommended_min_players: int
     recommended_max_players: int
+
+
+@dataclass(frozen=True)
+class Territory:
+    territory_id: int
+    name: str
+    region_id: int
+    x: int
+    y: int
+    adjacencies: tuple[int, ...]
+
+
+@dataclass(frozen=True)
+class MapTopology:
+    map_id: int
+    territories: tuple[Territory, ...]
+
+    @property
+    def by_id(self) -> dict[int, "Territory"]:
+        return {t.territory_id: t for t in self.territories}
