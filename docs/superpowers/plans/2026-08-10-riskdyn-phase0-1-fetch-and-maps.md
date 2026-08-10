@@ -743,16 +743,26 @@ class D12Client:
             else self.settings.rate_limit_seconds
         )
         self.limiter = RateLimiter(interval)
-        cookies = {"d12session": session_cookie} if session_cookie else None
+        # `session_cookie` is a raw Cookie *header* value, e.g.
+        # "laravel_session=abc; XSRF-TOKEN=def", not a single named cookie. D12's
+        # session cookie name has never been verified, so passing the header
+        # through verbatim avoids guessing it. Normally None: everything phase 0-1
+        # needs is reachable unauthenticated.
+        headers = {"User-Agent": self.settings.user_agent}
+        if session_cookie:
+            headers["Cookie"] = session_cookie
         self._client = httpx.Client(
             base_url=BASE_URL,
-            headers={"User-Agent": self.settings.user_agent},
-            cookies=cookies,
+            headers=headers,
             follow_redirects=False,
             timeout=30.0,
         )
 
     def _check_allowed(self, path: str) -> None:
+        # NOTE: both gates canonicalize via riskdyn.paths.canonicalize_path, so
+        # they agree on what `path` means. Pass BARE PATHS only ("/maps",
+        # "/api/user/names?q=x"): anything carrying a host is refused outright,
+        # because "//host/x" cannot be told from a path safely.
         if self.robots.is_allowed(path):
             return
         permission = self.settings.permission
