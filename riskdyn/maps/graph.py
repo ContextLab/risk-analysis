@@ -31,6 +31,15 @@ def check_invariants(graph: nx.Graph) -> list[str]:
     """Return a list of invariant violations; empty means the map is well formed."""
     violations: list[str] = []
 
+    # Detect phantom nodes created by add_edge for unknown territory ids.
+    # These are nodes with no "name" attribute, indicating a parse failure upstream.
+    phantom = [n for n, data in graph.nodes(data=True) if "name" not in data]
+    if phantom:
+        violations.append(
+            f"adjacency references unknown territory ids: {phantom} "
+            "(indicates a parse failure upstream)"
+        )
+
     self_loops = list(nx.selfloop_edges(graph))
     if self_loops:
         violations.append(f"self-loop edges present: {self_loops}")
@@ -66,5 +75,5 @@ def region_subgraphs(graph: nx.Graph) -> dict[int, nx.Graph]:
     """One induced subgraph per region (continent)."""
     regions: dict[int, list[int]] = {}
     for node, data in graph.nodes(data=True):
-        regions.setdefault(data["region_id"], []).append(node)
+        regions.setdefault(data.get("region_id", 0), []).append(node)
     return {rid: graph.subgraph(nodes).copy() for rid, nodes in regions.items()}
