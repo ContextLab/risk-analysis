@@ -158,3 +158,6 @@ data/processed/*
 # Credentials for the authenticated D12 session
 .env
 *.session
+
+# SDD scratch workspace (ledgers, briefs, review packages)
+.superpowers/
