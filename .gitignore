@@ -139,3 +139,22 @@ dmypy.json
 *.fff
 *.synctex.gz
 *.bbl
+# --- project-specific ---
+
+# Tooling state
+.omc/
+
+# Identifiable player data. config/ holds the study's seed username list and the
+# pseudonym table that is the only artifact able to re-identify players in figures.
+config/
+!config/README.md
+
+# Cached API payloads and derived tables. May contain real usernames and chat text.
+data/raw/*
+!data/raw/README.md
+data/processed/*
+!data/processed/README.md
+
+# Credentials for the authenticated D12 session
+.env
+*.session
