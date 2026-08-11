@@ -52,3 +52,23 @@ Permission request sent 2026-08-10, unanswered. **Follow up 2026-08-24.** Phases
 spec (board reconstruction, position strength, conversation pipeline, paper) remain gated on it.
 Note that a grant would supply adjacency/names/positions directly and make most of the manual edge
 work redundant — the choice to proceed manually was made with that known.
+
+---
+
+## SCOPE CHANGE 2026-08-11 — read this first
+
+**Territory outline parsing is deferred. Graphs are the target.** See
+`docs/superpowers/specs/2026-08-11-map-graphs-plan-v4.md`.
+
+`riskdyn/segment/` is **retained, not deleted** — committed, tested, working. It may be revisited
+for figures later. It is simply off the critical path.
+
+Per map now: named nodes (approximate placement), authored adjacency graph, region membership via
+pixel colour at the node, and bonuses/special rules. Criteria (a) non-overlap and (c)
+no-non-playable-regions drop out with the polygons.
+
+Dropping outlines removes **zero** edge work — adjacency was always manual — and makes region
+membership easy, which resolves #4's original continent blocker as a side effect.
+
+Map 1 is already complete under this scope: 42 named nodes, 83 edges (70 shared-border, 13 route),
+matching D12 ground truth exactly.
