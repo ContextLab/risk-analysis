@@ -1,0 +1,1507 @@
+{
+ "schema_version": 2,
+ "map_id": 72,
+ "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_id is null and regions is empty until authored from the artwork.",
+ "territories": [
+  {
+   "territory_id": 3369,
+   "name": "Chaonia",
+   "x": 100,
+   "y": 148,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3370,
+   "name": "Ionannina",
+   "x": 172,
+   "y": 172,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3371,
+   "name": "Thesprotia",
+   "x": 140,
+   "y": 242,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3372,
+   "name": "Corcyra",
+   "x": 42,
+   "y": 188,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3373,
+   "name": "Mollosia",
+   "x": 214,
+   "y": 226,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3374,
+   "name": "Leucas",
+   "x": 138,
+   "y": 332,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3375,
+   "name": "Cephalonica",
+   "x": 119,
+   "y": 389,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3376,
+   "name": "Zacynthos",
+   "x": 143,
+   "y": 444,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3377,
+   "name": "Dolopia",
+   "x": 257,
+   "y": 260,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3378,
+   "name": "Acarnania",
+   "x": 191,
+   "y": 320,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3379,
+   "name": "Aetolia",
+   "x": 242,
+   "y": 331,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3380,
+   "name": "Locris",
+   "x": 320,
+   "y": 334,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3381,
+   "name": "Doris",
+   "x": 325,
+   "y": 300,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3382,
+   "name": "Phocis",
+   "x": 363,
+   "y": 321,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3383,
+   "name": "Boeotia",
+   "x": 416,
+   "y": 347,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3384,
+   "name": "Athens",
+   "x": 485,
+   "y": 387,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3385,
+   "name": "Euboea",
+   "x": 506,
+   "y": 334,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3386,
+   "name": "Scycros",
+   "x": 573,
+   "y": 290,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3387,
+   "name": "Sporades",
+   "x": 497,
+   "y": 241,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3388,
+   "name": "Magnesia",
+   "x": 368,
+   "y": 182,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3389,
+   "name": "Thessaly",
+   "x": 326,
+   "y": 186,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3390,
+   "name": "Malia",
+   "x": 368,
+   "y": 247,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3391,
+   "name": "Phthia",
+   "x": 286,
+   "y": 215,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3392,
+   "name": "Olympus",
+   "x": 268,
+   "y": 174,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3393,
+   "name": "Pelagonia",
+   "x": 216,
+   "y": 98,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3394,
+   "name": "Macedon",
+   "x": 267,
+   "y": 68,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3395,
+   "name": "Piera",
+   "x": 328,
+   "y": 91,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3396,
+   "name": "Thessalonica",
+   "x": 398,
+   "y": 38,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3397,
+   "name": "Chalcidice",
+   "x": 479,
+   "y": 78,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3398,
+   "name": "Thasos",
+   "x": 563,
+   "y": 37,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3399,
+   "name": "Samothrace",
+   "x": 677,
+   "y": 69,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3400,
+   "name": "Lemnos",
+   "x": 632,
+   "y": 120,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3401,
+   "name": "Troy",
+   "x": 754,
+   "y": 157,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3402,
+   "name": "Lesvos",
+   "x": 715,
+   "y": 226,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3403,
+   "name": "Chios",
+   "x": 724,
+   "y": 341,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3404,
+   "name": "Icaria",
+   "x": 762,
+   "y": 451,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3405,
+   "name": "Mysia",
+   "x": 836,
+   "y": 265,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3406,
+   "name": "Ionia",
+   "x": 875,
+   "y": 372,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3407,
+   "name": "Samos",
+   "x": 818,
+   "y": 426,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3408,
+   "name": "Caria",
+   "x": 979,
+   "y": 538,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3409,
+   "name": "Cos",
+   "x": 862,
+   "y": 559,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3410,
+   "name": "Rhodes",
+   "x": 962,
+   "y": 638,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3411,
+   "name": "Karpathos",
+   "x": 899,
+   "y": 691,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3412,
+   "name": "Dicte",
+   "x": 740,
+   "y": 731,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3413,
+   "name": "Knossos",
+   "x": 665,
+   "y": 729,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3414,
+   "name": "Chania",
+   "x": 533,
+   "y": 713,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3415,
+   "name": "North Cyclades",
+   "x": 652,
+   "y": 503,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3416,
+   "name": "West Cyclades",
+   "x": 576,
+   "y": 548,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3417,
+   "name": "East Cyclades",
+   "x": 674,
+   "y": 591,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3418,
+   "name": "Ellis",
+   "x": 244,
+   "y": 446,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3419,
+   "name": "Achaia",
+   "x": 281,
+   "y": 396,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3420,
+   "name": "Argolis",
+   "x": 425,
+   "y": 482,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3421,
+   "name": "Arcadia",
+   "x": 314,
+   "y": 454,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3422,
+   "name": "Messinia",
+   "x": 282,
+   "y": 522,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3423,
+   "name": "Sparta",
+   "x": 392,
+   "y": 570,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3424,
+   "name": "Cythera",
+   "x": 396,
+   "y": 661,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 3425,
+   "name": "Corinthia",
+   "x": 398,
+   "y": 429,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  }
+ ],
+ "edges": [
+  {
+   "a": 3369,
+   "b": 3370,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3369,
+   "b": 3371,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3369,
+   "b": 3372,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3370,
+   "b": 3371,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3370,
+   "b": 3373,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3370,
+   "b": 3393,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3371,
+   "b": 3373,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3372,
+   "b": 3376,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3373,
+   "b": 3377,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3374,
+   "b": 3375,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3374,
+   "b": 3378,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3375,
+   "b": 3376,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3376,
+   "b": 3418,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3377,
+   "b": 3378,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3377,
+   "b": 3379,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3377,
+   "b": 3381,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3378,
+   "b": 3379,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3378,
+   "b": 3418,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3379,
+   "b": 3380,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3379,
+   "b": 3381,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3380,
+   "b": 3381,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3380,
+   "b": 3382,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3381,
+   "b": 3382,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3381,
+   "b": 3390,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3382,
+   "b": 3383,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3382,
+   "b": 3385,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3383,
+   "b": 3384,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3383,
+   "b": 3385,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3384,
+   "b": 3385,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3384,
+   "b": 3416,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3384,
+   "b": 3425,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3385,
+   "b": 3386,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3386,
+   "b": 3387,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3386,
+   "b": 3401,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3387,
+   "b": 3388,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3388,
+   "b": 3389,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3389,
+   "b": 3390,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3389,
+   "b": 3391,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3389,
+   "b": 3392,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3389,
+   "b": 3395,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3390,
+   "b": 3391,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3391,
+   "b": 3392,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3392,
+   "b": 3393,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3393,
+   "b": 3394,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3394,
+   "b": 3395,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3394,
+   "b": 3396,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3395,
+   "b": 3396,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3395,
+   "b": 3397,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3396,
+   "b": 3397,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3397,
+   "b": 3398,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3398,
+   "b": 3399,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3399,
+   "b": 3400,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3399,
+   "b": 3401,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3401,
+   "b": 3402,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3401,
+   "b": 3405,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3402,
+   "b": 3403,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3402,
+   "b": 3405,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3403,
+   "b": 3404,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3404,
+   "b": 3407,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3404,
+   "b": 3415,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3405,
+   "b": 3406,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3406,
+   "b": 3407,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3406,
+   "b": 3408,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3408,
+   "b": 3409,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3408,
+   "b": 3410,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3409,
+   "b": 3411,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3410,
+   "b": 3411,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3411,
+   "b": 3412,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3412,
+   "b": 3413,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3413,
+   "b": 3414,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3414,
+   "b": 3423,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3415,
+   "b": 3416,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3415,
+   "b": 3417,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3416,
+   "b": 3417,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3416,
+   "b": 3423,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3418,
+   "b": 3419,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3418,
+   "b": 3421,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3418,
+   "b": 3422,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3419,
+   "b": 3421,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3419,
+   "b": 3425,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3420,
+   "b": 3421,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3420,
+   "b": 3423,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3420,
+   "b": 3425,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3421,
+   "b": 3422,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3421,
+   "b": 3423,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3421,
+   "b": 3425,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3422,
+   "b": 3423,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 3423,
+   "b": 3424,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  }
+ ],
+ "edge_confirmations": [],
+ "special_rules": [],
+ "corrections": [],
+ "regions": [],
+ "extra_bonuses": [],
+ "verification": {
+  "overlay_confirmed": {
+   "verified": false,
+   "by": null,
+   "at": null
+  },
+  "bonuses_confirmed": {
+   "verified": false,
+   "by": null,
+   "at": null
+  }
+ }
+}

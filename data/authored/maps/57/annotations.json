@@ -1,0 +1,1564 @@
+{
+ "schema_version": 2,
+ "map_id": 57,
+ "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_id is null and regions is empty until authored from the artwork.",
+ "territories": [
+  {
+   "territory_id": 2534,
+   "name": "Myanmar",
+   "x": 37,
+   "y": 43,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2535,
+   "name": "Thailand",
+   "x": 150,
+   "y": 78,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2536,
+   "name": "Laos",
+   "x": 253,
+   "y": 73,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2537,
+   "name": "Kampuchea",
+   "x": 220,
+   "y": 142,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2538,
+   "name": "Vietnam",
+   "x": 275,
+   "y": 156,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2539,
+   "name": "Penang",
+   "x": 135,
+   "y": 286,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2540,
+   "name": "Kuala Lumpur (KL)",
+   "x": 157,
+   "y": 330,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2541,
+   "name": "Kuantan",
+   "x": 172,
+   "y": 295,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2542,
+   "name": "Singapore",
+   "x": 186,
+   "y": 349,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2543,
+   "name": "Sarawak",
+   "x": 392,
+   "y": 330,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2544,
+   "name": "Sabah",
+   "x": 469,
+   "y": 272,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2545,
+   "name": "Brunei",
+   "x": 422,
+   "y": 294,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2546,
+   "name": "Aceh",
+   "x": 55,
+   "y": 299,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2547,
+   "name": "Medan",
+   "x": 96,
+   "y": 337,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2548,
+   "name": "Padang",
+   "x": 133,
+   "y": 414,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2549,
+   "name": "Riau",
+   "x": 160,
+   "y": 388,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2550,
+   "name": "Jambi",
+   "x": 165,
+   "y": 429,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2551,
+   "name": "Bengkulu",
+   "x": 167,
+   "y": 463,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2552,
+   "name": "Lahat",
+   "x": 207,
+   "y": 454,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2553,
+   "name": "Lampung",
+   "x": 225,
+   "y": 497,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2554,
+   "name": "Pontianak",
+   "x": 342,
+   "y": 406,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2555,
+   "name": "Banjarmasin",
+   "x": 412,
+   "y": 419,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2556,
+   "name": "Samarinda",
+   "x": 462,
+   "y": 344,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2557,
+   "name": "Manado",
+   "x": 605,
+   "y": 377,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2558,
+   "name": "Palu",
+   "x": 556,
+   "y": 423,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2559,
+   "name": "Makassar",
+   "x": 528,
+   "y": 454,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2560,
+   "name": "Kendari",
+   "x": 576,
+   "y": 474,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2561,
+   "name": "Banten",
+   "x": 239,
+   "y": 532,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2562,
+   "name": "Jakarta",
+   "x": 280,
+   "y": 537,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2563,
+   "name": "Yogyakarta",
+   "x": 329,
+   "y": 547,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2564,
+   "name": "Surabaya",
+   "x": 383,
+   "y": 551,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2565,
+   "name": "Bali",
+   "x": 492,
+   "y": 565,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2566,
+   "name": "Pulau Sumba",
+   "x": 533,
+   "y": 602,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2567,
+   "name": "Flores",
+   "x": 573,
+   "y": 573,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2568,
+   "name": "Timor",
+   "x": 621,
+   "y": 592,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2569,
+   "name": "Kimberley",
+   "x": 680,
+   "y": 711,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2570,
+   "name": "Katherine",
+   "x": 822,
+   "y": 720,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2571,
+   "name": "Darwin",
+   "x": 769,
+   "y": 675,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2572,
+   "name": "Arnhem",
+   "x": 819,
+   "y": 654,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2573,
+   "name": "Merauke",
+   "x": 957,
+   "y": 529,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2574,
+   "name": "Jayapura",
+   "x": 950,
+   "y": 457,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2575,
+   "name": "Fakfak",
+   "x": 817,
+   "y": 469,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2576,
+   "name": "Manokwari",
+   "x": 883,
+   "y": 459,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2577,
+   "name": "Sorong",
+   "x": 776,
+   "y": 416,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2578,
+   "name": "Timor-Leste",
+   "x": 660,
+   "y": 575,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2579,
+   "name": "Tanimbar",
+   "x": 784,
+   "y": 548,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2580,
+   "name": "Aru",
+   "x": 841,
+   "y": 514,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2581,
+   "name": "Buru",
+   "x": 680,
+   "y": 468,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2582,
+   "name": "Ceram",
+   "x": 740,
+   "y": 458,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2583,
+   "name": "Sula",
+   "x": 651,
+   "y": 435,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2584,
+   "name": "N. Maluku",
+   "x": 710,
+   "y": 370,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2585,
+   "name": "Mindanao",
+   "x": 643,
+   "y": 229,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2586,
+   "name": "W. Visayas",
+   "x": 595,
+   "y": 176,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2587,
+   "name": "E. Visayas",
+   "x": 640,
+   "y": 149,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2588,
+   "name": "Luzon",
+   "x": 562,
+   "y": 43,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2589,
+   "name": "Palawan",
+   "x": 491,
+   "y": 192,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  }
+ ],
+ "edges": [
+  {
+   "a": 2534,
+   "b": 2535,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2535,
+   "b": 2536,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2535,
+   "b": 2537,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2535,
+   "b": 2539,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2535,
+   "b": 2541,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2536,
+   "b": 2537,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2536,
+   "b": 2538,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2537,
+   "b": 2538,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2538,
+   "b": 2541,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2538,
+   "b": 2589,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2539,
+   "b": 2540,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2539,
+   "b": 2541,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2539,
+   "b": 2547,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2540,
+   "b": 2541,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2540,
+   "b": 2542,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2541,
+   "b": 2542,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2541,
+   "b": 2543,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2542,
+   "b": 2549,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2543,
+   "b": 2544,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2543,
+   "b": 2545,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2543,
+   "b": 2554,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2543,
+   "b": 2556,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2544,
+   "b": 2545,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2544,
+   "b": 2556,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2544,
+   "b": 2585,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2544,
+   "b": 2589,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2546,
+   "b": 2547,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2547,
+   "b": 2548,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2547,
+   "b": 2549,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2548,
+   "b": 2549,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2548,
+   "b": 2550,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2548,
+   "b": 2551,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2549,
+   "b": 2550,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2550,
+   "b": 2551,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2550,
+   "b": 2552,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2551,
+   "b": 2552,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2551,
+   "b": 2553,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2552,
+   "b": 2553,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2553,
+   "b": 2554,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2553,
+   "b": 2561,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2554,
+   "b": 2555,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2554,
+   "b": 2556,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2555,
+   "b": 2556,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2555,
+   "b": 2565,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2556,
+   "b": 2558,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2557,
+   "b": 2558,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2558,
+   "b": 2559,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2558,
+   "b": 2560,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2558,
+   "b": 2583,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2559,
+   "b": 2560,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2559,
+   "b": 2565,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2560,
+   "b": 2578,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2561,
+   "b": 2562,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2562,
+   "b": 2563,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2563,
+   "b": 2564,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2564,
+   "b": 2565,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2565,
+   "b": 2566,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2565,
+   "b": 2567,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2566,
+   "b": 2567,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2566,
+   "b": 2568,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2567,
+   "b": 2568,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2568,
+   "b": 2569,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2568,
+   "b": 2578,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2569,
+   "b": 2570,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2569,
+   "b": 2571,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2570,
+   "b": 2571,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2570,
+   "b": 2572,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2571,
+   "b": 2572,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2572,
+   "b": 2573,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2573,
+   "b": 2574,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2573,
+   "b": 2575,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2573,
+   "b": 2576,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2573,
+   "b": 2580,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2574,
+   "b": 2576,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2575,
+   "b": 2576,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2575,
+   "b": 2580,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2575,
+   "b": 2582,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2576,
+   "b": 2577,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2577,
+   "b": 2582,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2577,
+   "b": 2584,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2578,
+   "b": 2579,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2578,
+   "b": 2581,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2579,
+   "b": 2580,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2581,
+   "b": 2582,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2581,
+   "b": 2583,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2583,
+   "b": 2584,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2584,
+   "b": 2585,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2585,
+   "b": 2586,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2585,
+   "b": 2587,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2585,
+   "b": 2589,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2586,
+   "b": 2587,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2586,
+   "b": 2588,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2587,
+   "b": 2588,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2588,
+   "b": 2589,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  }
+ ],
+ "edge_confirmations": [],
+ "special_rules": [],
+ "corrections": [],
+ "regions": [],
+ "extra_bonuses": [],
+ "verification": {
+  "overlay_confirmed": {
+   "verified": false,
+   "by": null,
+   "at": null
+  },
+  "bonuses_confirmed": {
+   "verified": false,
+   "by": null,
+   "at": null
+  }
+ }
+}

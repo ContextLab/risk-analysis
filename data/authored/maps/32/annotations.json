@@ -1,0 +1,1106 @@
+{
+ "schema_version": 2,
+ "map_id": 32,
+ "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_id is null and regions is empty until authored from the artwork.",
+ "territories": [
+  {
+   "territory_id": 1265,
+   "name": "San Juan",
+   "x": 185,
+   "y": 319,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1266,
+   "name": "La Vega",
+   "x": 366,
+   "y": 258,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1267,
+   "name": "Valverde",
+   "x": 255,
+   "y": 106,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1268,
+   "name": "Santiago",
+   "x": 272,
+   "y": 202,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1269,
+   "name": "Puerto Plata",
+   "x": 301,
+   "y": 52,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1270,
+   "name": "Montecristi",
+   "x": 139,
+   "y": 77,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1271,
+   "name": "Dajab\u00f3n",
+   "x": 108,
+   "y": 152,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1272,
+   "name": "S. Rodr\u00edguez",
+   "x": 174,
+   "y": 183,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1273,
+   "name": "Pedernales",
+   "x": 112,
+   "y": 589,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1274,
+   "name": "El\u00edas Pi\u00f1a",
+   "x": 110,
+   "y": 244,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1275,
+   "name": "Bahoruco",
+   "x": 172,
+   "y": 431,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1276,
+   "name": "Barahona",
+   "x": 199,
+   "y": 537,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1277,
+   "name": "Azua",
+   "x": 307,
+   "y": 407,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1278,
+   "name": "Peravia",
+   "x": 440,
+   "y": 465,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1279,
+   "name": "San Jos\u00e9 de Ocoa",
+   "x": 406,
+   "y": 372,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1280,
+   "name": "San Crist\u00f3bal",
+   "x": 475,
+   "y": 403,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1281,
+   "name": "Monse\u00f1or",
+   "x": 422,
+   "y": 303,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1282,
+   "name": "Espaillat",
+   "x": 434,
+   "y": 110,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1283,
+   "name": "H. Mirabal",
+   "x": 444,
+   "y": 152,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1284,
+   "name": "Duarte",
+   "x": 488,
+   "y": 201,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1285,
+   "name": "M\u00aa Trinidad",
+   "x": 547,
+   "y": 148,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1286,
+   "name": "Saman\u00e1",
+   "x": 682,
+   "y": 212,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1287,
+   "name": "S\u00e1nchez",
+   "x": 504,
+   "y": 284,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1288,
+   "name": "Monte Plata",
+   "x": 604,
+   "y": 333,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1289,
+   "name": "Santo Domingo",
+   "x": 627,
+   "y": 422,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1290,
+   "name": "D. Nacional",
+   "x": 564,
+   "y": 437,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1291,
+   "name": "S. Pedro de Macor\u00eds",
+   "x": 683,
+   "y": 401,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1292,
+   "name": "Hato Mayor",
+   "x": 724,
+   "y": 361,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1293,
+   "name": "El Seibo",
+   "x": 809,
+   "y": 339,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1294,
+   "name": "La Romana",
+   "x": 825,
+   "y": 434,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1295,
+   "name": "La Altagracia",
+   "x": 924,
+   "y": 392,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1296,
+   "name": "Independencia",
+   "x": 72,
+   "y": 442,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  }
+ ],
+ "edges": [
+  {
+   "a": 1265,
+   "b": 1266,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1265,
+   "b": 1268,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1265,
+   "b": 1272,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1265,
+   "b": 1274,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1265,
+   "b": 1275,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1265,
+   "b": 1277,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1266,
+   "b": 1268,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1266,
+   "b": 1277,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1266,
+   "b": 1279,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1266,
+   "b": 1281,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1266,
+   "b": 1282,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1266,
+   "b": 1283,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1266,
+   "b": 1284,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1266,
+   "b": 1287,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1267,
+   "b": 1268,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1267,
+   "b": 1269,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1267,
+   "b": 1270,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1267,
+   "b": 1272,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1268,
+   "b": 1269,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1268,
+   "b": 1272,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1268,
+   "b": 1282,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1269,
+   "b": 1270,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1269,
+   "b": 1282,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1270,
+   "b": 1271,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1270,
+   "b": 1272,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1271,
+   "b": 1272,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1271,
+   "b": 1274,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1272,
+   "b": 1274,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1273,
+   "b": 1276,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1273,
+   "b": 1296,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1274,
+   "b": 1275,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1274,
+   "b": 1296,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1275,
+   "b": 1276,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1275,
+   "b": 1277,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1275,
+   "b": 1296,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1276,
+   "b": 1277,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1276,
+   "b": 1296,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1277,
+   "b": 1278,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1277,
+   "b": 1279,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1278,
+   "b": 1279,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1278,
+   "b": 1280,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1279,
+   "b": 1280,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1279,
+   "b": 1281,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1280,
+   "b": 1281,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1280,
+   "b": 1288,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1280,
+   "b": 1289,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1281,
+   "b": 1287,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1281,
+   "b": 1288,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1282,
+   "b": 1283,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1282,
+   "b": 1284,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1282,
+   "b": 1285,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1283,
+   "b": 1284,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1284,
+   "b": 1285,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1284,
+   "b": 1286,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1284,
+   "b": 1287,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1284,
+   "b": 1288,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1285,
+   "b": 1286,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1286,
+   "b": 1288,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1286,
+   "b": 1292,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1287,
+   "b": 1288,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1288,
+   "b": 1289,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1288,
+   "b": 1291,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1288,
+   "b": 1292,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1289,
+   "b": 1290,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1289,
+   "b": 1291,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1291,
+   "b": 1292,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1291,
+   "b": 1293,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1291,
+   "b": 1294,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1292,
+   "b": 1293,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1293,
+   "b": 1294,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1293,
+   "b": 1295,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1294,
+   "b": 1295,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  }
+ ],
+ "edge_confirmations": [],
+ "special_rules": [],
+ "corrections": [],
+ "regions": [],
+ "extra_bonuses": [],
+ "verification": {
+  "overlay_confirmed": {
+   "verified": false,
+   "by": null,
+   "at": null
+  },
+  "bonuses_confirmed": {
+   "verified": false,
+   "by": null,
+   "at": null
+  }
+ }
+}

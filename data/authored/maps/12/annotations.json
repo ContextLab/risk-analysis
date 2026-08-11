@@ -1,0 +1,1191 @@
+{
+ "schema_version": 2,
+ "map_id": 12,
+ "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_id is null and regions is empty until authored from the artwork.",
+ "territories": [
+  {
+   "territory_id": 393,
+   "name": "Donegal",
+   "x": 310,
+   "y": 328,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 394,
+   "name": "Northern Ireland",
+   "x": 369,
+   "y": 331,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 395,
+   "name": "Cavan",
+   "x": 332,
+   "y": 406,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 396,
+   "name": "Dublin",
+   "x": 370,
+   "y": 459,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 397,
+   "name": "Leinster",
+   "x": 373,
+   "y": 528,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 398,
+   "name": "Munster",
+   "x": 268,
+   "y": 558,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 399,
+   "name": "Limerick",
+   "x": 287,
+   "y": 504,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 400,
+   "name": "Connaught",
+   "x": 271,
+   "y": 429,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 401,
+   "name": "Hebrides",
+   "x": 371,
+   "y": 69,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 402,
+   "name": "Highlands",
+   "x": 535,
+   "y": 126,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 403,
+   "name": "Perth",
+   "x": 536,
+   "y": 183,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 404,
+   "name": "Strathclyde",
+   "x": 490,
+   "y": 251,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 405,
+   "name": "Dumfries",
+   "x": 548,
+   "y": 304,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 406,
+   "name": "Lothian",
+   "x": 578,
+   "y": 271,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 407,
+   "name": "Northumberland",
+   "x": 613,
+   "y": 308,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 408,
+   "name": "Durham",
+   "x": 635,
+   "y": 341,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 409,
+   "name": "Yorkshire",
+   "x": 648,
+   "y": 394,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 410,
+   "name": "Cumbria",
+   "x": 565,
+   "y": 361,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 411,
+   "name": "Lancashire",
+   "x": 585,
+   "y": 415,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 412,
+   "name": "Cheshire",
+   "x": 590,
+   "y": 469,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 413,
+   "name": "Clwyd",
+   "x": 552,
+   "y": 473,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 414,
+   "name": "Powys",
+   "x": 546,
+   "y": 548,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 415,
+   "name": "Glamorgan",
+   "x": 550,
+   "y": 600,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 416,
+   "name": "Dyfed",
+   "x": 511,
+   "y": 563,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 417,
+   "name": "Gwynedd",
+   "x": 507,
+   "y": 471,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 418,
+   "name": "Avon",
+   "x": 625,
+   "y": 626,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 419,
+   "name": "Devon",
+   "x": 524,
+   "y": 680,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 420,
+   "name": "Somerset",
+   "x": 604,
+   "y": 663,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 421,
+   "name": "Cornwall",
+   "x": 483,
+   "y": 690,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 422,
+   "name": "Shropshire",
+   "x": 586,
+   "y": 521,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 423,
+   "name": "Midlands",
+   "x": 660,
+   "y": 483,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 424,
+   "name": "Lincoln",
+   "x": 708,
+   "y": 477,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 425,
+   "name": "Gloucester",
+   "x": 614,
+   "y": 575,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 426,
+   "name": "Oxford",
+   "x": 667,
+   "y": 572,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 427,
+   "name": "Essex",
+   "x": 721,
+   "y": 557,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 429,
+   "name": "Surrey",
+   "x": 714,
+   "y": 615,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 430,
+   "name": "Sussex",
+   "x": 663,
+   "y": 647,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 431,
+   "name": "Kent",
+   "x": 749,
+   "y": 629,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 432,
+   "name": "East Anglia",
+   "x": 774,
+   "y": 533,
+   "region_id": null,
+   "source": "d12-markup",
+   "confidence": "high"
+  }
+ ],
+ "edges": [
+  {
+   "a": 393,
+   "b": 394,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 393,
+   "b": 395,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 393,
+   "b": 404,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 394,
+   "b": 395,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 394,
+   "b": 405,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 395,
+   "b": 396,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 395,
+   "b": 400,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 396,
+   "b": 397,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 396,
+   "b": 399,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 396,
+   "b": 400,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 397,
+   "b": 398,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 397,
+   "b": 399,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 397,
+   "b": 416,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 398,
+   "b": 399,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 399,
+   "b": 400,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 401,
+   "b": 402,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 402,
+   "b": 403,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 402,
+   "b": 404,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 403,
+   "b": 404,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 403,
+   "b": 406,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 404,
+   "b": 405,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 404,
+   "b": 406,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 405,
+   "b": 406,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 405,
+   "b": 410,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 406,
+   "b": 407,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 406,
+   "b": 410,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 407,
+   "b": 408,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 407,
+   "b": 410,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 408,
+   "b": 409,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 408,
+   "b": 410,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 408,
+   "b": 411,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 409,
+   "b": 411,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 409,
+   "b": 412,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 409,
+   "b": 423,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 409,
+   "b": 424,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 410,
+   "b": 411,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 411,
+   "b": 412,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 412,
+   "b": 413,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 412,
+   "b": 422,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 412,
+   "b": 423,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 413,
+   "b": 414,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 413,
+   "b": 417,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 413,
+   "b": 422,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 414,
+   "b": 415,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 414,
+   "b": 416,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 414,
+   "b": 417,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 414,
+   "b": 422,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 414,
+   "b": 425,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 415,
+   "b": 416,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 416,
+   "b": 417,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 418,
+   "b": 420,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 418,
+   "b": 425,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 418,
+   "b": 426,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 418,
+   "b": 430,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 419,
+   "b": 420,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 419,
+   "b": 421,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 420,
+   "b": 430,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 422,
+   "b": 423,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 422,
+   "b": 425,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 423,
+   "b": 424,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 423,
+   "b": 425,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 423,
+   "b": 426,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 423,
+   "b": 427,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 424,
+   "b": 427,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 424,
+   "b": 432,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 425,
+   "b": 426,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 426,
+   "b": 427,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 426,
+   "b": 429,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 426,
+   "b": 430,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 427,
+   "b": 429,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 427,
+   "b": 432,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 429,
+   "b": 430,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 429,
+   "b": 431,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 430,
+   "b": 431,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  }
+ ],
+ "edge_confirmations": [],
+ "special_rules": [],
+ "corrections": [],
+ "regions": [],
+ "extra_bonuses": [],
+ "verification": {
+  "overlay_confirmed": {
+   "verified": false,
+   "by": null,
+   "at": null
+  },
+  "bonuses_confirmed": {
+   "verified": false,
+   "by": null,
+   "at": null
+  }
+ }
+}
