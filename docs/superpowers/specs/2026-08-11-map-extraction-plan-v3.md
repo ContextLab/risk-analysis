@@ -93,3 +93,40 @@ Per-map artifacts under `data/processed/maps/<id>/`:
 - **Sea routes are unsolved.** No prior stage attempted them, and they are required for (d)'s graph.
 - **77 maps × manual verification is real work**, and its throughput is set by how legible the
   overlays are.
+
+---
+
+## Adversarial review of v3 (2026-08-11) — measured findings
+
+**Verdict: revise.** The per-map reframing is right; two of four criteria are not tests.
+
+- **Adjacency cannot be derived from approximate geometry.** Measured on map 1 (36 territories with
+  unique anchors, 65 of 83 edges): shared-border recall by dilation tolerance d=1px → 36/65, d=2 →
+  54/65, d=3-30 → ~57-62/65. **Precision plateaus at 0.90 at every threshold.** Six false pairs sit
+  at ≤1.4px while 29 true edges need >1px — the distributions overlap, so no threshold exists.
+- **~17 of 83 edges (20%) are non-border**, not the ~10 assumed. Clean gap in the data: nothing
+  between 4px and 12px separation.
+- **Map 1 wraps cylindrically.** Alaska-Kamchatka measures 801px. Never mentioned in any plan; it
+  breaks polyline tracing.
+- **`num_territories` is necessary, not sufficient.** Dropping a real territory while admitting one
+  mini-map tile still yields N=42. It cannot support criterion (c) at all.
+- **Routes are not separable by style even within one map.** Map 48's "Halley's Comet" is a white
+  dashed streak identical to the white dashed routes drawn on Earth in the same image.
+- **`bonuses.json` as specified cannot hold real data** — map 100 prints bonus numerals with no
+  adjacent region name, plus ~9 scattered per-territory/strait `+1` markers, and its grey
+  territories sit outside all 24 regions.
+- **Map 1's fixture has `region_id` all 0**, so the calibration map cannot calibrate (c) or (d).
+- **Criterion (a) already fails on the shipped map-1 artifact**: 107px of polygon overlap.
+- **Effort inverts**: ~4,613 territories (mean 60, max 150) but **~3,900 edges**. Adjacency
+  dominates, and there is no correction round-trip — hand-editing `territories.svg` regenerates
+  neither `graph.json` nor `report.json`, and nothing records who verified what.
+
+## The strategic consequence
+
+Adjacency, names and label positions are **exactly what D12's markup already provides** via
+`data-adjacencies` / `data-name` / `data-x` / `data-y`. We have them for map 1 and would have them
+for all 77 with data-use permission (requested 2026-08-10, unanswered; follow-up 2026-08-24).
+
+So the ~3,900 manual edge decisions are largely a **workaround for not having permission**, not
+inherent work. Segmentation remains necessary for *outlines* regardless — markup carries no shapes —
+and bonuses need reading the artwork either way.
