@@ -13,6 +13,11 @@ dependencies = [
     "matplotlib>=3.8",
     "pydantic>=2.6",
     "platformdirs>=4.2",
+    "numpy>=1.26",
+    "pillow>=10.0",
+    "torch>=2.2",
+    "transformers>=4.38",
+    "opencv-python-headless>=4.9",
 ]
 
 [project.optional-dependencies]
