@@ -20,10 +20,17 @@ from dataclasses import dataclass
 import numpy as np
 
 from riskdyn.segment import catalog as cat
-from riskdyn.segment.candidates import CandidateParams, paint_label_map, select_masks
+from riskdyn.segment.candidates import (
+    CandidateParams,
+    drop_water_labels,
+    paint_label_map,
+    select_masks,
+    split_merged_labels,
+)
 from riskdyn.segment.geometry import (
     TerritoryShape,
     claim_coastal_margin,
+    close_label_gaps,
     extract_territories,
     write_svg,
 )
@@ -67,15 +74,32 @@ def run_map(
     out_dir.mkdir(parents=True, exist_ok=True)
 
     raw = cached_generate(image, out_dir / "sam_masks.npz", sam_params, device)
+    p = cand_params or CandidateParams()
     kept, warn_a = select_masks(raw, image.shape[:2], cand_params, image=image)
     label_map, warn_b = paint_label_map(kept, image.shape[:2], cand_params, image=image)
-    buffer_px = (cand_params or CandidateParams()).coastal_buffer_px
-    label_map = claim_coastal_margin(label_map, buffer_px)
+    label_map, warn_c = drop_water_labels(label_map, image, cand_params)
+    label_map, warn_d = split_merged_labels(label_map, image, cand_params)
+    label_map = close_label_gaps(
+        label_map, image, p.gap_close_px, p.land_claim_px, p.land_color_dist
+    )
+    # Final water pass: gap closing can glue printed water text onto small
+    # junk labels, tipping their composition to mostly-water; convict them.
+    label_map, warn_e = drop_water_labels(label_map, image, cand_params)
     shapes = extract_territories(label_map)
 
+    # The headline bijection is measured on the polygons actually written
+    # out (no coastal buffer).  The buffer-assisted figure is a secondary
+    # diagnostic for island labels D12 prints in the water; it never touches
+    # the emitted polygons.
     bijection = None
+    bijection_buffered = None
     if map_id == 1 and MAP1_FIXTURE.is_file():
-        bijection = bijection_check(shapes, load_label_points(MAP1_FIXTURE))
+        labels = load_label_points(MAP1_FIXTURE)
+        bijection = bijection_check(shapes, labels)
+        buffered_shapes = extract_territories(
+            claim_coastal_margin(label_map, p.coastal_buffer_px)
+        )
+        bijection_buffered = bijection_check(buffered_shapes, labels)
 
     report = build_report(
         map_id,
@@ -83,9 +107,12 @@ def run_map(
         summary.num_territories,
         shapes,
         image.shape[:2],
-        warn_a + warn_b,
+        warn_a + warn_b + warn_c + warn_d + warn_e,
         bijection,
-        coastal_buffer_px=buffer_px,
+        bijection_buffered=bijection_buffered,
+        coastal_buffer_px=p.coastal_buffer_px,
+        gap_close_px=p.gap_close_px,
+        land_claim_px=p.land_claim_px,
     )
 
     if write_artifacts:
@@ -109,8 +136,13 @@ def run_map(
         header = (
             f"map {map_id} {summary.name}: {len(shapes)} found / "
             f"{summary.num_territories} expected"
-            + (f" | bijection {bijection['n_bijective']}/{bijection['n_labels']}"
-               if bijection else "")
+            + (
+                f" | bijection {bijection['n_bijective']}/{bijection['n_labels']}"
+                f" (buffered {bijection_buffered['n_bijective']}"
+                f"/{bijection_buffered['n_labels']})"
+                if bijection
+                else ""
+            )
         )
         draw_overlay(image, shapes, out_dir / "overlay.png", None, header)
 

@@ -58,19 +58,54 @@ class CandidateParams:
     ocean_color_dist: float = 30.0  # RGB distance: "background-like"
     ocean_exact_dist: float = 10.0  # RGB distance: "is literally the water"
     ocean_ring_frac: float = 0.60   # surrounded-by-open-background fraction
+    ocean_exact_ring_frac: float = 0.45  # exact-water masks are dropped on
+    #   much weaker evidence of isolation ...
+    ocean_exact_border_frac: float = 0.05  # ... or if they own real border
+    ocean_exact_big_frac: float = 0.03  # ... or are simply huge
     ocean_bg_erosion: int = 7       # erode background so thin border-line
     #   gaps between adjacent territories do not count as "open water"
     ocean_small_exempt_frac: float = 0.005  # background-LIKE masks smaller
     #   than this fraction of the image are never dropped: islands whose
     #   palette resembles the water (World Classic's Britain, dist 14)
-    ocean_exact_ring_frac: float = 0.45  # exact-water masks are dropped on
-    #   much weaker evidence of isolation ...
-    ocean_exact_border_frac: float = 0.05  # ... or if they own real border
-    ocean_exact_big_frac: float = 0.03  # ... or are simply huge
+    water_px_dist: float = 35.0     # a PIXEL within this RGB distance of the
+    #   background colour is water; masks/labels made mostly of such pixels
+    #   are convicted on colour alone, regardless of isolation (SAM tiles
+    #   big oceans into mutually-walled chunks that defeat isolation tests)
+    water_frac_max: float = 0.60    # conviction threshold for the above
+    #   (real islands on World Classic top out at 0.28; ocean chunks and
+    #   arctic strips sit at 0.64-0.96)
+    water_ambiguous_frac: float = 0.25  # if at least this fraction of ALL
+    #   mask-covered pixels resemble the background colour, the map's land
+    #   is not colour-separable from its water (Arctic Circle: 0.37, Jungle
+    #   of Despair: 0.31, vs World Classic 0.16, Empires Med 0.06) and
+    #   absolute water-colour conviction is DISABLED for the whole map,
+    #   with a loud warning; only the isolation-based rules run.
     remnant_keep_frac: float = 0.45  # painted survivors must keep this much
     fringe_margin: float = 15.0     # how decisively ocean-like a fringe pixel must be
+    fringe_core_far: float = 130.0  # pixels this far from the mask's core
+    #   colour AND lighter than it are foreign matter (dashed sea-route
+    #   strokes, printed water text -- both light) -- trimmed from the mask
+    #   edge; interior losses (name text) are refilled by fill_holes at
+    #   paint time.  Dark outline strokes are spared (darker than core).
+    #   This is what severs South Africa's dash-bridge across the
+    #   Mozambique Channel.
     fringe_keep_min: float = 0.60   # never trim a mask below this fraction
-    coastal_buffer_px: int = 14     # near-shore water claimed by nearest territory
+    split_dark_dist: float = 60.0   # a label pixel this far from the label's
+    #   core colour AND darker than it is a drawn border-line candidate
+    split_min_component_frac: float = 0.22  # a dark line splits a label only
+    #   if every resulting piece is at least this fraction of the label
+    gap_close_px: int = 4           # unclaimed pixels within this distance of
+    #   a label (the drawn border/coastline strokes SAM stops short of) are
+    #   assigned to the nearest label; sub-stroke-width, NOT a coastal buffer
+    land_claim_px: int = 12         # unclaimed DECISIVELY-LAND-coloured
+    #   pixels within this distance are claimed (fills coverage holes on
+    #   land); the threshold below sits above the coastal glow (RGB dist
+    #   45-90 from open water) so the claim can never rebuild a water halo
+    land_color_dist: float = 120.0
+    coastal_buffer_px: int = 14     # near-shore water claimed by nearest
+    #   territory -- used ONLY for the secondary buffer-assisted label
+    #   matching (island labels D12 prints in the water); never applied to
+    #   the polygons that are written out
 
 
 def fill_holes(mask: np.ndarray) -> np.ndarray:
@@ -247,8 +282,42 @@ def select_masks(
             inner_k = np.ones((11, 11), np.uint8)
             outer_k = np.ones((25, 25), np.uint8)
             small_exempt = p.ocean_small_exempt_frac * image_area
+            d_all = np.linalg.norm(
+                image[covered].astype(np.float32) - bg_color, axis=1
+            )
+            ambiguous = float((d_all < p.water_px_dist).mean())
+            colour_separable = ambiguous < p.water_ambiguous_frac
+            if not colour_separable:
+                warnings.append(
+                    f"water-colour conviction disabled: {ambiguous:.0%} of "
+                    "mask-covered pixels resemble the background colour"
+                )
             keep_flags = [True] * len(masks)
             for i, m in enumerate(masks):
+                # Absolute water-colour conviction: a mask made mostly of
+                # pixels that ARE the water colour is water.  No isolation
+                # evidence required -- SAM tiles big oceans into mutually
+                # walled chunks, so each chunk looks enclosed and any
+                # ring/isolation test is defeated.  Only sound on maps whose
+                # land is colour-separable from their water.
+                if colour_separable:
+                    dpix = np.linalg.norm(
+                        image[m.mask].astype(np.float32) - bg_color, axis=1
+                    )
+                    water_frac = float((dpix < p.water_px_dist).mean())
+                    if water_frac > p.water_frac_max:
+                        keep_flags[i] = False
+                        warnings.append(
+                            f"dropped water-coloured mask at {m.bbox} "
+                            f"(water_frac {water_frac:.2f})"
+                        )
+                        continue
+                # Median-colour paths (unchanged from before): exact-water
+                # masks (median IS the water colour -- includes thin text
+                # printed over the ocean, whose median pixel is water) are
+                # convicted on weak isolation evidence; background-LIKE
+                # masks need the full ring test, and small ones are exempt
+                # (islands whose palette resembles the water).
                 dist = float(
                     np.linalg.norm(np.median(image[m.mask], axis=0) - bg_color)
                 )
@@ -270,10 +339,6 @@ def select_masks(
                     + int(m.mask[:, -1].sum())
                 ) / border_len
                 if exact:
-                    # Literally water-coloured.  SAM tiles big oceans into
-                    # chunks whose rings are walled in by sibling chunks and
-                    # coastlines, so isolation evidence is weakened and
-                    # border ownership / sheer size also convict.
                     drop = (
                         ring_bg > p.ocean_exact_ring_frac
                         or border_own > p.ocean_exact_border_frac
@@ -293,6 +358,120 @@ def select_masks(
     if not masks:
         warnings.append("no masks survived filtering")
     return masks, warnings
+
+
+def split_merged_labels(
+    label_map: np.ndarray,
+    image: np.ndarray,
+    params: CandidateParams | None = None,
+) -> tuple[np.ndarray, list[str]]:
+    """Split labels that a drawn border line partitions into >= 2 pieces.
+
+    SAM sometimes returns one mask for two adjacent territories even when
+    the artwork draws a clear dark border between them (World Classic's
+    Irkutsk/Mongolia).  For each label, pixels that are both far from the
+    label's core colour and darker than it are border-line candidates;
+    removing them and taking connected components splits the label exactly
+    where the artist drew the line.  The split is only accepted when every
+    resulting piece is a substantial fraction of the label
+    (``split_min_component_frac``), so text, hatching and decorations --
+    which fragment into small pieces -- never trigger it.  Line pixels are
+    reassigned to the nearest piece.  Deterministic.
+    """
+    p = params or CandidateParams()
+    warnings: list[str] = []
+    out = np.zeros_like(label_map)
+    next_label = 1
+    lum = image.astype(np.float32).mean(axis=2)
+    for label in range(1, int(label_map.max()) + 1):
+        m = label_map == label
+        area = int(m.sum())
+        if area == 0:
+            continue
+        ys, xs = np.nonzero(m)
+        y0, y1 = ys.min(), ys.max() + 1
+        x0, x1 = xs.min(), xs.max() + 1
+        sub_m = m[y0:y1, x0:x1]
+        sub_img = image[y0:y1, x0:x1].astype(np.float32)
+        core = np.median(sub_img[sub_m], axis=0)
+        core_lum = float(core.mean())
+        d_core = np.linalg.norm(sub_img - core, axis=-1)
+        line = sub_m & (d_core > p.split_dark_dist) & (lum[y0:y1, x0:x1] < core_lum)
+        interior = sub_m & ~line
+        n, comp = cv2.connectedComponents(
+            interior.astype(np.uint8), connectivity=4
+        )
+        sizes = np.bincount(comp.ravel(), minlength=n)
+        sizes[0] = 0
+        piece_min = max(2 * p.min_area_px, p.split_min_component_frac * area)
+        big = [c for c in range(1, n) if sizes[c] >= piece_min]
+        if len(big) < 2 or sizes[big].sum() < 0.8 * (area - int(line.sum())):
+            out[m] = next_label
+            next_label += 1
+            continue
+        # Assign every label pixel (line pixels, small fragments) to the
+        # nearest big component.
+        big_mask = np.isin(comp, big)
+        _, nearest = cv2.distanceTransformWithLabels(
+            (~big_mask).astype(np.uint8),
+            cv2.DIST_L2,
+            3,
+            labelType=cv2.DIST_LABEL_PIXEL,
+        )
+        lookup = np.zeros(int(nearest.max()) + 1, dtype=np.int64)
+        bys, bxs = np.nonzero(big_mask)
+        lookup[nearest[bys, bxs]] = comp[bys, bxs]
+        assigned = lookup[nearest]
+        pieces = sorted(big)
+        for c in pieces:
+            piece = sub_m & (assigned == c)
+            out[y0:y1, x0:x1][piece] = next_label
+            next_label += 1
+        warnings.append(
+            f"split label at ({x0}, {y0}, {x1}, {y1}) into {len(pieces)} "
+            f"pieces along a drawn border line"
+        )
+    return out, warnings
+
+
+def drop_water_labels(
+    label_map: np.ndarray,
+    image: np.ndarray,
+    params: CandidateParams | None = None,
+) -> tuple[np.ndarray, list[str]]:
+    """Remove painted labels that are mostly water-coloured pixels.
+
+    A final absolute-colour pass over the painted label map: any label whose
+    pixels are mostly within ``water_px_dist`` of the map's background
+    colour is water, no matter how enclosed it looks (catches paint
+    remnants and ocean chunks that survived mask-level filtering).
+    """
+    p = params or CandidateParams()
+    warnings: list[str] = []
+    bg_mask = label_map == 0
+    fg_mask = label_map > 0
+    if not bg_mask.any() or not fg_mask.any():
+        return label_map, warnings
+    bg_color = np.median(image[bg_mask], axis=0)
+    d_all = np.linalg.norm(image[fg_mask].astype(np.float32) - bg_color, axis=1)
+    if float((d_all < p.water_px_dist).mean()) >= p.water_ambiguous_frac:
+        return label_map, warnings  # land not colour-separable from water
+    out = label_map.copy()
+    for label in range(1, int(label_map.max()) + 1):
+        m = label_map == label
+        if not m.any():
+            continue
+        dpix = np.linalg.norm(image[m].astype(np.float32) - bg_color, axis=1)
+        water_frac = float((dpix < p.water_px_dist).mean())
+        if water_frac > p.water_frac_max:
+            ys, xs = np.nonzero(m)
+            out[m] = 0
+            warnings.append(
+                f"dropped water-coloured label at "
+                f"({xs.min()}, {ys.min()}, {xs.max() + 1}, {ys.max() + 1}) "
+                f"(water_frac {water_frac:.2f}, area {int(m.sum())})"
+            )
+    return out, warnings
 
 
 def _trim_ocean_fringe(
@@ -330,7 +509,11 @@ def _trim_ocean_fringe(
             continue
         d_bg = np.linalg.norm(sub - bg_color, axis=-1)
         d_core = np.linalg.norm(sub - core_color, axis=-1)
-        keep = msk & ~(d_bg + p.fringe_margin < d_core)
+        lum = sub.mean(axis=-1)
+        foreign_light = (d_core > p.fringe_core_far) & (
+            lum > float(core_color.mean())
+        )
+        keep = msk & ~(d_bg + p.fringe_margin < d_core) & ~foreign_light
         if int(keep.sum()) < p.fringe_keep_min * m.area:
             out.append(m.mask)
             continue

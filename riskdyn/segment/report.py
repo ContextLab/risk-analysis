@@ -69,7 +69,10 @@ def build_report(
     image_shape: tuple[int, int],
     pipeline_warnings: list[str],
     bijection: dict | None = None,
+    bijection_buffered: dict | None = None,
     coastal_buffer_px: int = 0,
+    gap_close_px: int = 0,
+    land_claim_px: int = 0,
 ) -> dict:
     """Assemble the per-map confidence report (JSON-serializable)."""
     areas = np.array([s.area_px for s in shapes], dtype=float)
@@ -90,6 +93,8 @@ def build_report(
     report = {
         "map_id": map_id,
         "map_name": map_name,
+        "gap_close_px": gap_close_px,
+        "land_claim_px": land_claim_px,
         "coastal_buffer_px": coastal_buffer_px,
         "expected_territories": expected_territories,
         "segmented_territories": n,
@@ -102,9 +107,21 @@ def build_report(
         "warnings": warnings,
     }
     if bijection is not None:
+        # HEADLINE metric: measured on the emitted polygons, no coastal
+        # buffer.  This is the honest gate.
         report["bijection"] = bijection
         if bijection["n_bijective"] < bijection["n_labels"]:
             report["warnings"].append(
-                f"bijection: only {bijection['n_bijective']}/{bijection['n_labels']} labels map uniquely"
+                f"bijection (no buffer): only "
+                f"{bijection['n_bijective']}/{bijection['n_labels']} labels map uniquely"
             )
+    if bijection_buffered is not None:
+        # SECONDARY, buffer-assisted: label anchors matched after claiming
+        # near-shore water within coastal_buffer_px to the nearest
+        # territory.  This exists because D12 prints island labels in the
+        # water beside the artwork; it is NOT the headline number and the
+        # buffer is never applied to the emitted polygons.
+        report["bijection_buffered"] = dict(
+            bijection_buffered, buffer_px=coastal_buffer_px
+        )
     return report
