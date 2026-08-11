@@ -61,6 +61,27 @@ def bijection_check(
     }
 
 
+def measure_anchorless(
+    shapes: list[TerritoryShape], labels: list[LabelPoint]
+) -> dict:
+    """MEASURED anchorless count: territories none of whose polygons contain
+    any ground-truth anchor.  This is an artifact-level measurement, never a
+    by-construction claim -- a selection stage that only admits masks via a
+    seed still emits polygons after gap-closing/extraction, and those must be
+    checked against the anchors as written out."""
+    anchored: set[int] = set()
+    for p in labels:
+        anchored.update(polygons_containing(shapes, p.x, p.y))
+    anchorless = sorted(s.index for s in shapes if s.index not in anchored)
+    return {
+        "measured": True,
+        "n_territories": len(shapes),
+        "n_polygons": sum(len(s.polygons) for s in shapes),
+        "n_anchorless_territories": len(anchorless),
+        "anchorless_territory_indices": anchorless,
+    }
+
+
 def build_report(
     map_id: int,
     map_name: str,
@@ -73,6 +94,10 @@ def build_report(
     coastal_buffer_px: int = 0,
     gap_close_px: int = 0,
     land_claim_px: int = 0,
+    seeded: bool = False,
+    seed_source: str | None = None,
+    selection: dict | None = None,
+    labels: list[LabelPoint] | None = None,
 ) -> dict:
     """Assemble the per-map confidence report (JSON-serializable)."""
     areas = np.array([s.area_px for s in shapes], dtype=float)
@@ -96,8 +121,24 @@ def build_report(
         "gap_close_px": gap_close_px,
         "land_claim_px": land_claim_px,
         "coastal_buffer_px": coastal_buffer_px,
+        # Seed provenance.  A reader must never mistake an unseeded map's
+        # output for a seeded one, so the unseeded case says so outright.
+        "seeding": (
+            {"seeded": True, "seed_source": seed_source}
+            if seeded
+            else {
+                "seeded": False,
+                "seed_source": None,
+                "note": (
+                    "NO seeds available for this map; territories come from "
+                    "the legacy candidate-filter selection, NOT seed-driven "
+                    "selection"
+                ),
+            }
+        ),
         "expected_territories": expected_territories,
         "segmented_territories": n,
+        "n_polygons": sum(len(s.polygons) for s in shapes),
         "area_px": {
             "min": int(areas.min()) if n else 0,
             "median": float(np.median(areas)) if n else 0.0,
@@ -106,6 +147,18 @@ def build_report(
         },
         "warnings": warnings,
     }
+    if selection is not None:
+        report["selection"] = selection
+    # Anchorless polygons, MEASURED at the artifact level (no definitional
+    # "0 by construction" claims: seed-driven selection constrains what
+    # enters, not what the emission stage writes out).
+    if labels is not None:
+        report["anchorless"] = measure_anchorless(shapes, labels)
+    else:
+        report["anchorless"] = {
+            "measured": False,
+            "reason": "no ground-truth anchors available for this map",
+        }
     if bijection is not None:
         # HEADLINE metric: measured on the emitted polygons, no coastal
         # buffer.  This is the honest gate.
