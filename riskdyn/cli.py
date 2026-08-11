@@ -7,12 +7,13 @@ import json
 import pathlib
 import sys
 
+from riskdyn.config import Settings
 from riskdyn.sources.d12.fetch import D12Client
 from riskdyn.sources.d12.parse_catalog import parse_catalog
 
 
-def _pull_catalog(out: pathlib.Path) -> int:
-    client = D12Client()
+def _pull_catalog(out: pathlib.Path, settings: Settings | None = None) -> int:
+    client = D12Client(settings)
     try:
         maps = parse_catalog(client.get_text("/maps"))
     finally:
@@ -23,8 +24,8 @@ def _pull_catalog(out: pathlib.Path) -> int:
     return 0
 
 
-def _pull_images(out_dir: pathlib.Path, limit: int | None) -> int:
-    client = D12Client()
+def _pull_images(out_dir: pathlib.Path, limit: int | None, settings: Settings | None = None) -> int:
+    client = D12Client(settings)
     try:
         maps = parse_catalog(client.get_text("/maps"))
         maps.sort(key=lambda m: -m.num_games_total)
@@ -47,20 +48,31 @@ def main(argv: list[str] | None = None) -> int:
 
     catalog = sub.add_parser("pull-catalog", help="fetch the map catalog")
     catalog.add_argument("--out", type=pathlib.Path, default=pathlib.Path("data/raw/map_catalog.json"))
+    catalog.add_argument("--cache-dir", type=pathlib.Path, default=None,
+                          help="override the response cache directory (default: platform user cache dir)")
 
     images = sub.add_parser("pull-images", help="fetch map images, most-played first")
     images.add_argument("--out", type=pathlib.Path, default=pathlib.Path("data/raw/map_images"))
     images.add_argument("--limit", type=int, default=None)
+    images.add_argument("--cache-dir", type=pathlib.Path, default=None,
+                         help="override the response cache directory (default: platform user cache dir)")
 
     try:
         args = parser.parse_args(argv)
     except SystemExit as e:
-        return e.code if e.code is not None else 2
+        # SystemExit.code is typed `int | str | None` (any object, really);
+        # this function's signature promises an int, so only trust it when
+        # it actually is one.
+        if isinstance(e.code, int):
+            return e.code
+        return 1
 
     if args.command == "pull-catalog":
-        return _pull_catalog(args.out)
+        settings = Settings(cache_dir=args.cache_dir) if args.cache_dir is not None else None
+        return _pull_catalog(args.out, settings)
     if args.command == "pull-images":
-        return _pull_images(args.out, args.limit)
+        settings = Settings(cache_dir=args.cache_dir) if args.cache_dir is not None else None
+        return _pull_images(args.out, args.limit, settings)
     parser.print_usage(sys.stderr)
     return 2
 
