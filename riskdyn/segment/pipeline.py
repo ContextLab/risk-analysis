@@ -300,9 +300,14 @@ def main(argv: list[str] | None = None) -> int:
             print(f"map {map_id:>3}  FAILED: {e}")
             continue
         r = result.report
+        tag = (
+            f"seeded:{r['seeding']['seed_source']}"
+            if r["seeding"]["seeded"]
+            else "UNSEEDED"
+        )
         print(
             f"map {map_id:>3}  {r['segmented_territories']:>3}/{r['expected_territories']:<3}"
-            f"  {time.time() - t0:6.1f}s  warnings={len(r['warnings'])}"
+            f"  {time.time() - t0:6.1f}s  warnings={len(r['warnings'])}  [{tag}]"
         )
     return 0
 
