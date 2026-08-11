@@ -2,22 +2,28 @@
 
 SAM's automatic generator returns a soup of masks at several granularities:
 whole-image, whole-ocean, whole-continent, individual territories, and
-sub-territory fragments (text, icons).  This module reduces that soup to a
-single int32 label map where 0 is background/ocean and 1..N are territory
-candidates.
+sub-territory detail (name pills, icons, legend contents).  This module
+reduces that soup to a single int32 label map where 0 is background/ocean
+and 1..N are territory candidates.
 
 The rules, in order:
   1. size gates -- drop masks that are implausibly small or large;
-  2. frame/border gates -- drop ring-shaped masks and masks that own most of
-     the image border (ocean, decorative frames);
-  3. duplicate suppression -- IoU above a threshold keeps the higher-scoring
-     mask;
-  4. composite suppression -- a mask mostly covered by >= 2 smaller kept
+  2. frame/border gates -- drop ring-shaped masks spanning the image and
+     masks that own most of the image border (ocean, decorative frames);
+  3. duplicate suppression -- IoU above a threshold keeps the higher score;
+  4. inset-box removal -- a highly rectangular mask containing several other
+     masks is a legend/inset; the box and its contents are dropped;
+  5. composite suppression -- a mask mostly covered by >= 2 smaller kept
      masks is a merged region (a continent), not a territory;
-  5. painting -- remaining masks are rasterized largest-first so that finer
-     masks overwrite coarser ones; each label then keeps only its largest
-     connected component, and remnants that lost most of their pixels to
-     finer masks are dropped entirely.
+  6. containment resolution -- when one kept mask sits inside another:
+     comparable areas mean the same territory found twice (keep the higher
+     score); a much smaller child is internal detail like a printed name
+     pill (drop the child);
+  7. ocean-blob removal -- a mask whose colour matches the uncovered
+     background and whose surroundings are background is a patch of ocean;
+  8. painting -- survivors are rasterized largest-first so finer masks
+     overwrite coarser ones; each label keeps its largest connected
+     component, and remnants that lost most of their pixels are dropped.
 
 Everything is deterministic: input masks arrive in a deterministic order and
 every rule is a pure function of that order.
@@ -34,16 +40,27 @@ from riskdyn.segment.sam import RawMask
 
 @dataclass(frozen=True)
 class CandidateParams:
-    min_area_frac: float = 0.0003   # of image area
-    min_area_px: int = 250
+    min_area_frac: float = 0.00015  # of image area
+    min_area_px: int = 120
     max_area_frac: float = 0.25     # of image area
     dup_iou: float = 0.85
     frame_bbox_frac: float = 0.75   # bbox spans this much of both dims ...
     frame_fill_max: float = 0.35    # ... but fills less than this of the bbox
     border_own_frac: float = 0.30   # owns this much of the image border
+    inset_rect_fill: float = 0.85   # bbox fill above which a mask is a "box"
+    inset_max_area_frac: float = 0.15
+    inset_min_children: int = 2
     child_containment: float = 0.85  # child area inside parent
     composite_cover: float = 0.55   # children cover this much of parent
+    pill_max_frac: float = 0.08     # contained detail is at most this much of parent
+    pill_min_aspect: float = 1.8    # ... and wide-short like a printed name
+    pill_max_height: int = 40       # ... at most two text lines tall
+    ocean_color_dist: float = 30.0  # RGB distance to background estimate
+    ocean_ring_frac: float = 0.60   # surrounded-by-background fraction
     remnant_keep_frac: float = 0.45  # painted survivors must keep this much
+    fringe_margin: float = 15.0     # how decisively ocean-like a fringe pixel must be
+    fringe_keep_min: float = 0.60   # never trim a mask below this fraction
+    coastal_buffer_px: int = 12     # near-shore water claimed by nearest territory
 
 
 def fill_holes(mask: np.ndarray) -> np.ndarray:
@@ -52,41 +69,44 @@ def fill_holes(mask: np.ndarray) -> np.ndarray:
     inv = (~mask).astype(np.uint8)
     ff = inv.copy()
     ff_mask = np.zeros((h + 2, w + 2), np.uint8)
-    cv2.floodFill(ff, ff_mask, (0, 0), 0)
-    # flood from all four corners to be safe with border-touching masks
-    for seed in ((w - 1, 0), (0, h - 1), (w - 1, h - 1)):
+    for seed in ((0, 0), (w - 1, 0), (0, h - 1), (w - 1, h - 1)):
         if inv[seed[1], seed[0]] and ff[seed[1], seed[0]]:
             cv2.floodFill(ff, ff_mask, seed, 0)
     return mask | (ff > 0)
 
 
-def _iou(a: RawMask, b: RawMask) -> float:
+def _bbox_overlap(a: RawMask, b: RawMask) -> bool:
     ax0, ay0, ax1, ay1 = a.bbox
     bx0, by0, bx1, by1 = b.bbox
-    if ax1 <= bx0 or bx1 <= ax0 or ay1 <= by0 or by1 <= ay0:
-        return 0.0
-    inter = int(np.logical_and(a.mask, b.mask).sum())
-    if inter == 0:
-        return 0.0
-    return inter / (a.area + b.area - inter)
+    return not (ax1 <= bx0 or bx1 <= ax0 or ay1 <= by0 or by1 <= ay0)
 
 
-def _contained_frac(child: RawMask, parent: RawMask) -> float:
-    """Fraction of child's area lying inside parent."""
-    cx0, cy0, cx1, cy1 = child.bbox
-    px0, py0, px1, py1 = parent.bbox
-    if cx1 <= px0 or px1 <= cx0 or cy1 <= py0 or py1 <= cy0:
-        return 0.0
-    inter = int(np.logical_and(child.mask, parent.mask).sum())
-    return inter / max(child.area, 1)
+def _intersection(a: RawMask, b: RawMask) -> int:
+    if not _bbox_overlap(a, b):
+        return 0
+    x0 = min(a.bbox[0], b.bbox[0]); y0 = min(a.bbox[1], b.bbox[1])
+    x1 = max(a.bbox[2], b.bbox[2]); y1 = max(a.bbox[3], b.bbox[3])
+    return int(
+        np.logical_and(a.mask[y0:y1, x0:x1], b.mask[y0:y1, x0:x1]).sum()
+    )
+
+
+def _iou(a: RawMask, b: RawMask) -> float:
+    inter = _intersection(a, b)
+    return inter / (a.area + b.area - inter) if inter else 0.0
 
 
 def select_masks(
     raw: list[RawMask],
     image_shape: tuple[int, int],
     params: CandidateParams | None = None,
+    image: np.ndarray | None = None,
 ) -> tuple[list[RawMask], list[str]]:
-    """Apply rules 1-4.  Returns (kept masks, warnings)."""
+    """Apply rules 1-7.  Returns (kept masks, warnings).
+
+    ``image`` (RGB uint8) enables the ocean-blob rule; without it that rule
+    is skipped.
+    """
     p = params or CandidateParams()
     h, w = image_shape
     image_area = h * w
@@ -95,6 +115,7 @@ def select_masks(
     border_len = 2 * (h + w)
     warnings: list[str] = []
 
+    # -- rules 1-2: size, frame, border ------------------------------------
     sized = []
     for r in raw:
         if r.area < min_area or r.area > max_area:
@@ -118,71 +139,187 @@ def select_masks(
             continue  # owns most of the border: ocean or frame
         sized.append(r)
 
-    # Duplicate suppression: prefer higher score, then the deterministic
-    # arrival order (area desc, bbox) as tiebreak.
-    by_pref = sorted(
-        range(len(sized)), key=lambda i: (-sized[i].score, i)
-    )
+    # -- rule 3: near-identical duplicates ---------------------------------
+    by_pref = sorted(range(len(sized)), key=lambda i: (-sized[i].score, i))
     kept_idx: list[int] = []
     for i in by_pref:
         if all(_iou(sized[i], sized[j]) < p.dup_iou for j in kept_idx):
             kept_idx.append(i)
-    dedup = [sized[i] for i in sorted(kept_idx)]  # restore area-desc order
+    masks = [sized[i] for i in sorted(kept_idx)]  # restore area-desc order
 
-    # Composite suppression, largest first so nested composites unwind.
-    keep_flags = [True] * len(dedup)
-    for i, parent in enumerate(dedup):
+    # -- rule 4: legend / inset boxes --------------------------------------
+    drop = set()
+    for i, box in enumerate(masks):
+        x0, y0, x1, y1 = box.bbox
+        fill = box.area / max((x1 - x0) * (y1 - y0), 1)
+        if fill < p.inset_rect_fill or box.area > p.inset_max_area_frac * image_area:
+            continue
+        children = [
+            j
+            for j, m in enumerate(masks)
+            if j != i
+            and m.area < box.area
+            and _intersection(m, box) >= p.child_containment * m.area
+        ]
+        if len(children) >= p.inset_min_children:
+            drop.add(i)
+            drop.update(children)
+            warnings.append(
+                f"dropped inset box at {box.bbox} with {len(children)} contents"
+            )
+    masks = [m for i, m in enumerate(masks) if i not in drop]
+
+    # -- rule 5: composites (continents) -----------------------------------
+    keep_flags = [True] * len(masks)
+    for i, parent in enumerate(masks):
         if not keep_flags[i]:
             continue
         union: np.ndarray | None = None
         n_children = 0
-        for j, child in enumerate(dedup):
-            if j == i or not keep_flags[j]:
+        for j, child in enumerate(masks):
+            if j == i or not keep_flags[j] or child.area >= parent.area:
                 continue
-            if child.area >= parent.area:
-                continue
-            if _contained_frac(child, parent) >= p.child_containment:
+            if _intersection(child, parent) >= p.child_containment * child.area:
                 n_children += 1
                 cm = np.logical_and(child.mask, parent.mask)
                 union = cm if union is None else np.logical_or(union, cm)
         if union is not None and n_children >= 2:
             if int(union.sum()) >= p.composite_cover * parent.area:
                 keep_flags[i] = False
-    kept = [m for m, f in zip(dedup, keep_flags) if f]
+    masks = [m for m, f in zip(masks, keep_flags) if f]
 
-    if not kept:
+    # -- rule 6: printed-name pills ----------------------------------------
+    # Genuine overlaps (a merged two-territory mask plus one of its halves,
+    # or two near-duplicates below the IoU gate) are NOT resolved here: the
+    # painting step lets the finer mask overwrite the coarser one and then
+    # discards coarse remnants, which handles both cases correctly.  The one
+    # thing painting gets wrong is a territory's printed name: the name mask
+    # would carve a pill-shaped hole and claim the label anchor.  Name pills
+    # are recognisable -- small relative to the territory that contains
+    # them, wide-short like a line or two of text -- and dropped.
+    keep_flags = [True] * len(masks)
+    for i, big in enumerate(masks):
+        if not keep_flags[i]:
+            continue
+        for j, small in enumerate(masks):
+            if i == j or not keep_flags[j]:
+                continue
+            if small.area >= p.pill_max_frac * big.area:
+                continue
+            if _intersection(big, small) < p.child_containment * small.area:
+                continue
+            x0, y0, x1, y1 = small.bbox
+            bw, bh = x1 - x0, y1 - y0
+            if bh <= p.pill_max_height and bw >= p.pill_min_aspect * bh:
+                keep_flags[j] = False
+    masks = [m for m, f in zip(masks, keep_flags) if f]
+
+    # -- rule 7: ocean blobs -----------------------------------------------
+    if image is not None and masks:
+        covered = np.zeros((h, w), dtype=bool)
+        for m in masks:
+            covered |= m.mask
+        background = ~covered
+        if background.any():
+            bg_color = np.median(image[background], axis=0)
+            kernel = np.ones((5, 5), np.uint8)
+            keep_flags = [True] * len(masks)
+            for i, m in enumerate(masks):
+                med = np.median(image[m.mask], axis=0)
+                if np.linalg.norm(med - bg_color) >= p.ocean_color_dist:
+                    continue
+                ring = cv2.dilate(m.mask.astype(np.uint8), kernel).astype(bool) & ~m.mask
+                n_ring = int(ring.sum())
+                if n_ring and int((ring & background).sum()) > p.ocean_ring_frac * n_ring:
+                    keep_flags[i] = False
+                    warnings.append(f"dropped background-coloured blob at {m.bbox}")
+            masks = [m for m, f in zip(masks, keep_flags) if f]
+
+    if not masks:
         warnings.append("no masks survived filtering")
-    return kept, warnings
+    return masks, warnings
+
+
+def _trim_ocean_fringe(
+    kept: list[RawMask],
+    image: np.ndarray,
+    p: CandidateParams,
+) -> list[np.ndarray]:
+    """Strip water-coloured aura pixels from each mask's coastline.
+
+    SAM masks routinely include the soft glow the artwork paints around
+    coastlines.  That aura pushes polygons out into the water and lets a big
+    territory's halo outcompete a nearby island for the water between them.
+    A pixel is trimmed when its colour is decisively closer to the global
+    background colour than to the mask's own core colour.  Masks whose core
+    already looks like the background (e.g. dark-blue Europe on a dark-blue
+    ocean) are left untouched -- there is no signal to trim on -- as are
+    masks the trim would reduce below ``fringe_keep_min``.
+    """
+    covered = np.zeros(image.shape[:2], dtype=bool)
+    for m in kept:
+        covered |= m.mask
+    background = ~covered
+    if not background.any():
+        return [m.mask for m in kept]
+    bg_color = np.median(image[background], axis=0)
+
+    out = []
+    for m in kept:
+        x0, y0, x1, y1 = m.bbox
+        sub = image[y0:y1, x0:x1].astype(np.float32)
+        msk = m.mask[y0:y1, x0:x1]
+        core_color = np.median(sub[msk], axis=0)
+        if np.linalg.norm(core_color - bg_color) < 2 * p.fringe_margin:
+            out.append(m.mask)
+            continue
+        d_bg = np.linalg.norm(sub - bg_color, axis=-1)
+        d_core = np.linalg.norm(sub - core_color, axis=-1)
+        keep = msk & ~(d_bg + p.fringe_margin < d_core)
+        if int(keep.sum()) < p.fringe_keep_min * m.area:
+            out.append(m.mask)
+            continue
+        full = np.zeros_like(m.mask)
+        full[y0:y1, x0:x1] = keep
+        out.append(full)
+    return out
 
 
 def paint_label_map(
     kept: list[RawMask],
     image_shape: tuple[int, int],
     params: CandidateParams | None = None,
+    image: np.ndarray | None = None,
 ) -> tuple[np.ndarray, list[str]]:
-    """Apply rule 5.  Returns (int32 label map with labels 1..N, warnings).
+    """Apply rule 8.  Returns (int32 label map with labels 1..N, warnings).
 
     Kept masks are painted in arrival order (area desc), holes filled, so
-    smaller masks overwrite larger ones.  Labels are then compacted: for each
-    label only the largest connected component survives, and a label whose
-    surviving pixels fall below ``remnant_keep_frac`` of its original mask is
-    removed altogether (it was a coarse mask almost fully claimed by finer
-    ones).
+    smaller masks overwrite larger ones.  When ``image`` is given, each
+    mask's water-coloured fringe is trimmed first (see _trim_ocean_fringe).
+    Labels are then compacted: for each label only the largest connected
+    component survives, and a label whose surviving pixels fall below
+    ``remnant_keep_frac`` of its original mask is removed altogether (it was
+    a coarse mask almost fully claimed by finer ones).
     """
     p = params or CandidateParams()
     h, w = image_shape
+    if image is not None and kept:
+        pixel_masks = _trim_ocean_fringe(kept, image, p)
+    else:
+        pixel_masks = [r.mask for r in kept]
     label_map = np.zeros((h, w), dtype=np.int32)
-    for idx, r in enumerate(kept, start=1):
-        label_map[fill_holes(r.mask)] = idx
+    for idx, mask in enumerate(pixel_masks, start=1):
+        label_map[fill_holes(mask)] = idx
 
     warnings: list[str] = []
     out = np.zeros_like(label_map)
     next_label = 1
     min_area = max(p.min_area_px, int(p.min_area_frac * h * w))
-    for idx, r in enumerate(kept, start=1):
+    for idx, mask in enumerate(pixel_masks, start=1):
+        own_area = max(int(mask.sum()), 1)
         painted = label_map == idx
         n_painted = int(painted.sum())
-        if n_painted < min_area or n_painted < p.remnant_keep_frac * r.area:
+        if n_painted < min_area or n_painted < p.remnant_keep_frac * own_area:
             continue
         n, comp = cv2.connectedComponents(painted.astype(np.uint8), connectivity=4)
         if n <= 1:

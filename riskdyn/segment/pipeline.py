@@ -21,7 +21,12 @@ import numpy as np
 
 from riskdyn.segment import catalog as cat
 from riskdyn.segment.candidates import CandidateParams, paint_label_map, select_masks
-from riskdyn.segment.geometry import TerritoryShape, extract_territories, write_svg
+from riskdyn.segment.geometry import (
+    TerritoryShape,
+    claim_coastal_margin,
+    extract_territories,
+    write_svg,
+)
 from riskdyn.segment.ground_truth import load_label_points
 from riskdyn.segment.loader import load_map_image
 from riskdyn.segment.overlay import draw_overlay
@@ -62,8 +67,10 @@ def run_map(
     out_dir.mkdir(parents=True, exist_ok=True)
 
     raw = cached_generate(image, out_dir / "sam_masks.npz", sam_params, device)
-    kept, warn_a = select_masks(raw, image.shape[:2], cand_params)
-    label_map, warn_b = paint_label_map(kept, image.shape[:2], cand_params)
+    kept, warn_a = select_masks(raw, image.shape[:2], cand_params, image=image)
+    label_map, warn_b = paint_label_map(kept, image.shape[:2], cand_params, image=image)
+    buffer_px = (cand_params or CandidateParams()).coastal_buffer_px
+    label_map = claim_coastal_margin(label_map, buffer_px)
     shapes = extract_territories(label_map)
 
     bijection = None
@@ -78,6 +85,7 @@ def run_map(
         image.shape[:2],
         warn_a + warn_b,
         bijection,
+        coastal_buffer_px=buffer_px,
     )
 
     if write_artifacts:

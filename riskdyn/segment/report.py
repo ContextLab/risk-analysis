@@ -69,6 +69,7 @@ def build_report(
     image_shape: tuple[int, int],
     pipeline_warnings: list[str],
     bijection: dict | None = None,
+    coastal_buffer_px: int = 0,
 ) -> dict:
     """Assemble the per-map confidence report (JSON-serializable)."""
     areas = np.array([s.area_px for s in shapes], dtype=float)
@@ -89,6 +90,7 @@ def build_report(
     report = {
         "map_id": map_id,
         "map_name": map_name,
+        "coastal_buffer_px": coastal_buffer_px,
         "expected_territories": expected_territories,
         "segmented_territories": n,
         "area_px": {

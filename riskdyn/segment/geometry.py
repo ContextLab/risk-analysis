@@ -8,6 +8,36 @@ import cv2
 import numpy as np
 
 
+def claim_coastal_margin(label_map: np.ndarray, buffer_px: int) -> np.ndarray:
+    """Assign near-shore background pixels to the nearest territory.
+
+    D12 prints territory names and army markers in the water beside small
+    territories (islands especially), and the ground-truth label anchors sit
+    there too.  Faithful coastline polygons therefore cannot contain those
+    anchors.  This claims every background pixel within ``buffer_px`` of a
+    territory for the *nearest* territory -- no merging, contested water
+    splits at the midline, and open ocean beyond the margin stays
+    background.  Deterministic for a given label map.
+    """
+    if buffer_px <= 0:
+        return label_map
+    fg = label_map > 0
+    if not fg.any():
+        return label_map
+    src = (~fg).astype(np.uint8)  # zero at territory pixels
+    dist, nearest = cv2.distanceTransformWithLabels(
+        src, cv2.DIST_L2, 3, labelType=cv2.DIST_LABEL_PIXEL
+    )
+    # DIST_LABEL_PIXEL: every zero pixel gets a unique id; map id -> label.
+    lookup = np.zeros(int(nearest.max()) + 1, dtype=np.int32)
+    ys, xs = np.nonzero(fg)
+    lookup[nearest[ys, xs]] = label_map[ys, xs]
+    out = label_map.copy()
+    claim = (~fg) & (dist <= buffer_px)
+    out[claim] = lookup[nearest[claim]]
+    return out
+
+
 @dataclass(frozen=True)
 class TerritoryShape:
     index: int                      # 1-based, stable ordering (see below)
