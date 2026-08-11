@@ -1,3 +1,4 @@
+import httpx
 import pytest
 from riskdyn.config import PermissionRecord, Settings
 from riskdyn.sources.d12.fetch import BASE_URL, D12Client, UnexpectedRedirect, _union_robots
@@ -16,13 +17,17 @@ def test_fetches_a_robots_allowed_page(tmp_path):
 
 @pytest.mark.network
 def test_username_api_returns_json_list(tmp_path):
+    # Query a generic single letter rather than naming a specific real D12
+    # account: the assertion checks the response's shape (a JSON list of
+    # strings), which is what this test needs to be probative, without
+    # embedding a third party's username in the repo.
     client = D12Client(Settings(cache_dir=tmp_path))
     try:
-        names = client.get_json("/api/user/names?q=setec_astronomy")
+        names = client.get_json("/api/user/names?q=a")
     finally:
         client.close()
     assert isinstance(names, list)
-    assert "setec_astronomy" in names
+    assert all(isinstance(n, str) for n in names)
 
 
 @pytest.mark.network
@@ -88,6 +93,31 @@ def test_redirect_raises_and_does_not_poison_cache(tmp_path):
     assert exc.value.location in message
     # Nothing was ever written to the cache for this URL.
     assert client.cache.get(url) is None
+
+
+def test_refresh_robots_raises_on_redirect(tmp_path):
+    """refresh_robots must reject a 3xx on /robots.txt instead of parsing the
+    redirect body as robots text, mirroring the guard get() already has.
+    Union semantics mean this can't currently be exploited to weaken the
+    policy, but the two code paths should behave consistently. Entirely
+    offline via httpx.MockTransport — no network request.
+    """
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(302, headers={"Location": "/robots-redirected.txt"})
+
+    client = D12Client(Settings(cache_dir=tmp_path))
+    client._client = httpx.Client(
+        base_url=BASE_URL,
+        transport=httpx.MockTransport(handler),
+        follow_redirects=False,
+    )
+    try:
+        with pytest.raises(UnexpectedRedirect) as exc:
+            client.refresh_robots()
+    finally:
+        client.close()
+    assert exc.value.status_code == 302
+    assert exc.value.location == "/robots-redirected.txt"
 
 
 def test_refresh_robots_union_never_narrows():

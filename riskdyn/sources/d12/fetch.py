@@ -82,6 +82,9 @@ class D12Client:
         # session cookie name has never been verified, so passing the header
         # through verbatim avoids guessing it. Normally None: everything phase 0-1
         # needs is reachable unauthenticated.
+        # Deliberate future plumbing: kept unused branch-wide until an
+        # authenticated fetch is actually needed, which requires site
+        # permission we don't have yet.
         headers = {"User-Agent": self.settings.user_agent}
         if session_cookie:
             headers["Cookie"] = session_cookie
@@ -144,6 +147,15 @@ class D12Client:
         """
         self.limiter.wait()
         response = self._client.get("/robots.txt")
+        if 300 <= response.status_code < 400:
+            # Same guard as get(): a 3xx here must not be silently parsed as
+            # robots text. Union semantics mean a narrower/malformed
+            # response can only make the policy stricter, never weaker, so
+            # this isn't a hole today — but leaving the guard out here while
+            # get() has it is an inconsistency waiting to become one.
+            raise UnexpectedRedirect(
+                "/robots.txt", response.status_code, response.headers.get("Location")
+            )
         response.raise_for_status()
         fetched = RobotsPolicy.parse(response.text)
         self.robots = _union_robots(self.robots, fetched)
