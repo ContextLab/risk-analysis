@@ -573,8 +573,12 @@ def build_label_map(
 def _main(argv: list[str] | None = None) -> int:
     """Run seed-driven selection on map 1 with the fixture anchors.
 
-    Writes ``overlay.png`` and ``select_report.json`` under the map's
-    processed directory and prints honest bijection numbers (buffer=0).
+    Debug harness only.  Writes ``select_overlay.png`` and
+    ``select_report.json`` under the map's processed directory and prints
+    honest bijection numbers (buffer=0).  It deliberately does NOT write
+    ``overlay.png``: that artifact belongs to the pipeline, the single
+    intended writer, and a hand-run of this module once overwrote it with
+    an image that contradicted the shipped report.
     """
     import argparse
 
@@ -654,8 +658,8 @@ def _main(argv: list[str] | None = None) -> int:
     if not args.no_artifacts:
         out_dir.mkdir(parents=True, exist_ok=True)
         (out_dir / "select_report.json").write_text(json.dumps(report, indent=1))
-        draw_overlay(image, shapes, out_dir / "overlay.png", None, header)
-        print(f"wrote {out_dir / 'overlay.png'} and select_report.json")
+        draw_overlay(image, shapes, out_dir / "select_overlay.png", None, header)
+        print(f"wrote {out_dir / 'select_overlay.png'} and select_report.json")
     return 0
 
 
