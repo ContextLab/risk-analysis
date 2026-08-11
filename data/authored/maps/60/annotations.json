@@ -1,14 +1,14 @@
 {
  "schema_version": 2,
  "map_id": 60,
- "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_id is null and regions is empty until authored from the artwork.",
+ "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_ids is [] and regions is empty until authored from the artwork.",
  "territories": [
   {
    "territory_id": 2655,
    "name": "North Pole",
    "x": 487,
    "y": 30,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -17,7 +17,7 @@
    "name": "Full Moon Shields",
    "x": 418,
    "y": 73,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -26,7 +26,7 @@
    "name": "Northern Capital",
    "x": 467,
    "y": 71,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -35,7 +35,7 @@
    "name": "Ice Peaks",
    "x": 536,
    "y": 67,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -44,7 +44,7 @@
    "name": "Lotus Cave",
    "x": 541,
    "y": 167,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -53,7 +53,7 @@
    "name": "Laghima&#39;s Peak",
    "x": 594,
    "y": 140,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -62,7 +62,7 @@
    "name": "Northern Air Temple",
    "x": 643,
    "y": 133,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -71,7 +71,7 @@
    "name": "Meeting Point",
    "x": 557,
    "y": 204,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -80,7 +80,7 @@
    "name": "Forest Reserve",
    "x": 612,
    "y": 208,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -89,7 +89,7 @@
    "name": "North Forest",
    "x": 691,
    "y": 139,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -98,7 +98,7 @@
    "name": "Ba Sing Se",
    "x": 735,
    "y": 217,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -107,7 +107,7 @@
    "name": "Serpent&#39;s Pass",
    "x": 664,
    "y": 213,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -116,7 +116,7 @@
    "name": "Mountain Pass",
    "x": 786,
    "y": 284,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -125,7 +125,7 @@
    "name": "Laogai Riverland",
    "x": 809,
    "y": 211,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -134,7 +134,7 @@
    "name": "Earth Plains",
    "x": 874,
    "y": 280,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -143,7 +143,7 @@
    "name": "Yangchen Mountains",
    "x": 897,
    "y": 371,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -152,7 +152,7 @@
    "name": "Eastern Air Temple",
    "x": 902,
    "y": 485,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -161,7 +161,7 @@
    "name": "Air Bison Range",
    "x": 887,
    "y": 544,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -170,7 +170,7 @@
    "name": "Lightning Peak",
    "x": 833,
    "y": 515,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -179,7 +179,7 @@
    "name": "Southern Islands",
    "x": 702,
    "y": 556,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -188,7 +188,7 @@
    "name": "Tu Zin",
    "x": 698,
    "y": 487,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -197,7 +197,7 @@
    "name": "Zaofu",
    "x": 612,
    "y": 449,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -206,7 +206,7 @@
    "name": "Si Wong Desert",
    "x": 685,
    "y": 389,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -215,7 +215,7 @@
    "name": "Chameleon Bay",
    "x": 743,
    "y": 381,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -224,7 +224,7 @@
    "name": "Full Moon Bay",
    "x": 746,
    "y": 336,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -233,7 +233,7 @@
    "name": "Omashu",
    "x": 558,
    "y": 386,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -242,7 +242,7 @@
    "name": "The Great Divide",
    "x": 583,
    "y": 284,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -251,7 +251,7 @@
    "name": "Hei Bei&#39;s Forest",
    "x": 497,
    "y": 360,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -260,7 +260,7 @@
    "name": "Jang Hui Islands",
    "x": 381,
    "y": 330,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -269,7 +269,7 @@
    "name": "Roku&#39;s Island",
    "x": 312,
    "y": 386,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -278,7 +278,7 @@
    "name": "Gates of Azulon",
    "x": 209,
    "y": 410,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -287,7 +287,7 @@
    "name": "Hira&#39;a",
    "x": 196,
    "y": 448,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -296,7 +296,7 @@
    "name": "Fire Capital City",
    "x": 122,
    "y": 355,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -305,7 +305,7 @@
    "name": "Fiery Volcano",
    "x": 102,
    "y": 398,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -314,7 +314,7 @@
    "name": "Ember Island",
    "x": 225,
    "y": 351,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -323,7 +323,7 @@
    "name": "Sun Warrior Ruins",
    "x": 184,
    "y": 253,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -332,7 +332,7 @@
    "name": "Firebending Masters&#39; Lair",
    "x": 126,
    "y": 226,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -341,7 +341,7 @@
    "name": "Western Air Temple",
    "x": 251,
    "y": 185,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -350,7 +350,7 @@
    "name": "Deserter Hideaway",
    "x": 323,
    "y": 186,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -359,7 +359,7 @@
    "name": "The Abbey",
    "x": 462,
    "y": 174,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -368,7 +368,7 @@
    "name": "The Neck",
    "x": 366,
    "y": 218,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -377,7 +377,7 @@
    "name": "Wulong Forest",
    "x": 323,
    "y": 243,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -386,7 +386,7 @@
    "name": "Republic City",
    "x": 462,
    "y": 238,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -395,7 +395,7 @@
    "name": "Memorial Island",
    "x": 417,
    "y": 262,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -404,7 +404,7 @@
    "name": "Taku",
    "x": 502,
    "y": 275,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -413,7 +413,7 @@
    "name": "Whale Tail Islands",
    "x": 454,
    "y": 547,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -422,7 +422,7 @@
    "name": "Southern Air Temple",
    "x": 366,
    "y": 562,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -431,7 +431,7 @@
    "name": "Patola Range",
    "x": 234,
    "y": 551,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -440,7 +440,7 @@
    "name": "Southern Capital",
    "x": 532,
    "y": 673,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -449,7 +449,7 @@
    "name": "White Lotus Compound",
    "x": 421,
    "y": 676,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -458,7 +458,7 @@
    "name": "Frozen End",
    "x": 619,
    "y": 686,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -467,7 +467,7 @@
    "name": "South Pole",
    "x": 521,
    "y": 711,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   }

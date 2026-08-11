@@ -1,14 +1,14 @@
 {
  "schema_version": 2,
  "map_id": 74,
- "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_id is null and regions is empty until authored from the artwork.",
+ "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_ids is [] and regions is empty until authored from the artwork.",
  "territories": [
   {
    "territory_id": 3456,
    "name": "Luzon",
    "x": 770,
    "y": 374,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -17,7 +17,7 @@
    "name": "Mindanao",
    "x": 827,
    "y": 491,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -26,7 +26,7 @@
    "name": "Iryan Jaya",
    "x": 944,
    "y": 612,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -35,7 +35,7 @@
    "name": "Celebes",
    "x": 764,
    "y": 616,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -44,7 +44,7 @@
    "name": "Borneo",
    "x": 668,
    "y": 591,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -53,7 +53,7 @@
    "name": "Timor Islands",
    "x": 820,
    "y": 707,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -62,7 +62,7 @@
    "name": "Java",
    "x": 658,
    "y": 689,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -71,7 +71,7 @@
    "name": "Riau Islands",
    "x": 569,
    "y": 547,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -80,7 +80,7 @@
    "name": "Sumatra",
    "x": 496,
    "y": 595,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -89,7 +89,7 @@
    "name": "Manchuria",
    "x": 817,
    "y": 31,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -98,7 +98,7 @@
    "name": "North Korea",
    "x": 874,
    "y": 48,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -107,7 +107,7 @@
    "name": "South Korea",
    "x": 869,
    "y": 119,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -116,7 +116,7 @@
    "name": "Honshu",
    "x": 970,
    "y": 143,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -125,7 +125,7 @@
    "name": "Kyushu",
    "x": 906,
    "y": 167,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -134,7 +134,7 @@
    "name": "Rui-Kui Islands",
    "x": 869,
    "y": 224,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -143,7 +143,7 @@
    "name": "Burma",
    "x": 406,
    "y": 309,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -152,7 +152,7 @@
    "name": "Andaman Islands",
    "x": 362,
    "y": 434,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -161,7 +161,7 @@
    "name": "Malaysia",
    "x": 496,
    "y": 530,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -170,7 +170,7 @@
    "name": "Cambodia",
    "x": 547,
    "y": 441,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -179,7 +179,7 @@
    "name": "Laos",
    "x": 532,
    "y": 384,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -188,7 +188,7 @@
    "name": "Annam",
    "x": 542,
    "y": 337,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -197,7 +197,7 @@
    "name": "Siam",
    "x": 477,
    "y": 380,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -206,7 +206,7 @@
    "name": "Formosa",
    "x": 771,
    "y": 276,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -215,7 +215,7 @@
    "name": "Hunan",
    "x": 672,
    "y": 192,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -224,7 +224,7 @@
    "name": "Canton",
    "x": 636,
    "y": 284,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -233,7 +233,7 @@
    "name": "Hainan",
    "x": 606,
    "y": 338,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -242,7 +242,7 @@
    "name": "Yunnan",
    "x": 518,
    "y": 249,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -251,7 +251,7 @@
    "name": "Szechwan",
    "x": 492,
    "y": 178,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -260,7 +260,7 @@
    "name": "Kansu",
    "x": 436,
    "y": 110,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -269,7 +269,7 @@
    "name": "Peking",
    "x": 682,
    "y": 66,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -278,7 +278,7 @@
    "name": "Shanghai",
    "x": 735,
    "y": 163,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -287,7 +287,7 @@
    "name": "Shensi",
    "x": 605,
    "y": 112,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -296,7 +296,7 @@
    "name": "Bombay",
    "x": 27,
    "y": 243,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -305,7 +305,7 @@
    "name": "Delhi",
    "x": 172,
    "y": 238,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -314,7 +314,7 @@
    "name": "Gujerat",
    "x": 108,
    "y": 301,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -323,7 +323,7 @@
    "name": "Hyderabad",
    "x": 186,
    "y": 335,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -332,7 +332,7 @@
    "name": "Calcutta",
    "x": 306,
    "y": 278,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -341,7 +341,7 @@
    "name": "Madras",
    "x": 143,
    "y": 415,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -350,7 +350,7 @@
    "name": "Ceylon",
    "x": 192,
    "y": 491,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -359,7 +359,7 @@
    "name": "Changtang",
    "x": 278,
    "y": 124,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -368,7 +368,7 @@
    "name": "Tibet",
    "x": 301,
    "y": 176,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -377,7 +377,7 @@
    "name": "Lhasa",
    "x": 399,
    "y": 194,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -386,7 +386,7 @@
    "name": "Nepal",
    "x": 310,
    "y": 222,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -395,7 +395,7 @@
    "name": "Vernyy",
    "x": 83,
    "y": 33,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -404,7 +404,7 @@
    "name": "Khirghiz",
    "x": 220,
    "y": 16,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -413,7 +413,7 @@
    "name": "Urumqi",
    "x": 384,
    "y": 13,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -422,7 +422,7 @@
    "name": "Sinkiang",
    "x": 260,
    "y": 71,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -431,7 +431,7 @@
    "name": "Mongolia",
    "x": 512,
    "y": 6,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -440,7 +440,7 @@
    "name": "Gobi Desert",
    "x": 568,
    "y": 63,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -449,7 +449,7 @@
    "name": "Kabul",
    "x": 24,
    "y": 106,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -458,7 +458,7 @@
    "name": "Kashmir",
    "x": 166,
    "y": 142,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -467,7 +467,7 @@
    "name": "Punjab",
    "x": 75,
    "y": 156,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   }

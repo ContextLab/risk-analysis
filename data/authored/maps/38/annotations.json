@@ -1,14 +1,14 @@
 {
  "schema_version": 2,
  "map_id": 38,
- "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_id is null and regions is empty until authored from the artwork.",
+ "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_ids is [] and regions is empty until authored from the artwork.",
  "territories": [
   {
    "territory_id": 1624,
    "name": "Muir Woods",
    "x": 60,
    "y": 46,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -17,7 +17,7 @@
    "name": "Marin City",
    "x": 219,
    "y": 136,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -26,7 +26,7 @@
    "name": "Mill Valley",
    "x": 308,
    "y": 101,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -35,7 +35,7 @@
    "name": "San Rafael",
    "x": 240,
    "y": 0,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -44,7 +44,7 @@
    "name": "Richmond",
    "x": 435,
    "y": 14,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -53,7 +53,7 @@
    "name": "Wildcat Canyon",
    "x": 526,
    "y": 2,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -62,7 +62,7 @@
    "name": "Berkeley",
    "x": 586,
    "y": 95,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -71,7 +71,7 @@
    "name": "San Pablo",
    "x": 673,
    "y": 20,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -80,7 +80,7 @@
    "name": "Lafayette",
    "x": 663,
    "y": 85,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -89,7 +89,7 @@
    "name": "Walnut Creek",
    "x": 821,
    "y": 69,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -98,7 +98,7 @@
    "name": "Martinez",
    "x": 785,
    "y": 0,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -107,7 +107,7 @@
    "name": "Concord",
    "x": 873,
    "y": 4,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -116,7 +116,7 @@
    "name": "Pittsburg",
    "x": 967,
    "y": 23,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -125,7 +125,7 @@
    "name": "Black Diamond Mines",
    "x": 964,
    "y": 105,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -134,7 +134,7 @@
    "name": "Clayton",
    "x": 879,
    "y": 115,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -143,7 +143,7 @@
    "name": "Mt. Diablo",
    "x": 880,
    "y": 172,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -152,7 +152,7 @@
    "name": "Tassajara",
    "x": 975,
    "y": 191,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -161,7 +161,7 @@
    "name": "Blackhawk",
    "x": 938,
    "y": 265,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -170,7 +170,7 @@
    "name": "Livermore",
    "x": 964,
    "y": 314,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -179,7 +179,7 @@
    "name": "Dublin",
    "x": 894,
    "y": 332,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -188,7 +188,7 @@
    "name": "South San Leandro",
    "x": 795,
    "y": 333,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -197,7 +197,7 @@
    "name": "Castro Valley",
    "x": 876,
    "y": 393,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -206,7 +206,7 @@
    "name": "Pleasanton",
    "x": 972,
    "y": 415,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -215,7 +215,7 @@
    "name": "Garin Creek",
    "x": 916,
    "y": 432,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -224,7 +224,7 @@
    "name": "Hayward",
    "x": 810,
    "y": 410,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -233,7 +233,7 @@
    "name": "Union City",
    "x": 850,
    "y": 512,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -242,7 +242,7 @@
    "name": "Sunol",
    "x": 988,
    "y": 504,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -251,7 +251,7 @@
    "name": "Milpitas",
    "x": 983,
    "y": 635,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -260,7 +260,7 @@
    "name": "Newark",
    "x": 895,
    "y": 590,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -269,7 +269,7 @@
    "name": "Fremont",
    "x": 943,
    "y": 521,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -278,7 +278,7 @@
    "name": "Palo Alto",
    "x": 820,
    "y": 633,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -287,7 +287,7 @@
    "name": "Redwood City",
    "x": 692,
    "y": 653,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -296,7 +296,7 @@
    "name": "Belmont",
    "x": 702,
    "y": 575,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -305,7 +305,7 @@
    "name": "San Carlos",
    "x": 605,
    "y": 655,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -314,7 +314,7 @@
    "name": "Huddart Park",
    "x": 545,
    "y": 641,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -323,7 +323,7 @@
    "name": "Half Moon Bay",
    "x": 440,
    "y": 639,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -332,7 +332,7 @@
    "name": "San Bruno",
    "x": 409,
    "y": 522,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -341,7 +341,7 @@
    "name": "Daly City",
    "x": 319,
    "y": 442,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -350,7 +350,7 @@
    "name": "Pacifica",
    "x": 284,
    "y": 573,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -359,7 +359,7 @@
    "name": "SFO",
    "x": 417,
    "y": 461,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -368,7 +368,7 @@
    "name": "Millbrae",
    "x": 451,
    "y": 494,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -377,7 +377,7 @@
    "name": "Burlingame",
    "x": 481,
    "y": 535,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -386,7 +386,7 @@
    "name": "San Mateo",
    "x": 522,
    "y": 599,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -395,7 +395,7 @@
    "name": "Foster City",
    "x": 617,
    "y": 537,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -404,7 +404,7 @@
    "name": "Portola",
    "x": 349,
    "y": 350,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -413,7 +413,7 @@
    "name": "Sunset District",
    "x": 297,
    "y": 370,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -422,7 +422,7 @@
    "name": "Noe Valley",
    "x": 333,
    "y": 260,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -431,7 +431,7 @@
    "name": "Bayview",
    "x": 387,
    "y": 304,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -440,7 +440,7 @@
    "name": "Hunters Point",
    "x": 448,
    "y": 343,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -449,7 +449,7 @@
    "name": "Pacific Heights",
    "x": 321,
    "y": 220,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -458,7 +458,7 @@
    "name": "Alcatraz",
    "x": 374,
    "y": 166,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -467,7 +467,7 @@
    "name": "Alameda",
    "x": 581,
    "y": 238,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -476,7 +476,7 @@
    "name": "Oakland",
    "x": 617,
    "y": 186,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -485,7 +485,7 @@
    "name": "North San Leandro",
    "x": 762,
    "y": 266,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -494,7 +494,7 @@
    "name": "San Ramon",
    "x": 855,
    "y": 264,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -503,7 +503,7 @@
    "name": "Danville",
    "x": 815,
    "y": 240,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -512,7 +512,7 @@
    "name": "Moraga",
    "x": 703,
    "y": 161,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -521,7 +521,7 @@
    "name": "Alamo",
    "x": 783,
    "y": 154,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -530,7 +530,7 @@
    "name": "Downtown",
    "x": 394,
    "y": 218,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   }

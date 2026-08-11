@@ -1,14 +1,14 @@
 {
  "schema_version": 2,
  "map_id": 30,
- "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_id is null and regions is empty until authored from the artwork.",
+ "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_ids is [] and regions is empty until authored from the artwork.",
  "territories": [
   {
    "territory_id": 1157,
    "name": "Shalathra",
    "x": 118,
    "y": 72,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -17,7 +17,7 @@
    "name": "Northern Schataria",
    "x": 246,
    "y": 62,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -26,7 +26,7 @@
    "name": "Azealon",
    "x": 162,
    "y": 180,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -35,7 +35,7 @@
    "name": "Travaria",
    "x": 271,
    "y": 228,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -44,7 +44,7 @@
    "name": "North Valoran",
    "x": 199,
    "y": 259,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -53,7 +53,7 @@
    "name": "South Valoran",
    "x": 150,
    "y": 349,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -62,7 +62,7 @@
    "name": "Wrathilles",
    "x": 325,
    "y": 333,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -71,7 +71,7 @@
    "name": "Terrafen",
    "x": 210,
    "y": 403,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -80,7 +80,7 @@
    "name": "The Kingdom of Sun",
    "x": 76,
    "y": 448,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -89,7 +89,7 @@
    "name": "Northern Arlas",
    "x": 272,
    "y": 429,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -98,7 +98,7 @@
    "name": "Arlas Barrens",
    "x": 379,
    "y": 476,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -107,7 +107,7 @@
    "name": "Hagros",
    "x": 407,
    "y": 431,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -116,7 +116,7 @@
    "name": "Agashar",
    "x": 441,
    "y": 484,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -125,7 +125,7 @@
    "name": "Zeish",
    "x": 324,
    "y": 532,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -134,7 +134,7 @@
    "name": "Southern Arlas",
    "x": 532,
    "y": 526,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -143,7 +143,7 @@
    "name": "Ivory Tundra",
    "x": 370,
    "y": 48,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -152,7 +152,7 @@
    "name": "Gilacian Isles",
    "x": 314,
    "y": 78,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -161,7 +161,7 @@
    "name": "Glice",
    "x": 417,
    "y": 79,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -170,7 +170,7 @@
    "name": "Fridigia",
    "x": 496,
    "y": 78,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -179,7 +179,7 @@
    "name": "Uria",
    "x": 648,
    "y": 49,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -188,7 +188,7 @@
    "name": "Lunador",
    "x": 729,
    "y": 55,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -197,7 +197,7 @@
    "name": "Veylor",
    "x": 675,
    "y": 138,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -206,7 +206,7 @@
    "name": "Central Urza",
    "x": 799,
    "y": 157,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -215,7 +215,7 @@
    "name": "Eastern Urza",
    "x": 874,
    "y": 163,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -224,7 +224,7 @@
    "name": "Solador",
    "x": 692,
    "y": 192,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -233,7 +233,7 @@
    "name": "Glendara",
    "x": 783,
    "y": 199,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -242,7 +242,7 @@
    "name": "Drakland",
    "x": 498,
    "y": 183,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -251,7 +251,7 @@
    "name": "Ssizara",
    "x": 575,
    "y": 202,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -260,7 +260,7 @@
    "name": "Azissa",
    "x": 641,
    "y": 198,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -269,7 +269,7 @@
    "name": "Shajera",
    "x": 683,
    "y": 261,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -278,7 +278,7 @@
    "name": "Myridia",
    "x": 664,
    "y": 343,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -287,7 +287,7 @@
    "name": "Inghal",
    "x": 619,
    "y": 355,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -296,7 +296,7 @@
    "name": "Western Arillia",
    "x": 576,
    "y": 397,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -305,7 +305,7 @@
    "name": "Southern Arillia",
    "x": 647,
    "y": 536,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -314,7 +314,7 @@
    "name": "Aroya",
    "x": 842,
    "y": 404,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -323,7 +323,7 @@
    "name": "Dreadmarch",
    "x": 721,
    "y": 360,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -332,7 +332,7 @@
    "name": "Druhm",
    "x": 843,
    "y": 345,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -341,7 +341,7 @@
    "name": "Azure Kingdom",
    "x": 938,
    "y": 297,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -350,7 +350,7 @@
    "name": "Boria",
    "x": 874,
    "y": 456,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -359,7 +359,7 @@
    "name": "Eastern Algos",
    "x": 860,
    "y": 561,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -368,7 +368,7 @@
    "name": "Western Algos",
    "x": 810,
    "y": 575,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -377,7 +377,7 @@
    "name": "Velis",
    "x": 688,
    "y": 568,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   }

@@ -21,8 +21,9 @@ What the markup can and cannot provide:
   border-vs-route classification is NOT in the markup, so ``kind:
   "unknown"`` with ``kind_status: "unconfirmed"``.
 - continent membership is ABSENT from D12's markup (issue #4): every
-  ``region_id`` is ``null`` and ``regions`` starts empty.  Regions are
-  authored later from the artwork; this importer never invents them.
+  territory gets ``region_ids: []`` (membership is many-to-many, a list of
+  region ids) and ``regions`` starts empty.  Regions are authored later
+  from the artwork; this importer never invents them.
 
 Overwriting: an existing ``annotations.json`` is never touched without
 ``--force``.  With ``--force`` the hand-authored blocks -- ``regions``,
@@ -102,8 +103,10 @@ def _territory_records(topo) -> list[dict]:
                 "name": t.name,
                 "x": t.x,
                 "y": t.y,
-                # Continent membership is not in D12's markup (issue #4).
-                "region_id": None,
+                # Continent membership is not in D12's markup (issue #4);
+                # membership is many-to-many, so an empty LIST, never a
+                # scalar and never [0].
+                "region_ids": [],
                 "source": "d12-markup",
                 "confidence": "high",
             }
@@ -166,7 +169,7 @@ def annotations_from_page(html: str, map_id: int) -> tuple[dict, list[str]]:
             "LIST come from D12's own territory markup and are authoritative "
             "-- edge status 'confirmed' asserts EXISTENCE only; kind stays "
             "'unknown'/'unconfirmed' until classified. Continent membership "
-            "is absent from D12's markup (issue #4): region_id is null and "
+            "is absent from D12's markup (issue #4): region_ids is [] and "
             "regions is empty until authored from the artwork."
         ),
         "territories": territories,
@@ -236,13 +239,15 @@ def import_page(
         assigned = [
             t["territory_id"]
             for t in existing.get("territories", [])
-            if t.get("region_id") is not None
+            # both the current list schema and any leftover scalar count as
+            # authored work being destroyed -- warn loudly either way
+            if t.get("region_ids") or t.get("region_id") is not None
         ]
         if assigned:
             warnings.append(
                 f"overwrote territories that carried region assignments for "
-                f"{len(assigned)} territory(ies) {assigned}; region_id is "
-                "not in D12's markup, so re-author region membership (the "
+                f"{len(assigned)} territory(ies) {assigned}; region "
+                "membership is not in D12's markup, so re-author it (the "
                 "preserved 'regions' block keeps its territory_names)"
             )
 
@@ -375,7 +380,7 @@ def main(argv: list[str] | None = None) -> int:
     print(
         f"map {result.map_id}: wrote {result.path} "
         f"({len(result.doc['territories'])} territories, "
-        f"{len(result.doc['edges'])} edges, all region_id null -- regions "
+        f"{len(result.doc['edges'])} edges, all region_ids empty -- regions "
         "must be authored from the artwork)"
     )
     return 0

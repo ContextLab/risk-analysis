@@ -1,14 +1,14 @@
 {
  "schema_version": 2,
  "map_id": 28,
- "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_id is null and regions is empty until authored from the artwork.",
+ "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_ids is [] and regions is empty until authored from the artwork.",
  "territories": [
   {
    "territory_id": 1061,
    "name": "Washington",
    "x": 116,
    "y": 48,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -17,7 +17,7 @@
    "name": "Oregon",
    "x": 97,
    "y": 130,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -26,7 +26,7 @@
    "name": "Idaho",
    "x": 192,
    "y": 155,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -35,7 +35,7 @@
    "name": "North California",
    "x": 47,
    "y": 271,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -44,7 +44,7 @@
    "name": "Nevada",
    "x": 123,
    "y": 254,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -53,7 +53,7 @@
    "name": "Utah",
    "x": 219,
    "y": 278,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -62,7 +62,7 @@
    "name": "South California",
    "x": 102,
    "y": 373,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -71,7 +71,7 @@
    "name": "Arizona",
    "x": 205,
    "y": 398,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -80,7 +80,7 @@
    "name": "Montana",
    "x": 291,
    "y": 98,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -89,7 +89,7 @@
    "name": "Wyoming",
    "x": 304,
    "y": 189,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -98,7 +98,7 @@
    "name": "North & South Dakota",
    "x": 431,
    "y": 141,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -107,7 +107,7 @@
    "name": "Colorado",
    "x": 331,
    "y": 292,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -116,7 +116,7 @@
    "name": "Nebraska",
    "x": 441,
    "y": 241,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -125,7 +125,7 @@
    "name": "Kansas",
    "x": 462,
    "y": 310,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -134,7 +134,7 @@
    "name": "Missouri",
    "x": 568,
    "y": 315,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -143,7 +143,7 @@
    "name": "New Mexico",
    "x": 307,
    "y": 408,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -152,7 +152,7 @@
    "name": "Texas",
    "x": 445,
    "y": 484,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -161,7 +161,7 @@
    "name": "Oklahoma",
    "x": 485,
    "y": 388,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -170,7 +170,7 @@
    "name": "Arkansas",
    "x": 570,
    "y": 399,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -179,7 +179,7 @@
    "name": "Louisiana",
    "x": 576,
    "y": 474,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -188,7 +188,7 @@
    "name": "Minnesota",
    "x": 532,
    "y": 139,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -197,7 +197,7 @@
    "name": "Iowa",
    "x": 551,
    "y": 221,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -206,7 +206,7 @@
    "name": "Wisconsin & Upper Michigan",
    "x": 618,
    "y": 166,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -215,7 +215,7 @@
    "name": "Illinois",
    "x": 632,
    "y": 263,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -224,7 +224,7 @@
    "name": "Indiana",
    "x": 689,
    "y": 266,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -233,7 +233,7 @@
    "name": "Lower Michigan",
    "x": 707,
    "y": 187,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -242,7 +242,7 @@
    "name": "Ohio",
    "x": 745,
    "y": 255,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -251,7 +251,7 @@
    "name": "Kentucky",
    "x": 732,
    "y": 314,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -260,7 +260,7 @@
    "name": "Tennessee",
    "x": 713,
    "y": 360,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -269,7 +269,7 @@
    "name": "Mississippi",
    "x": 634,
    "y": 454,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -278,7 +278,7 @@
    "name": "Alabama",
    "x": 696,
    "y": 448,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -287,7 +287,7 @@
    "name": "Florida",
    "x": 814,
    "y": 527,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -296,7 +296,7 @@
    "name": "Georgia",
    "x": 766,
    "y": 441,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -305,7 +305,7 @@
    "name": "North & South Carolina",
    "x": 814,
    "y": 358,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -314,7 +314,7 @@
    "name": "Virginia",
    "x": 843,
    "y": 289,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -323,7 +323,7 @@
    "name": "West Virginia",
    "x": 789,
    "y": 290,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -332,7 +332,7 @@
    "name": "Maryland & Delaware",
    "x": 888,
    "y": 266,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -341,7 +341,7 @@
    "name": "New Jersey",
    "x": 913,
    "y": 218,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -350,7 +350,7 @@
    "name": "Pennsylvania",
    "x": 832,
    "y": 225,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -359,7 +359,7 @@
    "name": "New York",
    "x": 888,
    "y": 164,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -368,7 +368,7 @@
    "name": "Vermont & New Hampshire",
    "x": 920,
    "y": 122,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -377,7 +377,7 @@
    "name": "Maine",
    "x": 958,
    "y": 81,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -386,7 +386,7 @@
    "name": "Massachusetts & Connecticut & Rhode Island",
    "x": 931,
    "y": 166,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   }

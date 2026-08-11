@@ -215,10 +215,16 @@ def apply_corrections(
 
 def _region_tables(
     annotations: dict, name_to_id: dict[str, int]
-) -> tuple[list[dict], dict[int, int]]:
-    """Authored regions -> (region defs with ids, territory_id -> region_id)."""
+) -> tuple[list[dict], dict[int, list[int]]]:
+    """Authored regions -> (region defs with ids, territory_id -> region_ids).
+
+    Territory-to-region is many-to-many (map 7's city bonuses overlap the
+    colour regions): a territory may appear in several regions' lists, so
+    membership values are LISTS of region ids.  Listing a territory twice
+    in the same region is still an authoring error.
+    """
     regions = []
-    membership: dict[int, int] = {}
+    membership: dict[int, list[int]] = {}
     for r in annotations.get("regions", []):
         member_ids = []
         for name in r.get("territory_names", []):
@@ -227,9 +233,12 @@ def _region_tables(
                     f"region {r.get('name')!r} lists unknown territory {name!r}"
                 )
             tid = name_to_id[name]
-            if tid in membership:
-                raise ValueError(f"territory {name!r} assigned to two regions")
-            membership[tid] = r["region_id"]
+            if r["region_id"] in membership.get(tid, []):
+                raise ValueError(
+                    f"territory {name!r} listed twice in region "
+                    f"{r.get('name')!r}"
+                )
+            membership.setdefault(tid, []).append(r["region_id"])
             member_ids.append(tid)
         regions.append(
             {
@@ -383,7 +392,7 @@ def build_map(map_id: int, out_root: pathlib.Path | None = None) -> dict:
                 "territory_id": tid,
                 "name": gt_names.get(tid),
                 "name_source": edge_source.replace("adjacencies", "seed-claim"),
-                "region_id": None,  # filled below
+                "region_ids": [],  # filled below; many-to-many, [] = none
                 "polygons": [
                     [[round(x, 1), round(y, 1)] for x, y in ring]
                     for ring in rings_by_id[tid]
@@ -400,7 +409,7 @@ def build_map(map_id: int, out_root: pathlib.Path | None = None) -> dict:
     name_to_id = {t["name"]: t["territory_id"] for t in territories if t["name"]}
     regions, membership = _region_tables(annotations, name_to_id)
     for t in territories:
-        t["region_id"] = membership.get(t["territory_id"])
+        t["region_ids"] = membership.get(t["territory_id"], [])
 
     bonuses_doc = _bonuses_doc(annotations, regions, map_id)
     rings_tuples = {

@@ -1,14 +1,14 @@
 {
  "schema_version": 2,
  "map_id": 58,
- "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_id is null and regions is empty until authored from the artwork.",
+ "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_ids is [] and regions is empty until authored from the artwork.",
  "territories": [
   {
    "territory_id": 4026,
    "name": "Eden Island",
    "x": 99,
    "y": 258,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -17,7 +17,7 @@
    "name": "Kangaroo Island",
    "x": 127,
    "y": 285,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -26,7 +26,7 @@
    "name": "Moreton Bay National Park",
    "x": 184,
    "y": 264,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -35,7 +35,7 @@
    "name": "South Stradbroke",
    "x": 234,
    "y": 212,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -44,7 +44,7 @@
    "name": "Coomera Island",
    "x": 271,
    "y": 274,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -53,7 +53,7 @@
    "name": "Jacobs Well",
    "x": 150,
    "y": 316,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -62,7 +62,7 @@
    "name": "Main Beach",
    "x": 464,
    "y": 200,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -71,7 +71,7 @@
    "name": "Surfers Paradise",
    "x": 543,
    "y": 209,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -80,7 +80,7 @@
    "name": "Robina & Varsity Lakes",
    "x": 660,
    "y": 272,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -89,7 +89,7 @@
    "name": "Merrimac",
    "x": 620,
    "y": 307,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -98,7 +98,7 @@
    "name": "Carrara",
    "x": 568,
    "y": 318,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -107,7 +107,7 @@
    "name": "Benowa & Bundall",
    "x": 546,
    "y": 269,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -116,7 +116,7 @@
    "name": "Broadbeach & Mermaid",
    "x": 603,
    "y": 184,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -125,7 +125,7 @@
    "name": "Mermaid & Clear Island Waters",
    "x": 611,
    "y": 250,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -134,7 +134,7 @@
    "name": "Miami",
    "x": 655,
    "y": 184,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -143,7 +143,7 @@
    "name": "Burleigh",
    "x": 700,
    "y": 201,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -152,7 +152,7 @@
    "name": "Tallebudgera Valley",
    "x": 879,
    "y": 337,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -161,7 +161,7 @@
    "name": "Currumbin Valley",
    "x": 902,
    "y": 262,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -170,7 +170,7 @@
    "name": "Tallebudgera",
    "x": 808,
    "y": 227,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -179,7 +179,7 @@
    "name": "Currumbin Waters",
    "x": 780,
    "y": 167,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -188,7 +188,7 @@
    "name": "Palm & Currumbin Beaches",
    "x": 730,
    "y": 147,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -197,7 +197,7 @@
    "name": "Coolangatta Billinga & Tugan",
    "x": 801,
    "y": 83,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -206,7 +206,7 @@
    "name": "Ashmore",
    "x": 514,
    "y": 296,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -215,7 +215,7 @@
    "name": "Parkwood & Molendinar",
    "x": 480,
    "y": 331,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -224,7 +224,7 @@
    "name": "Southport",
    "x": 481,
    "y": 255,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -233,7 +233,7 @@
    "name": "Arundel",
    "x": 422,
    "y": 307,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -242,7 +242,7 @@
    "name": "Labrador",
    "x": 441,
    "y": 254,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -251,7 +251,7 @@
    "name": "Runaway Bay & Biggera Waters",
    "x": 401,
    "y": 271,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -260,7 +260,7 @@
    "name": "Coombabah",
    "x": 384,
    "y": 314,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -269,7 +269,7 @@
    "name": "Paradise Point & Hollywell",
    "x": 336,
    "y": 266,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -278,7 +278,7 @@
    "name": "Helensvale",
    "x": 347,
    "y": 381,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -287,7 +287,7 @@
    "name": "Hope Island",
    "x": 305,
    "y": 342,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -296,7 +296,7 @@
    "name": "Numinbah Valley",
    "x": 798,
    "y": 549,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -305,7 +305,7 @@
    "name": "Natural Bridge",
    "x": 919,
    "y": 546,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -314,7 +314,7 @@
    "name": "Springbrook",
    "x": 856,
    "y": 486,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -323,7 +323,7 @@
    "name": "Lower Beechmont",
    "x": 608,
    "y": 523,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -332,7 +332,7 @@
    "name": "Advance Town",
    "x": 597,
    "y": 483,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -341,7 +341,7 @@
    "name": "Gilston",
    "x": 597,
    "y": 417,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -350,7 +350,7 @@
    "name": "Advance Town Lake",
    "x": 678,
    "y": 462,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -359,7 +359,7 @@
    "name": "Austinville",
    "x": 836,
    "y": 411,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -368,7 +368,7 @@
    "name": "Bonogin",
    "x": 787,
    "y": 341,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -377,7 +377,7 @@
    "name": "Worongary & Highland Park",
    "x": 605,
    "y": 377,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -386,7 +386,7 @@
    "name": "Tallai",
    "x": 658,
    "y": 374,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -395,7 +395,7 @@
    "name": "Mudgeeraba",
    "x": 699,
    "y": 360,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -404,7 +404,7 @@
    "name": "Reedy Creek",
    "x": 729,
    "y": 257,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -413,7 +413,7 @@
    "name": "Clagiraba",
    "x": 527,
    "y": 532,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -422,7 +422,7 @@
    "name": "Mount Nathan",
    "x": 521,
    "y": 475,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -431,7 +431,7 @@
    "name": "Guanaba",
    "x": 423,
    "y": 540,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -440,7 +440,7 @@
    "name": "Oxenford",
    "x": 375,
    "y": 430,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -449,7 +449,7 @@
    "name": "Maudsland",
    "x": 412,
    "y": 450,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -458,7 +458,7 @@
    "name": "Gaven & Pacific Pines",
    "x": 432,
    "y": 406,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -467,7 +467,7 @@
    "name": "Nerang",
    "x": 499,
    "y": 410,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -476,7 +476,7 @@
    "name": "Pimpama",
    "x": 209,
    "y": 398,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -485,7 +485,7 @@
    "name": "Coomera",
    "x": 274,
    "y": 382,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -494,7 +494,7 @@
    "name": "Wongawallan",
    "x": 331,
    "y": 532,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -503,7 +503,7 @@
    "name": "Willow Vale",
    "x": 261,
    "y": 503,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -512,7 +512,7 @@
    "name": "Upper Coomera",
    "x": 317,
    "y": 464,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -521,7 +521,7 @@
    "name": "Ormeau",
    "x": 145,
    "y": 518,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -530,7 +530,7 @@
    "name": "Yatala",
    "x": 97,
    "y": 576,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -539,7 +539,7 @@
    "name": "Ormeau Hills",
    "x": 178,
    "y": 560,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -548,7 +548,7 @@
    "name": "Luscombe",
    "x": 179,
    "y": 617,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -557,7 +557,7 @@
    "name": "Cedar Creek",
    "x": 244,
    "y": 624,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -566,7 +566,7 @@
    "name": "Kingsholme",
    "x": 218,
    "y": 543,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -575,7 +575,7 @@
    "name": "Steiglitz",
    "x": 63,
    "y": 363,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -584,7 +584,7 @@
    "name": "Woongoolba",
    "x": 62,
    "y": 421,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -593,7 +593,7 @@
    "name": "Norwell",
    "x": 136,
    "y": 415,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -602,7 +602,7 @@
    "name": "Alberton",
    "x": 18,
    "y": 486,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -611,7 +611,7 @@
    "name": "Stapylton",
    "x": 65,
    "y": 486,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   }

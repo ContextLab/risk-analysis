@@ -1,14 +1,14 @@
 {
  "schema_version": 2,
  "map_id": 94,
- "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_id is null and regions is empty until authored from the artwork.",
+ "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_ids is [] and regions is empty until authored from the artwork.",
  "territories": [
   {
    "territory_id": 5147,
    "name": "Karelia",
    "x": 256,
    "y": 132,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -17,7 +17,7 @@
    "name": "Veps",
    "x": 315,
    "y": 164,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -26,7 +26,7 @@
    "name": "Beloosero",
    "x": 392,
    "y": 169,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -35,7 +35,7 @@
    "name": "Tuxchin",
    "x": 579,
    "y": 123,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -44,7 +44,7 @@
    "name": "Qashan'",
    "x": 569,
    "y": 179,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -53,7 +53,7 @@
    "name": "Taw Ile",
    "x": 631,
    "y": 167,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -62,7 +62,7 @@
    "name": "Alamir Sultan",
    "x": 640,
    "y": 110,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -71,7 +71,7 @@
    "name": "Saran",
    "x": 681,
    "y": 151,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -80,7 +80,7 @@
    "name": "Ashli",
    "x": 588,
    "y": 234,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -89,7 +89,7 @@
    "name": "Bulgar",
    "x": 634,
    "y": 206,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -98,7 +98,7 @@
    "name": "Cukataw",
    "x": 679,
    "y": 219,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -107,7 +107,7 @@
    "name": "Biljar",
    "x": 628,
    "y": 265,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -116,7 +116,7 @@
    "name": "Suvar",
    "x": 606,
    "y": 304,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -125,7 +125,7 @@
    "name": "Nur-Suvar",
    "x": 677,
    "y": 263,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -134,7 +134,7 @@
    "name": "Burtas",
    "x": 673,
    "y": 311,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -143,7 +143,7 @@
    "name": "Ustjug",
    "x": 505,
    "y": 126,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -152,7 +152,7 @@
    "name": "Kostroma",
    "x": 519,
    "y": 191,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -161,7 +161,7 @@
    "name": "Vologda",
    "x": 428,
    "y": 229,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -170,7 +170,7 @@
    "name": "Yaroslavl",
    "x": 481,
    "y": 214,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -179,7 +179,7 @@
    "name": "Nizhny Novgorod",
    "x": 542,
    "y": 245,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -188,7 +188,7 @@
    "name": "Rostov",
    "x": 477,
    "y": 266,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -197,7 +197,7 @@
    "name": "Novosyl'",
    "x": 508,
    "y": 333,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -206,7 +206,7 @@
    "name": "Yaropolch",
    "x": 561,
    "y": 326,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -215,7 +215,7 @@
    "name": "Murom",
    "x": 551,
    "y": 373,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -224,7 +224,7 @@
    "name": "Tver'",
    "x": 386,
    "y": 278,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -233,7 +233,7 @@
    "name": "Bogoljubov",
    "x": 392,
    "y": 332,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -242,7 +242,7 @@
    "name": "Yur'iev",
    "x": 424,
    "y": 298,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -251,7 +251,7 @@
    "name": "Dmitrov",
    "x": 432,
    "y": 359,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -260,7 +260,7 @@
    "name": "Moskva",
    "x": 472,
    "y": 316,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -269,7 +269,7 @@
    "name": "Proslavl",
    "x": 350,
    "y": 218,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -278,7 +278,7 @@
    "name": "Staraya Ladoga",
    "x": 293,
    "y": 249,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -287,7 +287,7 @@
    "name": "Staraya Russa",
    "x": 214,
    "y": 192,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -296,7 +296,7 @@
    "name": "Torzhok",
    "x": 322,
    "y": 279,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -305,7 +305,7 @@
    "name": "Novgorod",
    "x": 263,
    "y": 291,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -314,7 +314,7 @@
    "name": "Pskov",
    "x": 210,
    "y": 277,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -323,7 +323,7 @@
    "name": "Isborsk",
    "x": 231,
    "y": 330,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -332,7 +332,7 @@
    "name": "Revel",
    "x": 122,
    "y": 278,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -341,7 +341,7 @@
    "name": "Dorpat",
    "x": 171,
    "y": 288,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -350,7 +350,7 @@
    "name": "Lemsal",
    "x": 172,
    "y": 332,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -359,7 +359,7 @@
    "name": "Windau",
    "x": 89,
    "y": 353,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -368,7 +368,7 @@
    "name": "Goldingen",
    "x": 74,
    "y": 413,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -377,7 +377,7 @@
    "name": "Ragnit",
    "x": 92,
    "y": 475,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -386,7 +386,7 @@
    "name": "Konigsberg",
    "x": 38,
    "y": 474,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -395,7 +395,7 @@
    "name": "Vilnius",
    "x": 185,
    "y": 364,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -404,7 +404,7 @@
    "name": "Samogitia",
    "x": 122,
    "y": 396,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -413,7 +413,7 @@
    "name": "Trakai",
    "x": 123,
    "y": 441,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -422,7 +422,7 @@
    "name": "Vitebsk",
    "x": 257,
    "y": 385,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -431,7 +431,7 @@
    "name": "Drusk",
    "x": 223,
    "y": 412,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -440,7 +440,7 @@
    "name": "Svislost'",
    "x": 257,
    "y": 423,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -449,7 +449,7 @@
    "name": "Grodno",
    "x": 184,
    "y": 403,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -458,7 +458,7 @@
    "name": "Minsk",
    "x": 191,
    "y": 464,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -467,7 +467,7 @@
    "name": "Lukoml",
    "x": 235,
    "y": 475,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -476,7 +476,7 @@
    "name": "Vyas'ma",
    "x": 311,
    "y": 354,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -485,7 +485,7 @@
    "name": "Volok",
    "x": 349,
    "y": 349,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -494,7 +494,7 @@
    "name": "Isjaslavl",
    "x": 388,
    "y": 410,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -503,7 +503,7 @@
    "name": "Toropezk",
    "x": 339,
    "y": 393,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -512,7 +512,7 @@
    "name": "Orsha",
    "x": 297,
    "y": 395,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -521,7 +521,7 @@
    "name": "Mstislavl",
    "x": 302,
    "y": 450,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -530,7 +530,7 @@
    "name": "Roslavl",
    "x": 354,
    "y": 439,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -539,7 +539,7 @@
    "name": "Trubchevsk",
    "x": 439,
    "y": 420,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -548,7 +548,7 @@
    "name": "Starodub",
    "x": 404,
    "y": 482,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -557,7 +557,7 @@
    "name": "Kursk",
    "x": 466,
    "y": 491,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -566,7 +566,7 @@
    "name": "Rylsk",
    "x": 430,
    "y": 509,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -575,7 +575,7 @@
    "name": "Putivl",
    "x": 474,
    "y": 574,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -584,7 +584,7 @@
    "name": "Kozelsk",
    "x": 422,
    "y": 548,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -593,7 +593,7 @@
    "name": "Rogachev",
    "x": 270,
    "y": 498,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -602,7 +602,7 @@
    "name": "Ljubech",
    "x": 309,
    "y": 506,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -611,7 +611,7 @@
    "name": "Radomysl",
    "x": 342,
    "y": 524,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -620,7 +620,7 @@
    "name": "Bryansk",
    "x": 373,
    "y": 505,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -629,7 +629,7 @@
    "name": "Pinsk",
    "x": 187,
    "y": 521,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -638,7 +638,7 @@
    "name": "Turov",
    "x": 218,
    "y": 542,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -647,7 +647,7 @@
    "name": "Berestye",
    "x": 157,
    "y": 487,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -656,7 +656,7 @@
    "name": "Buzhsk",
    "x": 124,
    "y": 546,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -665,7 +665,7 @@
    "name": "Lutzk",
    "x": 150,
    "y": 590,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -674,7 +674,7 @@
    "name": "Drogobuzh",
    "x": 186,
    "y": 602,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -683,7 +683,7 @@
    "name": "Volynsk",
    "x": 113,
    "y": 610,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -692,7 +692,7 @@
    "name": "Olsztyn",
    "x": 32,
    "y": 534,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -701,7 +701,7 @@
    "name": "Ljublin",
    "x": 82,
    "y": 545,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -710,7 +710,7 @@
    "name": "Varshava",
    "x": 32,
    "y": 583,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -719,7 +719,7 @@
    "name": "Cherven'",
    "x": 67,
    "y": 624,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -728,7 +728,7 @@
    "name": "Krakow",
    "x": 27,
    "y": 626,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -737,7 +737,7 @@
    "name": "Cieszyn",
    "x": 58,
    "y": 676,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -746,7 +746,7 @@
    "name": "Buda",
    "x": 36,
    "y": 734,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -755,7 +755,7 @@
    "name": "Pest",
    "x": 91,
    "y": 709,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -764,7 +764,7 @@
    "name": "Eger",
    "x": 135,
    "y": 741,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -773,7 +773,7 @@
    "name": "Bihar",
    "x": 176,
    "y": 772,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -782,7 +782,7 @@
    "name": "Esztergom",
    "x": 73,
    "y": 836,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -791,7 +791,7 @@
    "name": "Vac",
    "x": 57,
    "y": 788,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -800,7 +800,7 @@
    "name": "Transylvania",
    "x": 177,
    "y": 832,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -809,7 +809,7 @@
    "name": "Zvenigorod",
    "x": 131,
    "y": 676,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -818,7 +818,7 @@
    "name": "Premyshl",
    "x": 213,
    "y": 643,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -827,7 +827,7 @@
    "name": "Galych",
    "x": 205,
    "y": 687,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -836,7 +836,7 @@
    "name": "Trebovl",
    "x": 273,
    "y": 682,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -845,7 +845,7 @@
    "name": "Chernivtsi",
    "x": 168,
    "y": 702,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -854,7 +854,7 @@
    "name": "Iskorsten'",
    "x": 225,
    "y": 599,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -863,7 +863,7 @@
    "name": "Vyshgorod",
    "x": 259,
    "y": 569,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -872,7 +872,7 @@
    "name": "Vruchi'",
    "x": 316,
    "y": 591,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -881,7 +881,7 @@
    "name": "Kiev",
    "x": 283,
    "y": 603,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -890,7 +890,7 @@
    "name": "Boguslavl",
    "x": 254,
    "y": 621,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -899,7 +899,7 @@
    "name": "Kanev",
    "x": 344,
    "y": 623,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -908,7 +908,7 @@
    "name": "Vasily'ev",
    "x": 309,
    "y": 637,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -917,7 +917,7 @@
    "name": "Priluk",
    "x": 355,
    "y": 577,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -926,7 +926,7 @@
    "name": "Hotmyshl",
    "x": 392,
    "y": 589,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -935,7 +935,7 @@
    "name": "Ltava",
    "x": 433,
    "y": 599,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -944,7 +944,7 @@
    "name": "Balykhleya",
    "x": 400,
    "y": 649,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -953,7 +953,7 @@
    "name": "Usu-Kale",
    "x": 343,
    "y": 675,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -962,7 +962,7 @@
    "name": "Or-Kapu",
    "x": 395,
    "y": 695,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -971,7 +971,7 @@
    "name": "Barlad",
    "x": 264,
    "y": 735,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -980,7 +980,7 @@
    "name": "Kachibey",
    "x": 318,
    "y": 730,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -989,7 +989,7 @@
    "name": "Ak-Kerman",
    "x": 296,
    "y": 778,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -998,7 +998,7 @@
    "name": "Brasov",
    "x": 229,
    "y": 779,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1007,7 +1007,7 @@
    "name": "Dorostol",
    "x": 227,
    "y": 829,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1016,7 +1016,7 @@
    "name": "Oltenia",
    "x": 277,
    "y": 831,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1025,7 +1025,7 @@
    "name": "Sudak",
    "x": 412,
    "y": 752,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1034,7 +1034,7 @@
    "name": "Kaffa",
    "x": 427,
    "y": 784,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1043,7 +1043,7 @@
    "name": "Dzhamboiluk",
    "x": 461,
    "y": 668,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1052,7 +1052,7 @@
    "name": "Boly Sarai",
    "x": 505,
    "y": 641,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1061,7 +1061,7 @@
    "name": "Sharukan",
    "x": 551,
    "y": 616,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1070,7 +1070,7 @@
    "name": "Sarkel",
    "x": 616,
    "y": 640,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1079,7 +1079,7 @@
    "name": "Azak",
    "x": 554,
    "y": 667,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1088,7 +1088,7 @@
    "name": "Kuban'",
    "x": 588,
    "y": 684,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1097,7 +1097,7 @@
    "name": "Tana",
    "x": 626,
    "y": 698,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1106,7 +1106,7 @@
    "name": "Tmu Tarkan'",
    "x": 536,
    "y": 738,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1115,7 +1115,7 @@
    "name": "Sudzhuk Kale",
    "x": 605,
    "y": 752,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1124,7 +1124,7 @@
    "name": "Alania",
    "x": 678,
    "y": 664,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1133,7 +1133,7 @@
    "name": "Adygeya",
    "x": 657,
    "y": 722,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1142,7 +1142,7 @@
    "name": "Kahetiya",
    "x": 671,
    "y": 825,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1151,7 +1151,7 @@
    "name": "Mokshiy",
    "x": 521,
    "y": 548,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1160,7 +1160,7 @@
    "name": "Bandja",
    "x": 570,
    "y": 555,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1169,7 +1169,7 @@
    "name": "Sarai Batu",
    "x": 610,
    "y": 594,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1178,7 +1178,7 @@
    "name": "Sarai Berke",
    "x": 616,
    "y": 550,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1187,7 +1187,7 @@
    "name": "Kakaryat'",
    "x": 680,
    "y": 592,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1196,7 +1196,7 @@
    "name": "Kurmysh",
    "x": 611,
    "y": 361,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1205,7 +1205,7 @@
    "name": "Mjuran",
    "x": 673,
    "y": 378,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1214,7 +1214,7 @@
    "name": "Naruchat",
    "x": 609,
    "y": 427,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1223,7 +1223,7 @@
    "name": "Karabolam",
    "x": 670,
    "y": 437,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1232,7 +1232,7 @@
    "name": "Nur-Sultan",
    "x": 615,
    "y": 471,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1241,7 +1241,7 @@
    "name": "Ukek",
    "x": 673,
    "y": 496,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1250,7 +1250,7 @@
    "name": "Samar",
    "x": 591,
    "y": 503,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1259,7 +1259,7 @@
    "name": "Elez",
    "x": 539,
    "y": 490,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1268,7 +1268,7 @@
    "name": "Pronsk",
    "x": 497,
    "y": 400,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1277,7 +1277,7 @@
    "name": "Ryazan",
    "x": 528,
    "y": 435,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1286,7 +1286,7 @@
    "name": "Kolomna",
    "x": 491,
    "y": 450,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -1295,7 +1295,7 @@
    "name": "Szabolcs",
    "x": 121,
    "y": 813,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   }

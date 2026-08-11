@@ -9,7 +9,11 @@ deferred, so this builder needs only
 
 and writes to ``data/processed/maps/<id>/``:
 
-    nodes.json    -- one node per territory (id, name, x, y, region, source)
+    nodes.json    -- one node per territory (id, name, x, y, region_ids,
+                     source).  Territory-to-region is many-to-many: a
+                     territory may sit in 0, 1, or several regions (map 7's
+                     city bonuses overlap the colour regions), so membership
+                     is always a LIST of region ids; [] means no region.
     graph.json    -- undirected edge list with kind/wraps/rule/status,
                      degree stats, and a ``connected`` flag (a disconnected
                      board is legal on some maps: reported, never a failure)
@@ -101,11 +105,32 @@ def validate_annotations(doc: dict, width: int, height: int) -> None:
             )
         else:
             seen_names[norm] = tid
-        rid = t.get("region_id")
-        if rid is not None and rid not in region_ids:
+        if "region_id" in t:
+            # Never coerce the retired scalar: a silent [rid] conversion is
+            # exactly how a wrong region assignment would survive unnoticed.
             problems.append(
-                f"territory {tid} has region_id {rid} not present in regions"
+                f"territory {tid} uses the retired scalar 'region_id' key; "
+                "territory-to-region is many-to-many -- re-author it as a "
+                "'region_ids' list ([] means no region)"
             )
+        rids = t.get("region_ids")
+        if not isinstance(rids, list):
+            problems.append(
+                f"territory {tid} has no 'region_ids' list; membership must "
+                "be a list of region ids ([] means no region)"
+            )
+        else:
+            if len(set(rids)) != len(rids):
+                problems.append(
+                    f"territory {tid} lists a region more than once in "
+                    f"region_ids {rids}"
+                )
+            for rid in rids:
+                if rid not in region_ids:
+                    problems.append(
+                        f"territory {tid} has region_id {rid} not present "
+                        "in regions"
+                    )
         x, y = t.get("x"), t.get("y")
         if not (0 <= x < width and 0 <= y < height):
             problems.append(
@@ -261,16 +286,39 @@ def _crit_e(edges: list[dict]) -> dict[str, Any]:
     }
 
 
-def _crit_f(territories: list[dict], expected_regions: int) -> dict[str, Any]:
-    used = {t["region_id"] for t in territories if t.get("region_id") is not None}
-    missing = [t["territory_id"] for t in territories if t.get("region_id") is None]
-    ok = len(used) == expected_regions and not missing
+def _crit_f(
+    territories: list[dict], regions: list[dict], expected_regions: int
+) -> dict[str, Any]:
+    """Region membership is many-to-many: pass when the distinct region ids
+    used across all territories' region_ids match the catalog's num_regions
+    AND every region defined in ``regions`` is used.  Territories with
+    ``region_ids: []`` are legal (map 7 has grey territories in no region):
+    their count is reported for the human to check, never a failure.  When
+    ``regions`` is empty the regions are genuinely absent, so f is fail, not
+    unverified."""
+    used: set[int] = set()
+    for t in territories:
+        used.update(t["region_ids"])
+    defined = {r["region_id"] for r in regions}
+    unused_defined = sorted(defined - used)
+    multi = [t["territory_id"] for t in territories if len(t["region_ids"]) > 1]
+    none = [t["territory_id"] for t in territories if not t["region_ids"]]
+    ok = len(used) == expected_regions and not unused_defined
     return {
         "criterion": "f: region membership is correct",
         "status": "pass" if ok else "fail",
         "expected_regions": expected_regions,
         "distinct_regions_used": len(used),
-        "territories_without_region": missing,
+        "defined_regions_unused": unused_defined,
+        "n_territories_multiple_regions": len(multi),
+        "territories_multiple_regions": multi,
+        "n_territories_no_region": len(none),
+        "territories_no_region": none,
+        "note": (
+            "membership is many-to-many; a territory in no region is legal "
+            "-- the multiple/none counts are what a human checks against "
+            "the artwork"
+        ),
     }
 
 
@@ -350,7 +398,12 @@ def _write_overlay(
     """Edges drawn UNDER labeled nodes: an edge that should not exist (or a
     missing one) must be visible at a glance -- this is the artifact the
     human verifies.  Solid = shared-border, dashed = route, dotted =
-    unknown kind; orange = proposed, cyan = confirmed edge existence."""
+    unknown kind; orange = proposed, cyan = confirmed edge existence.
+
+    Nodes are coloured by their FIRST region id (membership is many-to-many;
+    overlapping membership gets no visual encoding of its own -- the title
+    reports how many territories sit in multiple or zero regions).  A
+    territory in no region stays white."""
     import matplotlib
 
     matplotlib.use("Agg")
@@ -360,6 +413,11 @@ def _write_overlay(
     fig, ax = plt.subplots(figsize=(w / 72, h / 72), dpi=144)
     ax.imshow(image)
     pos = {t["territory_id"]: (float(t["x"]), float(t["y"])) for t in territories}
+    first_rids = sorted(
+        {t["region_ids"][0] for t in territories if t["region_ids"]}
+    )
+    cmap = plt.get_cmap("tab20")
+    region_color = {rid: cmap(i % 20) for i, rid in enumerate(first_rids)}
     for e in edges:
         (xa, ya), (xb, yb) = pos[e["a"]], pos[e["b"]]
         style = _KIND_LINESTYLE[e["kind"]]
@@ -374,7 +432,10 @@ def _write_overlay(
                     zorder=2)
     for t in territories:
         x, y = pos[t["territory_id"]]
-        ax.plot([x], [y], "o", color="#ffffff", markeredgecolor="black",
+        color = (
+            region_color[t["region_ids"][0]] if t["region_ids"] else "#ffffff"
+        )
+        ax.plot([x], [y], "o", color=color, markeredgecolor="black",
                 markersize=4, zorder=3)
         ax.text(
             x, y - 6, t["name"], color="white", fontsize=5, ha="center",
@@ -437,7 +498,7 @@ def build_graph_map(
                 "name": t["name"],
                 "x": t["x"],
                 "y": t["y"],
-                "region_id": t.get("region_id"),
+                "region_ids": list(t["region_ids"]),
                 "source": t.get("source", "unknown"),
                 "confidence": t.get("confidence", "low"),
             }
@@ -477,7 +538,7 @@ def build_graph_map(
                 "territory_ids": sorted(
                     t["territory_id"]
                     for t in territories
-                    if t.get("region_id") == r["region_id"]
+                    if r["region_id"] in t["region_ids"]
                 ),
             }
         )
@@ -489,7 +550,7 @@ def build_graph_map(
     verification = doc.get("verification", {})
     crit_b = _crit_b(territories, summary.num_territories)
     crit_e = _crit_e(edges)
-    crit_f = _crit_f(territories, summary.num_regions)
+    crit_f = _crit_f(territories, doc.get("regions", []), summary.num_regions)
     crit_d = _crit_d(bonuses_doc, doc.get("regions", []), verification)
     statuses = [c["status"] for c in (crit_b, crit_e, crit_f, crit_d)]
     report = {
@@ -534,7 +595,9 @@ def build_graph_map(
         f"map {map_id} {summary.name}: b={crit_b['status']} "
         f"e={crit_e['status']} f={crit_f['status']} d={crit_d['status']}  "
         f"({len(edges)} edges, "
-        f"{'connected' if graph_doc['connected'] else f'{len(components)} components'})"
+        f"{'connected' if graph_doc['connected'] else f'{len(components)} components'}; "
+        f"{crit_f['n_territories_multiple_regions']} terr in multiple regions, "
+        f"{crit_f['n_territories_no_region']} in none)"
     )
     _write_overlay(
         image, territories, edges, header,

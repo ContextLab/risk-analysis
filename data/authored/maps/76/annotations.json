@@ -1,14 +1,14 @@
 {
  "schema_version": 2,
  "map_id": 76,
- "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_id is null and regions is empty until authored from the artwork.",
+ "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_ids is [] and regions is empty until authored from the artwork.",
  "territories": [
   {
    "territory_id": 3839,
    "name": "Enceladus Hideout",
    "x": 31,
    "y": 22,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -17,7 +17,7 @@
    "name": "Glacier Tables",
    "x": 85,
    "y": 52,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -26,7 +26,7 @@
    "name": "Pass of Pallas",
    "x": 175,
    "y": 21,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -35,7 +35,7 @@
    "name": "Lower Mountains",
    "x": 0,
    "y": 98,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -44,7 +44,7 @@
    "name": "Deimos Pass",
    "x": 68,
    "y": 122,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -53,7 +53,7 @@
    "name": "Caves of Phobos",
    "x": 13,
    "y": 214,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -62,7 +62,7 @@
    "name": "Apollo Steps",
    "x": 131,
    "y": 226,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -71,7 +71,7 @@
    "name": "Valley of the Gods",
    "x": 13,
    "y": 319,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -80,7 +80,7 @@
    "name": "Circle of the Cloven Elders",
    "x": 86,
    "y": 359,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -89,7 +89,7 @@
    "name": "Burial Ground",
    "x": 180,
    "y": 314,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -98,7 +98,7 @@
    "name": "Pillars of Ares",
    "x": 184,
    "y": 163,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -107,7 +107,7 @@
    "name": "Lightning Rocks",
    "x": 259,
    "y": 199,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -116,7 +116,7 @@
    "name": "Cobblestone Creek",
    "x": 283,
    "y": 249,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -125,7 +125,7 @@
    "name": "Upper Mountains",
    "x": 354,
    "y": 22,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -134,7 +134,7 @@
    "name": "Path of the Seven Rocks",
    "x": 271,
    "y": 67,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -143,7 +143,7 @@
    "name": "Hall of the Cyclops",
    "x": 325,
    "y": 83,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -152,7 +152,7 @@
    "name": "Shepherds Village",
    "x": 409,
    "y": 60,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -161,7 +161,7 @@
    "name": "Vineyard",
    "x": 379,
    "y": 200,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -170,7 +170,7 @@
    "name": "Shrine to Dionysos",
    "x": 424,
    "y": 124,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -179,7 +179,7 @@
    "name": "Northern Road",
    "x": 504,
    "y": 118,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -188,7 +188,7 @@
    "name": "Camp of Perseus",
    "x": 522,
    "y": 35,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -197,7 +197,7 @@
    "name": "Sally's Beach",
    "x": 631,
    "y": 21,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -206,7 +206,7 @@
    "name": "Pegasus Creek",
    "x": 613,
    "y": 83,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -215,7 +215,7 @@
    "name": "Shrine to Poseidon",
    "x": 659,
    "y": 99,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -224,7 +224,7 @@
    "name": "Trader's Road",
    "x": 298,
    "y": 371,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -233,7 +233,7 @@
    "name": "Western Road",
    "x": 189,
    "y": 418,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -242,7 +242,7 @@
    "name": "Crossroads",
    "x": 262,
    "y": 456,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -251,7 +251,7 @@
    "name": "Junipers Tree",
    "x": 92,
    "y": 614,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -260,7 +260,7 @@
    "name": "Forest Lake",
    "x": 115,
    "y": 513,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -269,7 +269,7 @@
    "name": "Pine Forest",
    "x": 17,
    "y": 509,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -278,7 +278,7 @@
    "name": "Poachers Forest",
    "x": 276,
    "y": 536,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -287,7 +287,7 @@
    "name": "Forest Road",
    "x": 378,
    "y": 537,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -296,7 +296,7 @@
    "name": "Glade of Pan",
    "x": 229,
    "y": 649,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -305,7 +305,7 @@
    "name": "Oak Forest",
    "x": 361,
    "y": 628,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -314,7 +314,7 @@
    "name": "Southern Road",
    "x": 480,
    "y": 637,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -323,7 +323,7 @@
    "name": "Coach House",
    "x": 601,
    "y": 651,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -332,7 +332,7 @@
    "name": "Southern Fields",
    "x": 703,
    "y": 662,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -341,7 +341,7 @@
    "name": "Homestead",
    "x": 816,
    "y": 620,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -350,7 +350,7 @@
    "name": "Orchard",
    "x": 846,
    "y": 661,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -359,7 +359,7 @@
    "name": "Lighthouse",
    "x": 985,
    "y": 245,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -368,7 +368,7 @@
    "name": "Fisher's Bay",
    "x": 971,
    "y": 393,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -377,7 +377,7 @@
    "name": "Fisher's Village",
    "x": 986,
    "y": 473,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -386,7 +386,7 @@
    "name": "Eastern Road",
    "x": 927,
    "y": 517,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -395,7 +395,7 @@
    "name": "Stones of Nereus",
    "x": 931,
    "y": 623,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -404,7 +404,7 @@
    "name": "Butchers Corner (BuC)",
    "x": 513,
    "y": 175,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -413,7 +413,7 @@
    "name": "Smithy Square (SS)",
    "x": 467,
    "y": 201,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -422,7 +422,7 @@
    "name": "Boreas Gate (BrG)",
    "x": 568,
    "y": 156,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -431,7 +431,7 @@
    "name": "Black Market (BM)",
    "x": 542,
    "y": 195,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -440,7 +440,7 @@
    "name": "Tanners Town (TT)",
    "x": 595,
    "y": 182,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -449,7 +449,7 @@
    "name": "Blood Orange Tavern (BT)",
    "x": 618,
    "y": 147,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -458,7 +458,7 @@
    "name": "Weavers Crossing (WC)",
    "x": 687,
    "y": 153,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -467,7 +467,7 @@
    "name": "Shrine to Penia (SP)",
    "x": 659,
    "y": 180,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -476,7 +476,7 @@
    "name": "Dockyard (DY)",
    "x": 769,
    "y": 183,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -485,7 +485,7 @@
    "name": "Fish Market (FM)",
    "x": 710,
    "y": 192,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -494,7 +494,7 @@
    "name": "Warehouses (WH)",
    "x": 745,
    "y": 209,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -503,7 +503,7 @@
    "name": "Cargo Port (CP)",
    "x": 787,
    "y": 243,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -512,7 +512,7 @@
    "name": "Lock Keeper (LK)",
    "x": 828,
    "y": 303,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -521,7 +521,7 @@
    "name": "Textile Mills (TM)",
    "x": 838,
    "y": 371,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -530,7 +530,7 @@
    "name": "Traders Port (TP)",
    "x": 882,
    "y": 367,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -539,7 +539,7 @@
    "name": "Naval Stores (NS)",
    "x": 827,
    "y": 420,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -548,7 +548,7 @@
    "name": "Eurus Gate (EG)",
    "x": 865,
    "y": 438,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -557,7 +557,7 @@
    "name": "Officer Quarters (OQ)",
    "x": 780,
    "y": 486,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -566,7 +566,7 @@
    "name": "Admiralty (AD)",
    "x": 823,
    "y": 503,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -575,7 +575,7 @@
    "name": "Seamen Barracks (SB)",
    "x": 745,
    "y": 508,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -584,7 +584,7 @@
    "name": "Oarsmen Barracks (OB)",
    "x": 787,
    "y": 527,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -593,7 +593,7 @@
    "name": "Archery Range (AR)",
    "x": 576,
    "y": 528,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -602,7 +602,7 @@
    "name": "Stables (Stb)",
    "x": 575,
    "y": 567,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -611,7 +611,7 @@
    "name": "Grooms (GR)",
    "x": 646,
    "y": 534,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -620,7 +620,7 @@
    "name": "Horse Tracks (HT)",
    "x": 645,
    "y": 572,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -629,7 +629,7 @@
    "name": "Military Academy (MA)",
    "x": 702,
    "y": 525,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -638,7 +638,7 @@
    "name": "Training Ground (TG)",
    "x": 732,
    "y": 554,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -647,7 +647,7 @@
    "name": "Taylors Row (TR)",
    "x": 455,
    "y": 454,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -656,7 +656,7 @@
    "name": "Barbers Corner (BaC)",
    "x": 434,
    "y": 489,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -665,7 +665,7 @@
    "name": "Jewellery Stalls (JS)",
    "x": 506,
    "y": 498,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -674,7 +674,7 @@
    "name": "Notus Gate (NG)",
    "x": 484,
    "y": 531,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -683,7 +683,7 @@
    "name": "Caravansary (CA)",
    "x": 383,
    "y": 366,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -692,7 +692,7 @@
    "name": "Cobblers Lane (CL)",
    "x": 426,
    "y": 389,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -701,7 +701,7 @@
    "name": "Zephyrus Gate (ZG)",
    "x": 395,
    "y": 430,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -710,7 +710,7 @@
    "name": "Baker Street (BS)",
    "x": 419,
    "y": 252,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -719,7 +719,7 @@
    "name": "Shrine to Hermes (SH)",
    "x": 391,
    "y": 312,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -728,7 +728,7 @@
    "name": "Great Market (GM)",
    "x": 430,
    "y": 315,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -737,7 +737,7 @@
    "name": "Potters Quarter (PQ)",
    "x": 464,
    "y": 249,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -746,7 +746,7 @@
    "name": "Amphitheatre (AM)",
    "x": 492,
    "y": 320,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -755,7 +755,7 @@
    "name": "Agora (AG)",
    "x": 538,
    "y": 251,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -764,7 +764,7 @@
    "name": "Bouleuterion (BN)",
    "x": 592,
    "y": 232,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -773,7 +773,7 @@
    "name": "Dionysus Theatre (DT)",
    "x": 636,
    "y": 228,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -782,7 +782,7 @@
    "name": "Hippodrome (HD)",
    "x": 685,
    "y": 235,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -791,7 +791,7 @@
    "name": "Water Gardens (WG)",
    "x": 739,
    "y": 265,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -800,7 +800,7 @@
    "name": "Odeon (OD)",
    "x": 777,
    "y": 332,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -809,7 +809,7 @@
    "name": "Marina (MN)",
    "x": 772,
    "y": 381,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -818,7 +818,7 @@
    "name": "Shrine to Thalia (ST)",
    "x": 740,
    "y": 439,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -827,7 +827,7 @@
    "name": "Law Court (LC)",
    "x": 692,
    "y": 468,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -836,7 +836,7 @@
    "name": "Botanic Gardens (BG)",
    "x": 488,
    "y": 384,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -845,7 +845,7 @@
    "name": "Academy of Atlantis (AA)",
    "x": 537,
    "y": 448,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -854,7 +854,7 @@
    "name": "Great Library (GL)",
    "x": 613,
    "y": 477,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -863,7 +863,7 @@
    "name": "Temple of Demeter",
    "x": 580,
    "y": 289,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -872,7 +872,7 @@
    "name": "Temple of Aphrodite",
    "x": 551,
    "y": 327,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -881,7 +881,7 @@
    "name": "Temple of Hera",
    "x": 634,
    "y": 273,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -890,7 +890,7 @@
    "name": "Temple of Zeus",
    "x": 686,
    "y": 289,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -899,7 +899,7 @@
    "name": "Temple of Hermes",
    "x": 710,
    "y": 359,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -908,7 +908,7 @@
    "name": "Temple of Artemis",
    "x": 669,
    "y": 409,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -917,7 +917,7 @@
    "name": "Temple of Athena",
    "x": 605,
    "y": 411,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -926,7 +926,7 @@
    "name": "Temple of Apollo",
    "x": 567,
    "y": 382,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   },
@@ -935,7 +935,7 @@
    "name": "Grove of Poseidon",
    "x": 622,
    "y": 331,
-   "region_id": null,
+   "region_ids": [],
    "source": "d12-markup",
    "confidence": "high"
   }

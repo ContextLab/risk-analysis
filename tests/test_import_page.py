@@ -82,10 +82,13 @@ def test_output_passes_graph_build_validation(saved_page, authored_root):
     validate_annotations(doc, summary.width, summary.height)  # raises on any problem
 
 
-def test_region_id_null_and_regions_empty(saved_page, authored_root):
+def test_region_ids_empty_and_regions_empty(saved_page, authored_root):
     import_page(1, html_path=saved_page, authored_root=authored_root)
     doc = _read(authored_root, 1)
-    assert all(t["region_id"] is None for t in doc["territories"])
+    # membership is a many-to-many LIST: [] for every imported territory,
+    # never the retired scalar and never [0]
+    assert all(t["region_ids"] == [] for t in doc["territories"])
+    assert all("region_id" not in t for t in doc["territories"])
     assert doc["regions"] == []
     assert doc["extra_bonuses"] == []
     assert doc["special_rules"] == []
@@ -153,7 +156,7 @@ def test_force_preserves_hand_authored_blocks(saved_page, authored_root):
                 "name": "Northwest Territory",
                 "x": 92,
                 "y": 68,
-                "region_id": 1,
+                "region_ids": [1],
                 "source": "d12-markup",
                 "confidence": "high",
             }

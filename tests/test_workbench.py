@@ -318,7 +318,9 @@ def test_map1_artifacts_written_and_consistent(map1_build):
 
     gt_names = {p.name for p in load_label_points(MAP1_FIXTURE)}
     assert names == gt_names
-    assert all(t["region_id"] is not None for t in tdoc["territories"])
+    # membership is a many-to-many list; on map 1 every territory has one
+    assert all(len(t["region_ids"]) == 1 for t in tdoc["territories"])
+    assert all("region_id" not in t for t in tdoc["territories"])
 
     # overlap measured on the polygons AS WRITTEN in the artifact
     rings = {t["territory_id"]: tuple(

@@ -24,7 +24,7 @@ def _doc_from_fixture() -> dict:
                 "name": t.name,
                 "x": t.x,
                 "y": t.y,
-                "region_id": 0,
+                "region_ids": [],
             }
             for t in topology.territories
         ],
