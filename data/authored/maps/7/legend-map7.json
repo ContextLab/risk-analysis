@@ -1,0 +1,802 @@
+{
+ "schema_version": 3,
+ "map_id": 7,
+ "legend_bboxes": [
+  {
+   "what": "'Region Bonuses' legend (mini-map, 6 colour groups)",
+   "bbox": [
+    49,
+    19,
+    232,
+    173
+   ]
+  },
+  {
+   "what": "'Additional City Bonuses' legend (mini-map, 6 paired-city groups)",
+   "bbox": [
+    49,
+    200,
+    232,
+    170
+   ]
+  }
+ ],
+ "regions": [
+  {
+   "region_id": 1,
+   "name": {
+    "text": null,
+    "provenance": "none-printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": "None of the six colour regions carries a printed name; only the two legend panel titles ('Region Bonuses', 'Additional City Bonuses') are printed."
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 5,
+    "text_verbatim": "5",
+    "bbox": [
+     157,
+     55,
+     12,
+     17
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "high",
+    "note": "Green mass in the 'Region Bonuses' mini-map. On the main map the green fill is bounded by one thick black outline; thin white outlines inside it mark the two Additional-City pairs (Tigard, Tualatin) and are NOT region borders. Bull Mountain and King City are the two green strips on the west edge of that mass -- their name labels are printed on the brown background to the left of their polygons, exactly as Metzger's, Bridgeport's, Fox Hill's and the two Sherwoods' labels are. See uncertainties: the task brief listed Bull Mountain and King City as region-less."
+   },
+   "colour_hex": "#327d3a",
+   "members": [
+    {
+     "name": "Metzger",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Tigard 1",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Tigard 2",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Bull Mountain",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": "the pilot task brief listed this territory as region-less; the artwork read and the colour cluster both put it in the green region (red-team confirmed: cluster 1, label-on-parchment convention shared with Metzger/Bridgeport/Fox Hill/the Sherwoods) -- agent reads only, no human sign-off"
+    },
+    {
+     "name": "King City",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": "the pilot task brief listed this territory as region-less; the artwork read and the colour cluster both put it in the green region (red-team confirmed: cluster 1, label-on-parchment convention shared with Metzger/Bridgeport/Fox Hill/the Sherwoods) -- agent reads only, no human sign-off"
+    },
+    {
+     "name": "Bridgeport",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Tualatin 1",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Tualatin 2",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Fox Hill",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "N. Sherwood",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "S. Sherwood",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 2,
+   "name": {
+    "text": null,
+    "provenance": "none-printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": "None of the six colour regions carries a printed name; only the two legend panel titles ('Region Bonuses', 'Additional City Bonuses') are printed."
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 1,
+    "text_verbatim": "1",
+    "bbox": [
+     214,
+     63,
+     8,
+     17
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "high",
+    "note": "Orange mass in the 'Region Bonuses' mini-map; on the main map Marylhurst sits inside the same thick outline as the Lake Oswego and West Linn pairs, separated from them only by ordinary black territory borders."
+   },
+   "colour_hex": "#ae5d04",
+   "members": [
+    {
+     "name": "Lake Oswego 1",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Lake Oswego 2",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Marylhurst",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "West Linn 1",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "West Linn 2",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 3,
+   "name": {
+    "text": null,
+    "provenance": "none-printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": "None of the six colour regions carries a printed name; only the two legend panel titles ('Region Bonuses', 'Additional City Bonuses') are printed."
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 2,
+    "text_verbatim": "2",
+    "bbox": [
+     249,
+     91,
+     12,
+     17
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "high",
+    "note": "Magenta mass on the east bank of the river; Gladstone, Park Place and Henrici share the fill with the white-outlined Oregon City pair."
+   },
+   "colour_hex": "#903779",
+   "members": [
+    {
+     "name": "Gladstone",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Park Place",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Oregon City 1",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Oregon City 2",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Henrici",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 4,
+   "name": {
+    "text": null,
+    "provenance": "none-printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": "None of the six colour regions carries a printed name; only the two legend panel titles ('Region Bonuses', 'Additional City Bonuses') are printed."
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 1,
+    "text_verbatim": "1",
+    "bbox": [
+     61,
+     120,
+     8,
+     17
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "high",
+    "note": "Blue mass at the west of the mini-map: the Newberg pair plus the detached blue Dundee polygon."
+   },
+   "colour_hex": "#385ca6",
+   "members": [
+    {
+     "name": "Newberg 1",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Newberg 2",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Dundee",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 5,
+   "name": {
+    "text": null,
+    "provenance": "none-printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": "None of the six colour regions carries a printed name; only the two legend panel titles ('Region Bonuses', 'Additional City Bonuses') are printed."
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 1,
+    "text_verbatim": "1",
+    "bbox": [
+     166,
+     113,
+     8,
+     17
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "high",
+    "note": "Small yellow mass in the centre of the mini-map = the two Wilsonville territories."
+   },
+   "colour_hex": "#dfc054",
+   "members": [
+    {
+     "name": "W. Wilsonville",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "E. Wilsonville",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 6,
+   "name": {
+    "text": null,
+    "provenance": "none-printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": "None of the six colour regions carries a printed name; only the two legend panel titles ('Region Bonuses', 'Additional City Bonuses') are printed."
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 4,
+    "text_verbatim": "4",
+    "bbox": [
+     167,
+     152,
+     12,
+     17
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "high",
+    "note": "Red group: the large S./N. Canby blob plus the four small detached red shapes (Charbonneau, Butteville, Aurora, Donald). Bonus 4 for a group whose members are mostly tiny detached polygons."
+   },
+   "colour_hex": "#de4446",
+   "members": [
+    {
+     "name": "Charbonneau",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Butteville",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "N. Canby",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "S. Canby",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Aurora",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Donald",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 7,
+   "name": {
+    "text": "Tigard",
+    "provenance": "inferred",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": "The group name is NOT printed in the legend; it is the shared stem of the two numbered territory names the white outline encloses."
+   },
+   "kind": "bonus-group",
+   "layer": "overlay",
+   "bonus": {
+    "value": 1,
+    "text_verbatim": "1",
+    "bbox": [
+     162,
+     220,
+     8,
+     17
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "high",
+    "note": "The group name is NOT printed in the legend; it is the shared stem of the two numbered territory names the white outline encloses. Upper white-outlined blob inside the green mass in the 'Additional City Bonuses' mini-map. Cross-check: exactly the 12 territories whose main-map name labels are printed in cyan (rather than white) are the 12 members of the six pairs."
+   },
+   "colour_hex": "#327d3a",
+   "members": [
+    {
+     "name": "Tigard 1",
+     "confidence": "high",
+     "evidence": "legend-list",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Tigard 2",
+     "confidence": "high",
+     "evidence": "legend-list",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 8,
+   "name": {
+    "text": "Tualatin",
+    "provenance": "inferred",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": "The group name is NOT printed in the legend; it is the shared stem of the two numbered territory names the white outline encloses."
+   },
+   "kind": "bonus-group",
+   "layer": "overlay",
+   "bonus": {
+    "value": 1,
+    "text_verbatim": "1",
+    "bbox": [
+     162,
+     254,
+     8,
+     17
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "high",
+    "note": "The group name is NOT printed in the legend; it is the shared stem of the two numbered territory names the white outline encloses. Lower white-outlined blob inside the green mass. Cross-check: exactly the 12 territories whose main-map name labels are printed in cyan (rather than white) are the 12 members of the six pairs."
+   },
+   "colour_hex": "#327d3a",
+   "members": [
+    {
+     "name": "Tualatin 1",
+     "confidence": "high",
+     "evidence": "legend-list",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Tualatin 2",
+     "confidence": "high",
+     "evidence": "legend-list",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 9,
+   "name": {
+    "text": "Lake Oswego",
+    "provenance": "inferred",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": "The group name is NOT printed in the legend; it is the shared stem of the two numbered territory names the white outline encloses."
+   },
+   "kind": "bonus-group",
+   "layer": "overlay",
+   "bonus": {
+    "value": 1,
+    "text_verbatim": "1",
+    "bbox": [
+     200,
+     229,
+     8,
+     17
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "high",
+    "note": "The group name is NOT printed in the legend; it is the shared stem of the two numbered territory names the white outline encloses. Upper white-outlined blob inside the orange mass. Cross-check: exactly the 12 territories whose main-map name labels are printed in cyan (rather than white) are the 12 members of the six pairs."
+   },
+   "colour_hex": "#ae5d04",
+   "members": [
+    {
+     "name": "Lake Oswego 1",
+     "confidence": "high",
+     "evidence": "legend-list",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Lake Oswego 2",
+     "confidence": "high",
+     "evidence": "legend-list",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 10,
+   "name": {
+    "text": "West Linn",
+    "provenance": "inferred",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": "The group name is NOT printed in the legend; it is the shared stem of the two numbered territory names the white outline encloses."
+   },
+   "kind": "bonus-group",
+   "layer": "overlay",
+   "bonus": {
+    "value": 1,
+    "text_verbatim": "1",
+    "bbox": [
+     227,
+     267,
+     8,
+     17
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "high",
+    "note": "The group name is NOT printed in the legend; it is the shared stem of the two numbered territory names the white outline encloses. Lower white-outlined blob inside the orange mass. Cross-check: exactly the 12 territories whose main-map name labels are printed in cyan (rather than white) are the 12 members of the six pairs."
+   },
+   "colour_hex": "#ae5d04",
+   "members": [
+    {
+     "name": "West Linn 1",
+     "confidence": "high",
+     "evidence": "legend-list",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "West Linn 2",
+     "confidence": "high",
+     "evidence": "legend-list",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 11,
+   "name": {
+    "text": "Oregon City",
+    "provenance": "inferred",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": "The group name is NOT printed in the legend; it is the shared stem of the two numbered territory names the white outline encloses."
+   },
+   "kind": "bonus-group",
+   "layer": "overlay",
+   "bonus": {
+    "value": 1,
+    "text_verbatim": "1",
+    "bbox": [
+     247,
+     277,
+     8,
+     17
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "high",
+    "note": "The group name is NOT printed in the legend; it is the shared stem of the two numbered territory names the white outline encloses. White-outlined blob inside the magenta mass. Cross-check: exactly the 12 territories whose main-map name labels are printed in cyan (rather than white) are the 12 members of the six pairs."
+   },
+   "colour_hex": "#903779",
+   "members": [
+    {
+     "name": "Oregon City 1",
+     "confidence": "high",
+     "evidence": "legend-list",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Oregon City 2",
+     "confidence": "high",
+     "evidence": "legend-list",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 12,
+   "name": {
+    "text": "Newberg",
+    "provenance": "inferred",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": "The group name is NOT printed in the legend; it is the shared stem of the two numbered territory names the white outline encloses."
+   },
+   "kind": "bonus-group",
+   "layer": "overlay",
+   "bonus": {
+    "value": 1,
+    "text_verbatim": "1",
+    "bbox": [
+     75,
+     295,
+     8,
+     17
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "high",
+    "note": "The group name is NOT printed in the legend; it is the shared stem of the two numbered territory names the white outline encloses. White-outlined blob inside the blue mass at the west. Cross-check: exactly the 12 territories whose main-map name labels are printed in cyan (rather than white) are the 12 members of the six pairs."
+   },
+   "colour_hex": "#385ca6",
+   "members": [
+    {
+     "name": "Newberg 1",
+     "confidence": "high",
+     "evidence": "legend-list",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Newberg 2",
+     "confidence": "high",
+     "evidence": "legend-list",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "extra_bonuses": [],
+ "special_rules": [],
+ "territories_in_no_region": [
+  {
+   "name": "Ladd Hill",
+   "confidence": "high",
+   "evidence": "neutral grey fill; the only three grey squares on the map (red-team verified crops)"
+  },
+  {
+   "name": "Saint Paul",
+   "confidence": "high",
+   "evidence": "neutral grey fill; the only three grey squares on the map (red-team verified crops)"
+  },
+  {
+   "name": "Mulino",
+   "confidence": "high",
+   "evidence": "neutral grey fill; the only three grey squares on the map (red-team verified crops)"
+  }
+ ],
+ "map_specific": {},
+ "unresolved": [
+  {
+   "what": "Region count reconciles: 6 colour regions + 6 city-bonus groups = 12 == catalog's 12.",
+   "options": [],
+   "why": ""
+  },
+  {
+   "what": "DISAGREEMENT WITH THE TASK BRIEF: the brief lists 'Bull Mountain, King City, Ladd Hill, Saint Paul, Mulino, ...' as being in no region. I can only find THREE region-less territories on the artwork: Ladd Hill, Saint Paul and Mulino, which are the only three drawn with a neutral grey fill. Bull Mountain and King City are drawn with the same green fill as Tigard/Tualatin and sit inside the green region's single thick black outline; their labels are printed on the brown background west of their polygons, the same convention used for Metzger, Bridgeport, Fox Hill, N. Sherwood and S. Sherwood, all of which are unambiguously green. 11 green + 5 orange + 5 purple + 3 blue + 2 yellow + 6 red = 32, + 3 grey = 35 == the catalog's 35, which only balances if Bull Mountain and King City are green. I have therefore recorded them as green (region 1) and set that region's confidence to 'medium'. A human should re-check this one call before the fan-out; it is the single highest-value thing to resolve on this map.",
+   "options": [],
+   "why": ""
+  },
+  {
+   "what": "None of the six colour regions carries a printed name; only the two legend panel titles ('Region Bonuses', 'Additional City Bonuses') are printed. All six colour-region 'name' fields are null.",
+   "options": [],
+   "why": ""
+  },
+  {
+   "what": "The six city-bonus group names (Tigard, Tualatin, Lake Oswego, West Linn, Oregon City, Newberg) are NOT printed in the legend either. They are recorded because they are unambiguously implied by the pair of numbered territory names the white outline encloses, but they are inferred, not transcribed.",
+   "options": [],
+   "why": ""
+  },
+  {
+   "what": "Colour regions and city-bonus groups OVERLAP: 12 territories belong both to a colour region and to a pairing (e.g. Tigard 1 is in region 1 and region 7). Any downstream consumer that assumes one region per territory will be wrong on this map.",
+   "options": [],
+   "why": ""
+  },
+  {
+   "what": "Legend panel bboxes were read off the printed black frames at 4x zoom and are accurate to roughly +/-3 px.",
+   "options": [],
+   "why": ""
+  }
+ ]
+}

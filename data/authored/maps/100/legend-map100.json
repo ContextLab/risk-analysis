@@ -1,0 +1,2300 @@
+{
+ "schema_version": 3,
+ "map_id": 100,
+ "legend_bboxes": [
+  {
+   "what": "'- Bonuses -' / '- Mini map -' legend panel (whole framed box)",
+   "bbox": [
+    683,
+    25,
+    658,
+    335
+   ]
+  },
+  {
+   "what": "'- Bonuses -' title plaque",
+   "bbox": [
+    935,
+    26,
+    110,
+    17
+   ]
+  },
+  {
+   "what": "'- Mini map -' subtitle plaque",
+   "bbox": [
+    935,
+    44,
+    110,
+    16
+   ]
+  }
+ ],
+ "regions": [
+  {
+   "region_id": 1,
+   "name": {
+    "text": null,
+    "provenance": "none-printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": "no name printed beside this numeral"
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 1,
+    "text_verbatim": "1",
+    "bbox": [
+     1268,
+     47,
+     9,
+     24
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "medium",
+    "note": "Dark olive-grey fill at the far north-east of the mini-map. No name printed beside this numeral."
+   },
+   "colour_hex": "#787864",
+   "members": [
+    {
+     "name": "Burtas",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Sarai Berke",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "As Tarkan",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 2,
+   "name": {
+    "text": "Khazars",
+    "provenance": "printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": ""
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 3,
+    "text_verbatim": "3",
+    "bbox": [
+     1127,
+     49,
+     17,
+     25
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-name",
+    "confidence": "high",
+    "note": "Salmon/peach fill. Printed 'Khazars' immediately to the right of the numeral on the same line."
+   },
+   "colour_hex": "#c8a082",
+   "members": [
+    {
+     "name": "Kursk",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Narus",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Sharu",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Azak",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Sarkel",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Chernigov",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": "moved from Rus (r3) per red-team D1: salmon fill, thick region border against Kiev/Smolensk, colour cluster agrees (pc 1.00)"
+    }
+   ]
+  },
+  {
+   "region_id": 3,
+   "name": {
+    "text": "Rus",
+    "provenance": "printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": ""
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 3,
+    "text_verbatim": "3",
+    "bbox": [
+     1037,
+     65,
+     17,
+     25
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-name",
+    "confidence": "high",
+    "note": "Dusty-rose fill. Printed 'Rus' immediately to the right of the numeral."
+   },
+   "colour_hex": "#967878",
+   "members": [
+    {
+     "name": "Berestye",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Smolensk",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Premyshl",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Galych",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Kiev",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Vladimir",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Kanev",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 4,
+   "name": {
+    "text": null,
+    "provenance": "none-printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": "no name printed beside this numeral"
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 3,
+    "text_verbatim": "3",
+    "bbox": [
+     1215,
+     93,
+     17,
+     25
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "medium",
+    "note": "Yellow-green fill north and east of the Black/Caspian Seas. No name printed beside this numeral. Tiflis and Derbent were initially clustered here by colour sampling but their printed labels sit on the maroon fill, so they are assigned to region 10 instead."
+   },
+   "colour_hex": "#b4b46e",
+   "members": [
+    {
+     "name": "Tmu Tarkan",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Atil",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Samandar",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Kuban",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Balanjar",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Kerch",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": "moved from Khazars (r2) per red-team D2: yellow-green fill with Tmu Tarkan/Kuban, colour cluster agrees (pc 1.00)"
+    }
+   ]
+  },
+  {
+   "region_id": 5,
+   "name": {
+    "text": null,
+    "provenance": "none-printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": "no name printed beside this numeral"
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 1,
+    "text_verbatim": "1",
+    "bbox": [
+     727,
+     106,
+     9,
+     25
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "medium",
+    "note": "Tan/brown fill in north-west Iberia. No name printed beside this numeral."
+   },
+   "colour_hex": "#a08264",
+   "members": [
+    {
+     "name": "Leon",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Castile",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 6,
+   "name": {
+    "text": "Regnum Francorum",
+    "provenance": "printed-unbindable",
+    "spans_region_ids": [
+     6,
+     7,
+     8,
+     9
+    ],
+    "confidence": "medium",
+    "note": "printed once (bbox [823,38,124,45]) centred above FOUR numerals and four fills (regions 6-9); an umbrella label for the Frankish complex, bindable to no single region"
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 3,
+    "text_verbatim": "3",
+    "bbox": [
+     814,
+     99,
+     17,
+     25
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "medium",
+    "note": "Brick-red fill, westernmost of the four Frankish fills. The printed label 'Regnum Francorum' (bbox [823,38,124,45]) is centred above FOUR separate numerals (3, 2, 3, 5) and four separate fills; it names the Frankish complex, not this one region, so 'name' is left null. See uncertainties."
+   },
+   "colour_hex": "#965050",
+   "members": [
+    {
+     "name": "Bretagne",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Neustria",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Flanders",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Paris",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Aquitaine",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Gasgony",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 7,
+   "name": {
+    "text": "Regnum Francorum",
+    "provenance": "printed-unbindable",
+    "spans_region_ids": [
+     6,
+     7,
+     8,
+     9
+    ],
+    "confidence": "medium",
+    "note": "printed once (bbox [823,38,124,45]) centred above FOUR numerals and four fills (regions 6-9); an umbrella label for the Frankish complex, bindable to no single region"
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 2,
+    "text_verbatim": "2",
+    "bbox": [
+     863,
+     100,
+     17,
+     25
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "medium",
+    "note": "Dark maroon-purple fill, second of the four Frankish fills. The glyphs of the printed label 'Regnum Francorum' physically overlay THIS fill. The printed label 'Regnum Francorum' (bbox [823,38,124,45]) is centred above FOUR separate numerals (3, 2, 3, 5) and four separate fills; it names the Frankish complex, not this one region, so 'name' is left null. See uncertainties."
+   },
+   "colour_hex": "#8c5064",
+   "members": [
+    {
+     "name": "Frisia",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Austrasia",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Burgundy",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Lombardy",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 8,
+   "name": {
+    "text": "Regnum Francorum",
+    "provenance": "printed-unbindable",
+    "spans_region_ids": [
+     6,
+     7,
+     8,
+     9
+    ],
+    "confidence": "medium",
+    "note": "printed once (bbox [823,38,124,45]) centred above FOUR numerals and four fills (regions 6-9); an umbrella label for the Frankish complex, bindable to no single region"
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 3,
+    "text_verbatim": "3",
+    "bbox": [
+     909,
+     100,
+     17,
+     25
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "medium",
+    "note": "Bright pink fill, third of the four Frankish fills. The printed label 'Regnum Francorum' (bbox [823,38,124,45]) is centred above FOUR separate numerals (3, 2, 3, 5) and four separate fills; it names the Frankish complex, not this one region, so 'name' is left null. See uncertainties."
+   },
+   "colour_hex": "#b45a78",
+   "members": [
+    {
+     "name": "Saxon",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Thuringia",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Bavaria",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Carint",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Friuli",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Alamania",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": "moved from r7 per red-team D4: bright pink fill east of the thick border with Saxon/Thuringia; changes bonus 2 -> 3"
+    }
+   ]
+  },
+  {
+   "region_id": 9,
+   "name": {
+    "text": "Regnum Francorum",
+    "provenance": "printed-unbindable",
+    "spans_region_ids": [
+     6,
+     7,
+     8,
+     9
+    ],
+    "confidence": "medium",
+    "note": "printed once (bbox [823,38,124,45]) centred above FOUR numerals and four fills (regions 6-9); an umbrella label for the Frankish complex, bindable to no single region"
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 5,
+    "text_verbatim": "5",
+    "bbox": [
+     963,
+     99,
+     18,
+     25
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "medium",
+    "note": "Violet/purple fill, easternmost of the four Frankish fills. The printed label 'Regnum Francorum' (bbox [823,38,124,45]) is centred above FOUR separate numerals (3, 2, 3, 5) and four separate fills; it names the Frankish complex, not this one region, so 'name' is left null. See uncertainties."
+   },
+   "colour_hex": "#826482",
+   "members": [
+    {
+     "name": "Billungermark",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Nordmark",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Sorabt",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Bohemia",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Moravia",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Pannonia",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Dalmatia",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 10,
+   "name": {
+    "text": "Sajid",
+    "provenance": "printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": ""
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 3,
+    "text_verbatim": "3",
+    "bbox": [
+     1251,
+     123,
+     17,
+     25
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-name",
+    "confidence": "medium",
+    "note": "Maroon fill across the Caucasus. Printed 'Sajid' immediately to the right of the numeral. Tiflis and Derbent are included because their printed labels sit on the maroon fill even though their annotations.json anchor points fall on the yellow-green boundary."
+   },
+   "colour_hex": "#8c5050",
+   "members": [
+    {
+     "name": "Derbent",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": "assignment matches both the printed label and the colour cluster; the pilot's note claiming a colour-sampling disagreement here was false (red-team D6: cluster agrees, patch consistency 1.00)"
+    },
+    {
+     "name": "Shirvan",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Tiflis",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": "assignment matches both the printed label and the colour cluster; the pilot's note claiming a colour-sampling disagreement here was false (red-team D6: cluster agrees, patch consistency 1.00)"
+    },
+    {
+     "name": "Manzikert",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Dvin",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Ardebil",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 11,
+   "name": {
+    "text": "Bulgar",
+    "provenance": "printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": ""
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 4,
+    "text_verbatim": "4",
+    "bbox": [
+     1028,
+     145,
+     19,
+     24
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-name",
+    "confidence": "high",
+    "note": "Khaki/tan fill across the Balkans. Printed 'Bulgar' directly above the numeral."
+   },
+   "colour_hex": "#aa9664",
+   "members": [
+    {
+     "name": "Prut",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Silistria",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Dorostol",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Belgrade",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Sofia",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Ohrid",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Adrianople",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 12,
+   "name": {
+    "text": null,
+    "provenance": "none-printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": "no name printed beside this numeral"
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 1,
+    "text_verbatim": "1",
+    "bbox": [
+     929,
+     160,
+     9,
+     25
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "medium",
+    "note": "Dusty-pink fill on the Italian peninsula. No name printed beside this numeral."
+   },
+   "colour_hex": "#a07882",
+   "members": [
+    {
+     "name": "Rome",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Benevento",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 13,
+   "name": {
+    "text": "Byzantine",
+    "provenance": "printed-unbindable",
+    "spans_region_ids": [
+     13,
+     14
+    ],
+    "confidence": "low",
+    "note": "the printed word sits 2 px from the midpoint of the numerals of regions 13 and 14 (74.3 px vs 77.6 px); red-team D5: most likely it labels BOTH regions, matching the Regnum Francorum precedent -- see unresolved"
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 3,
+    "text_verbatim": "3",
+    "bbox": [
+     1003,
+     170,
+     17,
+     25
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "low",
+    "note": "Grey-brown fill covering Byzantine Europe. The printed label 'Byzantine' sits BETWEEN this numeral and the '4' of region 14; its glyphs overlay region 14's fill, so 'Byzantine' was bound to region 14 and this region's name left null. This binding is genuinely ambiguous -- see uncertainties."
+   },
+   "colour_hex": "#8c6e5a",
+   "members": [
+    {
+     "name": "Ragusa",
+     "confidence": "low",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Dyrrhachium",
+     "confidence": "low",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Philipopolis",
+     "confidence": "low",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Constantinople",
+     "confidence": "low",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Thessaloniki",
+     "confidence": "low",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Athenes",
+     "confidence": "low",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 14,
+   "name": {
+    "text": "Byzantine",
+    "provenance": "printed-unbindable",
+    "spans_region_ids": [
+     13,
+     14
+    ],
+    "confidence": "low",
+    "note": "the printed word sits 2 px from the midpoint of the numerals of regions 13 and 14 (74.3 px vs 77.6 px); red-team D5: most likely it labels BOTH regions, matching the Regnum Francorum precedent -- see unresolved"
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 4,
+    "text_verbatim": "4",
+    "bbox": [
+     1142,
+     171,
+     20,
+     24
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-name",
+    "confidence": "low",
+    "note": "Orange-brown fill across Anatolia. The printed word 'Byzantine' (bbox [1023,199,110,22]) physically overlays this fill, which is why the name is bound here rather than to region 13 -- but the numeral '3' of region 13 is roughly equidistant on the other side of the word."
+   },
+   "colour_hex": "#965a3c",
+   "members": [
+    {
+     "name": "Nicomedia",
+     "confidence": "low",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Sinope",
+     "confidence": "low",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Angora",
+     "confidence": "low",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Smyrna",
+     "confidence": "low",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Laranda",
+     "confidence": "low",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Tarsus",
+     "confidence": "low",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Trabizond",
+     "confidence": "low",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 15,
+   "name": {
+    "text": "Umayyad",
+    "provenance": "printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": ""
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 3,
+    "text_verbatim": "3",
+    "bbox": [
+     743,
+     184,
+     17,
+     25
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-name",
+    "confidence": "high",
+    "note": "Olive fill across Muslim Iberia. Printed 'Umayyad' directly above the numeral."
+   },
+   "colour_hex": "#8ca05a",
+   "members": [
+    {
+     "name": "Lisbon",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Zaragoza",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Toledo",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Seville",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Cordoba",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Malaga",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 16,
+   "name": {
+    "text": "Saminid",
+    "provenance": "printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": ""
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 3,
+    "text_verbatim": "3",
+    "bbox": [
+     1202,
+     198,
+     17,
+     25
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-name",
+    "confidence": "medium",
+    "note": "Sage-green fill across the Jazira. Printed 'Saminid' immediately to the right of the numeral (spelling transcribed exactly as printed)."
+   },
+   "colour_hex": "#82a078",
+   "members": [
+    {
+     "name": "Antioch",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Mardin",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Jazira",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Mosul",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Samarra",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Edessa",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": "moved from Byzantine (r14) per red-team D3: sage-green fill contiguous with Mardin/Jazira; changes this territory's bonus 4 -> 3"
+    }
+   ]
+  },
+  {
+   "region_id": 17,
+   "name": {
+    "text": "Hamdanid",
+    "provenance": "printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": ""
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 3,
+    "text_verbatim": "3",
+    "bbox": [
+     1291,
+     221,
+     16,
+     25
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-name",
+    "confidence": "medium",
+    "note": "Tan/pink fill across western Persia. Printed 'Hamdanid' immediately to the LEFT of the numeral. Tabriz and Baghdad are included because their printed labels sit on this fill, although their annotations.json anchors fall on the neighbouring maroon and sage fills respectively."
+   },
+   "colour_hex": "#b49682",
+   "members": [
+    {
+     "name": "Tabriz",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": "assignment matches both the printed label and the colour cluster; the pilot's note claiming a colour-sampling disagreement here was false (red-team D6: cluster agrees, patch consistency 1.00)"
+    },
+    {
+     "name": "Amol",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Sari",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Isfahan",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Baghdad",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": "assignment matches both the printed label and the colour cluster; the pilot's note claiming a colour-sampling disagreement here was false (red-team D6: cluster agrees, patch consistency 1.00)"
+    },
+    {
+     "name": "F\u00e4rs",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 18,
+   "name": {
+    "text": "Rustamid",
+    "provenance": "printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": ""
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 3,
+    "text_verbatim": "3",
+    "bbox": [
+     796,
+     239,
+     17,
+     25
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-name",
+    "confidence": "high",
+    "note": "Mid-green fill across Algeria. Printed 'Rustamid' below and left of the numeral. Thick black region outlines confirmed at 2x zoom on the main map."
+   },
+   "colour_hex": "#5aaa6e",
+   "members": [
+    {
+     "name": "Tahert",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Algiers",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Ghardaia",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Quargla",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Adrar",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "In Salah",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 19,
+   "name": {
+    "text": "Aghlabid",
+    "provenance": "printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": ""
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 3,
+    "text_verbatim": "3",
+    "bbox": [
+     862,
+     238,
+     17,
+     25
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-name",
+    "confidence": "high",
+    "note": "Teal-green fill across Tunisia/Tripolitania. Printed 'Aghlabid' below the numeral. Boundaries confirmed against the thick black region outlines at 2x zoom."
+   },
+   "colour_hex": "#64aa96",
+   "members": [
+    {
+     "name": "Sedrata",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Qayrawan",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Tripoli",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Khawar",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Fessan",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Sirte",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 20,
+   "name": {
+    "text": "Idrisid",
+    "provenance": "printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": ""
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 3,
+    "text_verbatim": "3",
+    "bbox": [
+     706,
+     260,
+     17,
+     25
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-name",
+    "confidence": "high",
+    "note": "Dark green fill across Morocco. Printed 'Idrisid' above and right of the numeral."
+   },
+   "colour_hex": "#5a8c5a",
+   "members": [
+    {
+     "name": "Tanger",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Sale",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Fez",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Tlemcen",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Aghmate",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Sijilmassa",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 21,
+   "name": {
+    "text": "Buyahid",
+    "provenance": "printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": ""
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 3,
+    "text_verbatim": "3",
+    "bbox": [
+     1287,
+     262,
+     17,
+     25
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-name",
+    "confidence": "medium",
+    "note": "Khaki fill across Iraq. Printed 'Buyahid' immediately to the left of the numeral."
+   },
+   "colour_hex": "#969664",
+   "members": [
+    {
+     "name": "Tadmor",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Kufah",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Kelb",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Shiraf",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Basrah",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Abadan",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 22,
+   "name": {
+    "text": null,
+    "provenance": "none-printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": "no name printed beside this numeral"
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 8,
+    "text_verbatim": "8",
+    "bbox": [
+     1155,
+     293,
+     15,
+     25
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "medium",
+    "note": "Olive fill across Egypt, the Levant and the Hejaz. No name printed beside this numeral. NOTE: this region uses the SAME fill colour as region 15 (Umayyad, Iberia); the two are distinguished only by position, so colour alone is not a sufficient key on this map. It contains three of the five italic-labelled Holy Cities."
+   },
+   "colour_hex": "#8ca05a",
+   "members": [
+    {
+     "name": "Iskandariyyah",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Farama",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Al Arish",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Fustat",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Fayyum",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Aswan",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Damashq",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Alquds/Jerusalem",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Tabuk",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Medina",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Mecca",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 23,
+   "name": {
+    "text": "Tulunid",
+    "provenance": "printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": ""
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 3,
+    "text_verbatim": "3",
+    "bbox": [
+     1021,
+     299,
+     17,
+     25
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-name",
+    "confidence": "high",
+    "note": "Bright teal-green fill across Cyrenaica and the western Egyptian desert. Printed 'Tulunid' immediately to the right of the numeral. Separated from region 22 by a thick black outline verified at 2x zoom."
+   },
+   "colour_hex": "#64b478",
+   "members": [
+    {
+     "name": "Barqah",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Marmarica",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Audjila",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Santariyya",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Qasr",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Farigha",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 24,
+   "name": {
+    "text": "Nedjed",
+    "provenance": "printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": ""
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 3,
+    "text_verbatim": "3",
+    "bbox": [
+     1304,
+     306,
+     17,
+     24
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-name",
+    "confidence": "medium",
+    "note": "Saturated green fill across interior Arabia. Printed 'Nedjed' immediately to the left of the numeral."
+   },
+   "colour_hex": "#3c963c",
+   "members": [
+    {
+     "name": "Teima",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Zubala",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Nedjed",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Nefud",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Bahrayyn",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Hejaz",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Yammamah",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "extra_bonuses": [
+  {
+   "description_verbatim": "+1",
+   "value": 1,
+   "scope": "territory",
+   "members": [
+    {
+     "name": "Aragon & Navarre",
+     "confidence": "medium",
+     "evidence": "position of the '+1' glyph over this grey territory in the mini-map (read at 3x zoom)",
+     "note": ""
+    }
+   ],
+   "bbox": [
+    801,
+    140,
+    25,
+    20
+   ],
+   "confidence": "medium",
+   "note": "One of nine '+1' glyphs printed on grey (region-less) territories in the mini-map. Each is an instance of the prose rule '+1 for controlling a grey territory together with an adjacent region'; the glyph itself carries no further text. Assignment of this glyph to this particular grey territory is by position in the mini-map."
+  },
+  {
+   "description_verbatim": "+1",
+   "value": 1,
+   "scope": "territory",
+   "members": [
+    {
+     "name": "Baleares",
+     "confidence": "medium",
+     "evidence": "position of the '+1' glyph over this grey territory in the mini-map (read at 3x zoom)",
+     "note": ""
+    }
+   ],
+   "bbox": [
+    802,
+    176,
+    25,
+    20
+   ],
+   "confidence": "medium",
+   "note": "One of nine '+1' glyphs printed on grey (region-less) territories in the mini-map. Each is an instance of the prose rule '+1 for controlling a grey territory together with an adjacent region'; the glyph itself carries no further text. Assignment of this glyph to this particular grey territory is by position in the mini-map."
+  },
+  {
+   "description_verbatim": "+1",
+   "value": 1,
+   "scope": "territory",
+   "members": [
+    {
+     "name": "Corsica",
+     "confidence": "medium",
+     "evidence": "position of the '+1' glyph over this grey territory in the mini-map (read at 3x zoom)",
+     "note": ""
+    }
+   ],
+   "bbox": [
+    872,
+    156,
+    25,
+    20
+   ],
+   "confidence": "medium",
+   "note": "One of nine '+1' glyphs printed on grey (region-less) territories in the mini-map. Each is an instance of the prose rule '+1 for controlling a grey territory together with an adjacent region'; the glyph itself carries no further text. Assignment of this glyph to this particular grey territory is by position in the mini-map."
+  },
+  {
+   "description_verbatim": "+1",
+   "value": 1,
+   "scope": "territory",
+   "members": [
+    {
+     "name": "Sardinia",
+     "confidence": "medium",
+     "evidence": "position of the '+1' glyph over this grey territory in the mini-map (read at 3x zoom)",
+     "note": ""
+    }
+   ],
+   "bbox": [
+    868,
+    180,
+    25,
+    20
+   ],
+   "confidence": "medium",
+   "note": "One of nine '+1' glyphs printed on grey (region-less) territories in the mini-map. Each is an instance of the prose rule '+1 for controlling a grey territory together with an adjacent region'; the glyph itself carries no further text. Assignment of this glyph to this particular grey territory is by position in the mini-map."
+  },
+  {
+   "description_verbatim": "+1",
+   "value": 1,
+   "scope": "territory",
+   "members": [
+    {
+     "name": "Bari",
+     "confidence": "medium",
+     "evidence": "position of the '+1' glyph over this grey territory in the mini-map (read at 3x zoom)",
+     "note": ""
+    }
+   ],
+   "bbox": [
+    951,
+    190,
+    25,
+    20
+   ],
+   "confidence": "medium",
+   "note": "One of nine '+1' glyphs printed on grey (region-less) territories in the mini-map. Each is an instance of the prose rule '+1 for controlling a grey territory together with an adjacent region'; the glyph itself carries no further text. Assignment of this glyph to this particular grey territory is by position in the mini-map."
+  },
+  {
+   "description_verbatim": "+1",
+   "value": 1,
+   "scope": "territory",
+   "members": [
+    {
+     "name": "Sicily",
+     "confidence": "medium",
+     "evidence": "position of the '+1' glyph over this grey territory in the mini-map (read at 3x zoom)",
+     "note": ""
+    }
+   ],
+   "bbox": [
+    919,
+    216,
+    25,
+    20
+   ],
+   "confidence": "medium",
+   "note": "One of nine '+1' glyphs printed on grey (region-less) territories in the mini-map. Each is an instance of the prose rule '+1 for controlling a grey territory together with an adjacent region'; the glyph itself carries no further text. Assignment of this glyph to this particular grey territory is by position in the mini-map."
+  },
+  {
+   "description_verbatim": "+1",
+   "value": 1,
+   "scope": "territory",
+   "members": [
+    {
+     "name": "Crete",
+     "confidence": "medium",
+     "evidence": "position of the '+1' glyph over this grey territory in the mini-map (read at 3x zoom)",
+     "note": ""
+    }
+   ],
+   "bbox": [
+    1038,
+    241,
+    25,
+    20
+   ],
+   "confidence": "medium",
+   "note": "One of nine '+1' glyphs printed on grey (region-less) territories in the mini-map. Each is an instance of the prose rule '+1 for controlling a grey territory together with an adjacent region'; the glyph itself carries no further text. Assignment of this glyph to this particular grey territory is by position in the mini-map."
+  },
+  {
+   "description_verbatim": "+1",
+   "value": 1,
+   "scope": "territory",
+   "members": [
+    {
+     "name": "Cyprus",
+     "confidence": "medium",
+     "evidence": "position of the '+1' glyph over this grey territory in the mini-map (read at 3x zoom)",
+     "note": ""
+    }
+   ],
+   "bbox": [
+    1125,
+    235,
+    25,
+    20
+   ],
+   "confidence": "medium",
+   "note": "One of nine '+1' glyphs printed on grey (region-less) territories in the mini-map. Each is an instance of the prose rule '+1 for controlling a grey territory together with an adjacent region'; the glyph itself carries no further text. Assignment of this glyph to this particular grey territory is by position in the mini-map."
+  },
+  {
+   "description_verbatim": "+1",
+   "value": 1,
+   "scope": "territory",
+   "members": [
+    {
+     "name": "Krim",
+     "confidence": "medium",
+     "evidence": "position of the '+1' glyph over this grey territory in the mini-map (read at 3x zoom)",
+     "note": ""
+    }
+   ],
+   "bbox": [
+    1113,
+    114,
+    25,
+    20
+   ],
+   "confidence": "medium",
+   "note": "One of nine '+1' glyphs printed on grey (region-less) territories in the mini-map. Each is an instance of the prose rule '+1 for controlling a grey territory together with an adjacent region'; the glyph itself carries no further text. Assignment of this glyph to this particular grey territory is by position in the mini-map."
+  },
+  {
+   "description_verbatim": "+5 for controlling all 5 Holy Cities",
+   "value": 5,
+   "scope": "set",
+   "members": [
+    {
+     "name": "Rome",
+     "confidence": "medium",
+     "evidence": "italic-serif typography of exactly five main-map labels (INFERRED, not transcribed -- see unresolved)",
+     "note": ""
+    },
+    {
+     "name": "Constantinople",
+     "confidence": "medium",
+     "evidence": "italic-serif typography of exactly five main-map labels (INFERRED, not transcribed -- see unresolved)",
+     "note": ""
+    },
+    {
+     "name": "Alquds/Jerusalem",
+     "confidence": "medium",
+     "evidence": "italic-serif typography of exactly five main-map labels (INFERRED, not transcribed -- see unresolved)",
+     "note": ""
+    },
+    {
+     "name": "Medina",
+     "confidence": "medium",
+     "evidence": "italic-serif typography of exactly five main-map labels (INFERRED, not transcribed -- see unresolved)",
+     "note": ""
+    },
+    {
+     "name": "Mecca",
+     "confidence": "medium",
+     "evidence": "italic-serif typography of exactly five main-map labels (INFERRED, not transcribed -- see unresolved)",
+     "note": ""
+    }
+   ],
+   "bbox": [
+    1043,
+    338,
+    295,
+    20
+   ],
+   "confidence": "medium",
+   "note": "The rule text names no cities. The five members listed here are the only five territory labels on the main map printed in dark italic serif rather than white upright bold (Rome, Constantinople, Alquds/Jerusalem, Medina, Mecca) -- exactly five, and each is a historical holy city. This membership is INFERRED FROM TYPOGRAPHY, not transcribed."
+  }
+ ],
+ "special_rules": [
+  {
+   "text_verbatim": "+1 for controlling a grey territory\ntogether with an adjacent region",
+   "bbox": [
+    687,
+    321,
+    286,
+    37
+   ],
+   "applies_to": "the nine grey territories (instantiated per territory in extra_bonuses)",
+   "machine_readable": null
+  },
+  {
+   "text_verbatim": "+5 for controlling all 5 Holy Cities",
+   "bbox": [
+    1043,
+    338,
+    295,
+    20
+   ],
+   "applies_to": "the five italic-serif-labelled territories (see the matching extra_bonuses set entry)",
+   "machine_readable": null
+  }
+ ],
+ "territories_in_no_region": [
+  {
+   "name": "Aragon & Navarre",
+   "confidence": "high",
+   "evidence": "grey fill on the main map and mini-map"
+  },
+  {
+   "name": "Baleares",
+   "confidence": "high",
+   "evidence": "grey island fill; the sample point lands on sea (patch consistency 0.07), membership read visually"
+  },
+  {
+   "name": "Corsica",
+   "confidence": "high",
+   "evidence": "grey fill on the main map and mini-map"
+  },
+  {
+   "name": "Sardinia",
+   "confidence": "high",
+   "evidence": "grey fill on the main map and mini-map"
+  },
+  {
+   "name": "Bari",
+   "confidence": "high",
+   "evidence": "grey island fill; the sample point lands on sea (patch consistency 0.74), membership read visually"
+  },
+  {
+   "name": "Sicily",
+   "confidence": "high",
+   "evidence": "grey fill on the main map and mini-map"
+  },
+  {
+   "name": "Crete",
+   "confidence": "high",
+   "evidence": "grey island fill; the sample point lands on sea (patch consistency 0.69), membership read visually"
+  },
+  {
+   "name": "Cyprus",
+   "confidence": "high",
+   "evidence": "grey island fill; sample genuinely ambiguous (patch consistency 0.22), membership read visually"
+  },
+  {
+   "name": "Krim",
+   "confidence": "high",
+   "evidence": "grey fill on the main map and mini-map"
+  }
+ ],
+ "map_specific": {},
+ "unresolved": [
+  {
+   "what": "the printed label 'Byzantine' may span regions 13 AND 14 rather than naming one of them",
+   "options": [
+    "spans both 13 and 14 (red-team D5: most likely; matches the Regnum Francorum precedent and ~900 AD history)",
+    "names region 13 only (the '3'; what the pilot's human calibration read)",
+    "names region 14 only (the '4'; the pilot binding -- least supported: it requires a label position with no precedent on this map)"
+   ],
+   "why": "the word's centre is 2 px from the midpoint of the two numerals (74.3 px vs 77.6 px); no on-map cue binds it to one"
+  },
+  {
+   "what": "the printed label 'Regnum Francorum' spans regions 6-9 rather than naming one region",
+   "options": [
+    "umbrella label for all four Frankish fills (recorded)",
+    "name of a single one of the four regions"
+   ],
+   "why": "printed once, centred above four numerals (3, 2, 3, 5) and four distinct fills"
+  },
+  {
+   "what": "Holy Cities membership is inferred from italic-serif typography, not transcribed",
+   "options": [
+    "the five italic labels are the five Holy Cities (recorded)",
+    "the italic face also marks decoration ('Caspian', 'Oghuz'), so a typographic rule may over- or under-select"
+   ],
+   "why": "the printed rule names no cities (red-team D12: exhaustiveness of 'exactly five' not independently verified)"
+  },
+  {
+   "what": "the grey-territory rule is stored twice: verbatim in special_rules[0] and as nine per-territory extra_bonuses instances (same for the Holy-Cities rule and extra_bonuses[9])",
+   "options": [
+    "consumers must treat extra_bonuses as the per-instance expansion of the special_rules prose, not additional value"
+   ],
+   "why": "red-team D11: there is no linkage field; summing both double-counts"
+  },
+  {
+   "what": "'Map created by Dima' is printed vertically inside legend_bboxes[0] (x~1330-1345, y~60-340) and is not transcribed anywhere",
+   "options": [],
+   "why": "red-team D13: no game impact, but the legend panel is not fully transcribed"
+  },
+  {
+   "what": "regions 15 (Umayyad) and 22 share the exact fill colour #8ca05a; colour alone cannot key regions on this map",
+   "options": [],
+   "why": "the two are distinguished only by position; any colour-keyed join will conflate them"
+  },
+  {
+   "what": "regions 1 and 4 sit at the map's north-east edge where the parchment/forest border overlay tints the fills",
+   "options": [],
+   "why": "membership there is medium confidence, not high"
+  },
+  {
+   "what": "legend numeral bboxes are glyph-tight (connected-component detection); panel and prose bboxes were estimated by eye at 3-5x zoom (+/-5 px)",
+   "options": [],
+   "why": "pilot measurement note, carried over"
+  },
+  {
+   "what": "sample-point caveats: only Baleares, Bari and Crete sample open sea; Cyprus (pc 0.22) and Billungermark (pc 0.12) are ambiguous",
+   "options": [],
+   "why": "replaces the pilot's 'anchors land on open water' list, which red-team D7 measured to be mostly wrong (all ten 'near-boundary' territories sample at pc 1.00 and agree)"
+  }
+ ]
+}

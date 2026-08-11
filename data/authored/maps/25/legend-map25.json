@@ -1,0 +1,127 @@
+{
+ "schema_version": 3,
+ "map_id": 25,
+ "legend_bboxes": [
+  {
+   "what": "unit-attack legend (framed box: CAVALRY / CANNOT ATTACK / ARTILLERY / CANNOT ATTACK / INFANTRY / CANNOT ATTACK / CAVALRY, each unit line flanked by its icon)",
+   "bbox": [
+    14,
+    155,
+    205,
+    219
+   ]
+  },
+  {
+   "what": "continent-bonus inset (bonus values 2,2,4,3,3,3,3,2,4) -- NOT yet read into regions",
+   "bbox": [
+    15,
+    390,
+    270,
+    190
+   ]
+  }
+ ],
+ "regions": [],
+ "extra_bonuses": [],
+ "special_rules": [
+  {
+   "text_verbatim": "CAVALRY\nCANNOT ATTACK\nARTILLERY\nCANNOT ATTACK\nINFANTRY\nCANNOT ATTACK\nCAVALRY",
+   "bbox": [
+    14,
+    155,
+    205,
+    219
+   ],
+   "applies_to": "every territory, via the unit icon painted on it (the 'Advanced' mechanic)",
+   "machine_readable": null
+  }
+ ],
+ "territories_in_no_region": [],
+ "map_specific": {
+  "documentation": {
+   "unit_classes": "the three cyclic unit classes derived from D12's directed adjacency markup by BFS (bidirectional edge => same class; one-way A->B => class(B) = class(A)+1 mod 3). All 146 directed edges fit with zero violations (classes of 18/18/19). Recorded as class_0/1/2, NOT as cavalry/infantry/artillery: binding a class to a printed unit needs the painted per-territory icons, and only a partial spot-check of those exists.",
+   "unit_attack_rule": "how the classes constrain attacks: a territory of class k may attack an adjacent territory of class k (bidirectional edges) or class (k+1) mod 3 (one-way edges), and cannot attack class (k+2) mod 3. This is the machine-readable form of the legend's CANNOT-ATTACK cycle; the special_rules prose stays authoritative."
+  },
+  "unit_classes": {
+   "class_0": [
+    "Andalusia",
+    "Bohemia",
+    "Bulgaria",
+    "Catalonia",
+    "Germania",
+    "Greece",
+    "Hungary",
+    "Lithuania",
+    "Little Russia",
+    "Netherlands",
+    "Normandy",
+    "Norway",
+    "Portugal",
+    "Rome",
+    "Sardinia",
+    "Wales",
+    "Warsaw",
+    "White Russia"
+   ],
+   "class_1": [
+    "Balearic Islands",
+    "Bielgorod",
+    "Burgundy",
+    "Candia",
+    "Denmark",
+    "England",
+    "Esthonia",
+    "Galacia",
+    "Gascony",
+    "Illyria",
+    "Madrid",
+    "Moscovy",
+    "Naples",
+    "Prussia",
+    "S. Rhine",
+    "Scotland",
+    "Switzerland",
+    "Wallachia"
+   ],
+   "class_2": [
+    "Austria",
+    "Berlin",
+    "Bosnia",
+    "Corsica",
+    "Courland",
+    "Finland",
+    "Ireland",
+    "Italy",
+    "Leon",
+    "Moldavia",
+    "N. Rhine",
+    "Novgorod",
+    "Paris",
+    "Podlesia",
+    "Provence",
+    "Sicily",
+    "Silesia",
+    "Sweden",
+    "Turkey"
+   ]
+  },
+  "unit_attack_rule": {
+   "cycle": "class k attacks class k and class (k+1) mod 3; cannot attack class (k+2) mod 3",
+   "derived_from": "data/raw/saved_pages/25.html directed adjacencies: 55 territories, 146 directed entries (102 one-way + 22 bidirectional pairs), 0 violations"
+  }
+ },
+ "unresolved": [
+  {
+   "what": "which unit (cavalry/artillery/infantry) each of class_0/1/2 is",
+   "options": [
+    "read every painted territory icon and bind the classes (a partial spot-check of ~40 icons matched the derived classes, but no full read exists)"
+   ],
+   "why": "the directed graph determines the classes only up to a global rotation of the three unit types"
+  },
+  {
+   "what": "the continent-bonus inset (9 values) has not been read into regions",
+   "options": [],
+   "why": "no legend read has been authored for map 25; merge_legend is out of scope for this map until then"
+  }
+ ]
+}

@@ -1,0 +1,570 @@
+{
+ "schema_version": 3,
+ "map_id": 1,
+ "legend_bboxes": [
+  {
+   "what": "Bonus mini-map legend (numerals only, no region names printed)",
+   "bbox": [
+    632,
+    549,
+    181,
+    122
+   ]
+  }
+ ],
+ "regions": [
+  {
+   "region_id": 1,
+   "name": {
+    "text": null,
+    "provenance": "none-printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": "No region name is printed anywhere on this map, neither on the main map nor in the legend."
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 5,
+    "text_verbatim": "5",
+    "bbox": [
+     649,
+     575,
+     10,
+     14
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "high",
+    "note": "No region name is printed anywhere on this map. Membership assigned by matching the numeral's underlying fill colour in the mini-map to the same fill colour on the main map (yellow continent, upper-left of the mini-map (North America)). Main-map fill sampled at each territory's annotations.json coordinate."
+   },
+   "colour_hex": "#bb9d19",
+   "members": [
+    {
+     "name": "Alaska",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": "label sits over ocean; fill read from the adjacent landmass and confirmed visually at full-map zoom"
+    },
+    {
+     "name": "Northwest Territory",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Alberta",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Ontario",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Quebec",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Greenland",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Western United States",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Eastern United States",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Central America",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 2,
+   "name": {
+    "text": null,
+    "provenance": "none-printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": "No region name is printed anywhere on this map, neither on the main map nor in the legend."
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 2,
+    "text_verbatim": "2",
+    "bbox": [
+     669,
+     622,
+     9,
+     14
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "high",
+    "note": "No region name is printed anywhere on this map. Membership assigned by matching the numeral's underlying fill colour in the mini-map to the same fill colour on the main map (dark-red continent, lower-left of the mini-map (South America)). Main-map fill sampled at each territory's annotations.json coordinate."
+   },
+   "colour_hex": "#862224",
+   "members": [
+    {
+     "name": "Venezuela",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Peru",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Brazil",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Argentina",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 3,
+   "name": {
+    "text": null,
+    "provenance": "none-printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": "No region name is printed anywhere on this map, neither on the main map nor in the legend."
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 5,
+    "text_verbatim": "5",
+    "bbox": [
+     714,
+     567,
+     10,
+     14
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "high",
+    "note": "No region name is printed anywhere on this map. Membership assigned by matching the numeral's underlying fill colour in the mini-map to the same fill colour on the main map (blue continent, upper-centre of the mini-map (Europe)). Main-map fill sampled at each territory's annotations.json coordinate."
+   },
+   "colour_hex": "#305492",
+   "members": [
+    {
+     "name": "Iceland",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": "label sits over ocean; fill read from the adjacent landmass and confirmed visually at full-map zoom"
+    },
+    {
+     "name": "Britain",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": "label sits over ocean; fill read from the adjacent landmass and confirmed visually at full-map zoom"
+    },
+    {
+     "name": "Scandinavia",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": "label sits over ocean; fill read from the adjacent landmass and confirmed visually at full-map zoom"
+    },
+    {
+     "name": "Northern Europe",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Western Europe",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Southern Europe",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Ukraine",
+     "confidence": "medium",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": "rendered in a noticeably lighter slate-blue (#59678c) than the rest of the blue group (#305492); grouped blue because the legend shows only six numerals and the tint sits inside the same black continental outline"
+    }
+   ]
+  },
+  {
+   "region_id": 4,
+   "name": {
+    "text": null,
+    "provenance": "none-printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": "No region name is printed anywhere on this map, neither on the main map nor in the legend."
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 3,
+    "text_verbatim": "3",
+    "bbox": [
+     720,
+     606,
+     10,
+     14
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "high",
+    "note": "No region name is printed anywhere on this map. Membership assigned by matching the numeral's underlying fill colour in the mini-map to the same fill colour on the main map (orange continent, lower-centre of the mini-map (Africa)). Main-map fill sampled at each territory's annotations.json coordinate."
+   },
+   "colour_hex": "#9f5b1c",
+   "members": [
+    {
+     "name": "North Africa",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Egypt",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "East Africa",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Congo",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "South Africa",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Madagascar",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "region_id": 5,
+   "name": {
+    "text": null,
+    "provenance": "none-printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": "No region name is printed anywhere on this map, neither on the main map nor in the legend."
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 7,
+    "text_verbatim": "7",
+    "bbox": [
+     760,
+     573,
+     10,
+     14
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "high",
+    "note": "No region name is printed anywhere on this map. Membership assigned by matching the numeral's underlying fill colour in the mini-map to the same fill colour on the main map (green continent, upper-right of the mini-map (Asia)). Main-map fill sampled at each territory's annotations.json coordinate."
+   },
+   "colour_hex": "#257e00",
+   "members": [
+    {
+     "name": "Ural",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Kazakhstan",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Middle East",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "India",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Siam",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "China",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Mongolia",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Siberia",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Yakutsk",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Irkutsk",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Kamchatka",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    },
+    {
+     "name": "Japan",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": "label sits over ocean; fill read from the adjacent landmass and confirmed visually at full-map zoom"
+    }
+   ]
+  },
+  {
+   "region_id": 6,
+   "name": {
+    "text": null,
+    "provenance": "none-printed",
+    "spans_region_ids": null,
+    "confidence": "high",
+    "note": "No region name is printed anywhere on this map, neither on the main map nor in the legend."
+   },
+   "kind": "colour-region",
+   "layer": "base",
+   "bonus": {
+    "value": 2,
+    "text_verbatim": "2",
+    "bbox": [
+     787,
+     623,
+     9,
+     14
+    ],
+    "confidence": "high"
+   },
+   "association": {
+    "method": "by-colour",
+    "confidence": "high",
+    "note": "No region name is printed anywhere on this map. Membership assigned by matching the numeral's underlying fill colour in the mini-map to the same fill colour on the main map (magenta continent, lower-right of the mini-map (Australia/Oceania)). Main-map fill sampled at each territory's annotations.json coordinate."
+   },
+   "colour_hex": "#9a5292",
+   "members": [
+    {
+     "name": "Indonesia",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": "label sits over ocean; fill read from the adjacent landmass and confirmed visually at full-map zoom"
+    },
+    {
+     "name": "Papua New Guinea",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": "label sits over ocean; fill read from the adjacent landmass and confirmed visually at full-map zoom"
+    },
+    {
+     "name": "Western Australia",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": "label sits over ocean; fill read from the adjacent landmass and confirmed visually at full-map zoom"
+    },
+    {
+     "name": "Eastern Australia",
+     "confidence": "high",
+     "evidence": "colour-match",
+     "colour_cluster": null,
+     "agrees_with_cluster": null,
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "extra_bonuses": [],
+ "special_rules": [],
+ "territories_in_no_region": [],
+ "map_specific": {},
+ "unresolved": [
+  {
+   "what": "Region count reconciles: 6 numerals read in the legend mini-map == catalog's 6 regions; 9+4+7+6+12+4 = 42 territories == catalog's 42.",
+   "options": [],
+   "why": ""
+  },
+  {
+   "what": "NO region names are printed on this map (neither on the main map nor in the legend). All six 'name' fields are therefore null. The conventional Risk names (North America, South America, Europe, Africa, Asia, Australia) are obvious but are NOT printed, so they were not transcribed.",
+   "options": [],
+   "why": ""
+  },
+  {
+   "what": "Ukraine is rendered in a noticeably lighter slate-blue (#59678c) than the rest of the blue group (#305492). It is grouped with the blue region because (a) the legend shows only six numerals, and (b) the lighter tint is applied inside the same black continental outline. Confidence on Ukraine specifically: medium.",
+   "options": [],
+   "why": ""
+  },
+  {
+   "what": "Several territory labels sit over ocean rather than over their own landmass (Alaska, Iceland, Britain, Scandinavia, Japan, Indonesia, Papua New Guinea, Western Australia), so their fill colour was read from the landmass beside the label rather than at the label coordinate. All eight were confirmed visually at full-map zoom.",
+   "options": [],
+   "why": ""
+  },
+  {
+   "what": "The mini-map panel bbox [632,549,181,122] was estimated by eye from the rounded-rectangle frame, not measured from a clean edge detection; it may be off by a few pixels.",
+   "options": [],
+   "why": ""
+  }
+ ]
+}
