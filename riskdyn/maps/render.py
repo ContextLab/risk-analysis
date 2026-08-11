@@ -59,11 +59,15 @@ def render_map(
     graph = to_graph(topology)
 
     # D12 uses screen coordinates (y grows downward); invert for plotting.
+    # .get(..., 0) rather than [...]: a phantom node (an adjacency
+    # referencing an unknown territory id — see check_invariants) carries
+    # none of these attributes, and rendering must degrade to a visibly
+    # wrong plot rather than crash with a bare KeyError.
     positions = {
-        node: (data["x"], -data["y"]) for node, data in graph.nodes(data=True)
+        node: (data.get("x", 0), -data.get("y", 0)) for node, data in graph.nodes(data=True)
     }
 
-    region_ids = sorted({data["region_id"] for _, data in graph.nodes(data=True)})
+    region_ids = sorted({data.get("region_id", 0) for _, data in graph.nodes(data=True)})
     colour_for = {rid: REGION_PALETTE[i % len(REGION_PALETTE)]
                   for i, rid in enumerate(region_ids)}
 
@@ -77,11 +81,11 @@ def render_map(
 
     for node, data in graph.nodes(data=True):
         x, y = positions[node]
-        colour = colour_for[data["region_id"]] if colour_by_region else "white"
+        colour = colour_for[data.get("region_id", 0)] if colour_by_region else "white"
         ax.scatter([x], [y], s=260, color=colour, edgecolors="black",
                    linewidths=0.8, zorder=2)
         ax.annotate(
-            data["name"] or str(node), (x, y),
+            data.get("name") or str(node), (x, y),
             textcoords="offset points", xytext=(0, 12),
             ha="center", fontsize=7, zorder=3,
         )
