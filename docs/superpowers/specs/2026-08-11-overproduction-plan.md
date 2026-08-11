@@ -93,6 +93,64 @@ be waved through.
 Detecting materially more or fewer territory-label anchors than that is a loud, per-map signal that
 classification went wrong. Used as a **warning**, never as a filter or a truncation.
 
+## v2 was also wrong. Post-mortem
+
+A second adversarial review tested v2's core claim — that each territory carries a printed label
+inside it — against the artwork, and it is **false on the easy map**:
+
+- **8 of 42** World Classic territory names are printed **entirely in open ocean**, off their own
+  landmass: Iceland, Britain, W. Europe, Central America, Japan, Madagascar, Indonesia, Papua New
+  Guinea. Five more (Alaska, Quebec, Kamchatka, Venezuela, Siam) straddle a coast or border.
+  On map 79, Svalbard, Nova Zembla, Franz Josef Land, Severnaya Zemlya and Kitlineq sit on open ice.
+- **Archipelago territories are one label over N disconnected masks.** Neither plan mentioned
+  multi-polygon territories. A territory is not necessarily one polygon.
+- **D12's 42 anchors are render centroids, not text positions** — Eastern US's anchor sits nearer
+  the printed words "Western US". Ground-truth anchors and printed labels are different objects and
+  must not be conflated.
+- **No perfect matching exists.** Anchors in no mask, one mask holding several anchors, and one
+  anchor needing several masks all occur, so strict bipartite matching degrades to max-cardinality
+  plus an arbitrary leftover policy — the arbitrariness v1 died of.
+- **Text class is genuinely ambiguous, not merely hard.** On map 100 a single italic style covers
+  sea names ("Northern Sea"), a region caption ("western Slavs"), *and* territory names ("Rome",
+  "Constantinople"). On map 79, caps covers both region captions and decoration. The obvious cue
+  "text over water ⇒ sea name" is exactly wrong for sea-ice territories and for Iceland/Britain.
+
+The ≥38/42 gate is unreachable as specified, since ≥8 map-1 anchors have no containing land mask.
+
+## The pattern across both failures
+
+Both plans assumed a **clean geometric relation** the artwork does not honour. These are
+human-designed illustrations: label placement follows aesthetic judgement — offshore labels for
+small islands, leader lines, text overflowing into neighbours — not a rule a predicate can express.
+
+What is actually reliable, after two reviews:
+
+| signal | reliability |
+|-|-|
+| SAM boundary quality | **good** — median mask/polygon IoU 0.984 |
+| determinism | **good** — identical across processes |
+| D12 render anchors as interior points | good, but **map 1 only** (2/42 >3px from land, max 3.3px) |
+| every territory's name appears *somewhere* | good |
+| catalog `num_territories` | exact |
+| any geometric label↔territory rule | **poor** |
+
+## Open measurement, deciding v3
+
+Before more selection code is written, quantify on World Classic:
+
+1. distance from each ground-truth anchor to its **correct** polygon, versus to the nearest
+   **incorrect** one — the gap between those distributions determines whether proximity can
+   discriminate at all;
+2. how many anchors are inside exactly one mask, several, or none;
+3. how many territories plausibly need more than one polygon.
+
+If proximity cannot separate correct from incorrect, no geometric selector will work, and the
+architecture should change: SAM for boundaries, a **vision model for assignment** (answering "which
+region is Iceland?" using leader lines, colour and context the way a person does), and the
+human-verification workflow already agreed for all 77 maps. In that case the deliverable is
+explicitly a tool that gets most of the way and makes the remainder fast to correct — not an
+automated pipeline.
+
 ## Success gates, all at buffer=0
 
 | metric | now | target |
