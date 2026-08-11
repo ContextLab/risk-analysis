@@ -37,11 +37,16 @@ deterministic order produced by :mod:`riskdyn.segment.sam`):
 2. **remnant** -- a seed claims the connected piece of a containing
    composite mask after subtracting all already-claimed pixels, if the piece
    contains no other unmatched seed, is big enough, and is not water.
-   Iterated to fixpoint: each claim can unblock a neighbour's remnant.
+   Iterated to fixpoint: each claim can unblock a neighbour's remnant, and a
+   composite parent stays carvable for every seed it contains (a remnant
+   claim consumes only its piece, never the whole parent).
 3. **proximity** -- leftover seeds are matched to unclaimed masks that
    contain no seed at all (max-cardinality, then minimum total distance,
-   then lexicographic seed order), one edge per round so each claim informs
-   the next remnant fixpoint.  Distances are capped.
+   then a lexicographic tie-break on (seed, mask area, mask bbox)), one
+   edge per round so each claim informs the next remnant fixpoint.
+   Distances are capped.  The matching is exact over each seed's
+   ``proximity_max_candidates`` nearest eligible masks, not over the full
+   pool: a mask outside every seed's top list can never be assigned.
 4. **merge** -- seeds still unmatched that share a containing mask with only
    other unmatched seeds claim it jointly and are reported as an UNRESOLVED
    MERGE (Greenland/Iceland would land here if the island mask were absent);
@@ -50,9 +55,18 @@ deterministic order produced by :mod:`riskdyn.segment.sam`):
    no seed attach to the colour-consistent nearest claimed territory
    (archipelagos: Indonesia is several separate island masks).
 
-Selected masks all trace back to a seed, so anchorless output is impossible
-by construction; every non-selected mask is reported in aggregate and every
-unmatched seed individually.
+Every selected mask traces back to a seed -- that is the definition of the
+selection, not a result.  It does NOT guarantee anchorless polygons in the
+final artifacts: downstream emission (gap closing, multi-polygon splitting)
+can still produce polygon pieces that contain no anchor.  Every non-selected
+mask is reported in aggregate and every unmatched seed individually.
+
+Pixel-unit parameters (claim-distance cap, pill height, attach reach, seed
+disk radius) default to the values measured on World Classic (1021x689,
+diagonal ``_REF_DIAG``) scaled by the ratio of the input image's diagonal
+to that reference, so behaviour is resolution-relative rather than pinned
+to one map's pixel grid.  ``water_px_dist`` is a COLOUR-space distance
+(despite the name) and is therefore not scaled.
 """
 from __future__ import annotations
 
@@ -63,6 +77,11 @@ import cv2
 import numpy as np
 
 from riskdyn.segment.sam import RawMask
+
+#: Diagonal of the map every pixel-unit default below was measured on
+#: (World Classic, 1021x689).  Pixel defaults are stored as that map's
+#: measured values and scaled by (input diagonal / _REF_DIAG) at run time.
+_REF_DIAG = float(np.hypot(1021, 689))
 
 
 @dataclass(frozen=True)
@@ -81,18 +100,24 @@ class SelectParams:
     min_area_px: int = 120           # same floor the candidate filter uses
     min_area_frac: float = 0.00015
     max_area_frac: float = 0.25
-    water_px_dist: float = 35.0      # constants shared with candidates.py
+    water_px_dist: float = 35.0      # COLOUR-space (BGR) distance to the
+    #   background median, NOT pixels; resolution-independent, shared with
+    #   candidates.py.  The historical name is kept for API stability.
     water_frac_max: float = 0.60
     water_ambiguous_frac: float = 0.25
-    seed_disk_r: int = 6             # land-colour reference sampled around seeds
-    pill_max_height: int = 40        # text-pill shape, as in candidates.py
+    seed_disk_r: int | None = None   # land-colour reference sampled around
+    #   seeds; None -> 6 px on the reference map, scaled by diagonal
+    pill_max_height: float | None = None  # text-pill shape, as in
+    #   candidates.py; None -> 40 px on the reference map, scaled by diagonal
     pill_min_aspect: float = 1.8
-    max_claim_dist: float | None = None  # None -> max(16, 0.013 * image diagonal);
-    #   16 px covers every displacement observed on the one ground-truth map
-    #   (1.0-13.6 px) with margin while staying below inter-label spacing.
-    #   NOT yet validated for text seeds -- revisit when the detector lands.
+    max_claim_dist: float | None = None  # None -> 16 px on the reference map,
+    #   scaled by diagonal.  16 px covers every displacement observed on the
+    #   one ground-truth map (1.0-13.6 px) with margin while staying below
+    #   inter-label spacing.  NOT yet validated for text seeds -- revisit
+    #   when the detector lands.
     attach_orphans: bool = True
-    attach_max_dist: float = 12.0    # orphan island -> territory accretion reach
+    attach_max_dist: float | None = None  # orphan island -> territory
+    #   accretion reach; None -> 12 px on the reference map, scaled by diagonal
     attach_color_dist: float = 40.0  # median-colour agreement required to attach
     dup_covered_frac: float = 0.5    # orphan mostly covered by claims = duplicate
     proximity_max_candidates: int = 8  # per-seed cap for the exact matching
@@ -157,16 +182,26 @@ def _bbox_dist(bbox: tuple[int, int, int, int], x: int, y: int) -> float:
 
 def _best_matching(
     cand: dict[int, list[tuple[float, int]]],
+    mask_key: dict[int, tuple] | None = None,
 ) -> dict[int, tuple[float, int]]:
     """Exact max-cardinality, min-total-distance seed->mask matching.
 
-    ``cand``: seed_id -> [(distance, mask_index), ...] sorted.  Sizes are
-    tiny (leftover seeds only); branch-and-bound with a node budget keeps
-    the search exactly reproducible: prefer more matches, then lower total
-    distance, then lexicographically smaller (seed, mask) assignment.
-    Exceeding the budget raises -- a silently different (greedy) answer is
+    ``cand``: seed_id -> [(distance, mask_index), ...].  ``mask_key`` maps
+    each mask index to an intrinsic sort key (the caller passes
+    ``(area, bbox, index)``); without it the mask index itself is the key.
+    Preference order: more matches, then lower total distance, then the
+    assignment whose sorted ``(seed, mask_key)`` tuple is lexicographically
+    smallest.  Because the tie-break key is built from the assignment
+    content, not from search order, the result is invariant under
+    permutation of ``cand`` and of its candidate lists (two masks identical
+    under ``mask_key`` remain interchangeable -- with the caller's key that
+    requires identical area AND bbox).  Sizes are tiny (leftover seeds
+    only); branch-and-bound with a node budget keeps the search exact, and
+    exceeding the budget raises -- a silently different (greedy) answer is
     exactly the mis-assignment failure mode this matcher exists to prevent.
     """
+    if mask_key is None:
+        mask_key = {m: (m,) for c in cand.values() for _, m in c}
     seeds = sorted(cand, key=lambda s: (len(cand[s]), s))
     best: dict = {"key": None, "assign": {}}
     budget = [200_000]
@@ -180,11 +215,13 @@ def _best_matching(
         if best["key"] is not None:
             if -bound > best["key"][0]:
                 return  # cannot reach the best cardinality any more
-            if -bound == best["key"][0] and total >= best["key"][1]:
-                return  # same cardinality at best, already costlier
+            if -bound == best["key"][0] and total > best["key"][1]:
+                return  # same cardinality at best, strictly costlier
+                #   (equal totals must be explored: the lexicographic
+                #   tie-break has to see every tied assignment)
         if k == len(seeds):
             key = (-matched, total, tuple(sorted(
-                (s, m) for s, (_, m) in assign.items())))
+                (s, mask_key[m]) for s, (_, m) in assign.items())))
             if best["key"] is None or key < best["key"]:
                 best["key"] = key
                 best["assign"] = dict(assign)
@@ -226,6 +263,15 @@ def select_masks_by_seeds(
             raise ValueError(f"seed {s.seed_id} at ({s.x},{s.y}) outside image")
 
     result = SelectionResult({}, {}, [], [], {}, n_input_masks=len(raw))
+    # Pixel-unit parameters scale with the image diagonal relative to the
+    # map they were measured on (see _REF_DIAG); explicit values win.
+    scale = float(np.hypot(h, w)) / _REF_DIAG
+    disk_r = (p.seed_disk_r if p.seed_disk_r is not None
+              else max(1, round(6 * scale)))
+    pill_h = (p.pill_max_height if p.pill_max_height is not None
+              else 40.0 * scale)
+    attach_d = (p.attach_max_dist if p.attach_max_dist is not None
+                else 12.0 * scale)
     min_area = max(p.min_area_px, int(p.min_area_frac * h * w))
     max_area = int(p.max_area_frac * h * w)
     pool = [i for i, m in enumerate(raw) if min_area <= m.area <= max_area]
@@ -249,15 +295,14 @@ def select_masks_by_seeds(
     # the background colour, land is not colour-separable from water on this
     # map and all water-based exclusions are disabled (loudly).
     disk = np.zeros((h, w), dtype=bool)
-    yy, xx = np.mgrid[-p.seed_disk_r:p.seed_disk_r + 1,
-                      -p.seed_disk_r:p.seed_disk_r + 1]
-    stamp = (yy ** 2 + xx ** 2) <= p.seed_disk_r ** 2
+    yy, xx = np.mgrid[-disk_r:disk_r + 1, -disk_r:disk_r + 1]
+    stamp = (yy ** 2 + xx ** 2) <= disk_r ** 2
     for s in seeds:
-        y0, y1 = max(s.y - p.seed_disk_r, 0), min(s.y + p.seed_disk_r + 1, h)
-        x0, x1 = max(s.x - p.seed_disk_r, 0), min(s.x + p.seed_disk_r + 1, w)
+        y0, y1 = max(s.y - disk_r, 0), min(s.y + disk_r + 1, h)
+        x0, x1 = max(s.x - disk_r, 0), min(s.x + disk_r + 1, w)
         disk[y0:y1, x0:x1] |= stamp[
-            (y0 - s.y + p.seed_disk_r):(y1 - s.y + p.seed_disk_r),
-            (x0 - s.x + p.seed_disk_r):(x1 - s.x + p.seed_disk_r),
+            (y0 - s.y + disk_r):(y1 - s.y + disk_r),
+            (x0 - s.x + disk_r):(x1 - s.x + disk_r),
         ]
     ambiguous = _water_frac(image, disk, bg, p.water_px_dist)
     water_enabled = ambiguous < p.water_ambiguous_frac
@@ -274,7 +319,7 @@ def select_masks_by_seeds(
     def is_pill(i: int) -> bool:
         x0, y0, x1, y1 = raw[i].bbox
         bw, bh = x1 - x0, y1 - y0
-        return bh <= p.pill_max_height and bw >= p.pill_min_aspect * bh
+        return bh <= pill_h and bw >= p.pill_min_aspect * bh
 
     seed_pts = {s.seed_id: (s.x, s.y) for s in seeds}
     contains = {
@@ -283,10 +328,13 @@ def select_masks_by_seeds(
     nz = {i: np.nonzero(raw[i].mask) for i in pool}
     cap = p.max_claim_dist
     if cap is None:
-        cap = max(16.0, 0.013 * float(np.hypot(h, w)))
+        cap = 16.0 * scale
 
     claimed_px = np.zeros((h, w), dtype=bool)
     claimed_masks: set[int] = set()
+    remnant_parents: set[int] = set()  # composites carved by remnant claims:
+    #   their PIXELS are consumed piecewise, but the mask itself must stay
+    #   available so every sibling seed inside it can carve its own piece
     matched: set[int] = set()
 
     def claim(seed_id: int, mask_idx: int | None, pixels: np.ndarray,
@@ -300,7 +348,10 @@ def select_masks_by_seeds(
         result.masks[seed_id] = pixels
         claimed_px = claimed_px | pixels
         if mask_idx is not None:
-            claimed_masks.add(mask_idx)
+            if provenance == "remnant":
+                remnant_parents.add(mask_idx)
+            else:
+                claimed_masks.add(mask_idx)
         matched.add(seed_id)
 
     # ---- phase 1: contained -------------------------------------------------
@@ -384,7 +435,9 @@ def select_masks_by_seeds(
         cand = {sid: c for sid, c in cand.items() if c}
         if not cand:
             break
-        assign = _best_matching(cand)
+        assign = _best_matching(cand, mask_key={
+            m: (raw[m].area, raw[m].bbox, m)
+            for c in cand.values() for _, m in c})
         if not assign:
             break
         # apply only the single best edge, then re-enter the remnant fixpoint
@@ -457,10 +510,10 @@ def select_masks_by_seeds(
                     if not len(xs):
                         continue
                     x0, y0, x1, y1 = raw[i].bbox
-                    if (xs.max() < x0 - p.attach_max_dist
-                            or xs.min() > x1 + p.attach_max_dist
-                            or ys.max() < y0 - p.attach_max_dist
-                            or ys.min() > y1 + p.attach_max_dist):
+                    if (xs.max() < x0 - attach_d
+                            or xs.min() > x1 + attach_d
+                            or ys.max() < y0 - attach_d
+                            or ys.min() > y1 + attach_d):
                         continue
                     iy, ix = nz[i]
                     # distance between the two pixel sets, subsampled for cost
@@ -469,7 +522,7 @@ def select_masks_by_seeds(
                         (ix[::step, None] - xs[None, ::4]) ** 2
                         + (iy[::step, None] - ys[None, ::4]) ** 2
                     ).min()
-                    if d > p.attach_max_dist:
+                    if d > attach_d:
                         continue
                     tmed = np.median(image[tm], axis=0)
                     if np.linalg.norm(med - tmed) > p.attach_color_dist:
@@ -488,7 +541,8 @@ def select_masks_by_seeds(
                 break
 
     result.n_rejected_no_seed = len(
-        [i for i in pool if i not in claimed_masks])
+        [i for i in pool
+         if i not in claimed_masks and i not in remnant_parents])
     return result
 
 
