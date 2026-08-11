@@ -19,6 +19,7 @@ dependencies = [
     "torchvision>=0.17",  # required by transformers' SAM image processor
     "transformers>=4.38",
     "opencv-python-headless>=4.9",
+    "shapely>=2.0",  # workbench overlap check/resolution (criterion a)
 ]
 
 [project.optional-dependencies]

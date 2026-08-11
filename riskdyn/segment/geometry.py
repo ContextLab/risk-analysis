@@ -128,6 +128,9 @@ class TerritoryShape:
     centroid: tuple[float, float]   # pixel-mass centroid over ALL components
     area_px: int                    # pixel count over ALL components
     flags: tuple[str, ...] = ()     # human-review flags
+    source_label: int = 0           # label-map value this shape came from
+    #   (0 = unknown/legacy); lets downstream stages map a shape back to the
+    #   selection stage's seed groups without re-deriving it geometrically
 
     @property
     def polygon(self) -> Polygon:
@@ -194,11 +197,11 @@ def extract_territories(
         ys, xs = np.nonzero(mask)
         centroid = (float(xs.mean()), float(ys.mean()))
         shapes.append(
-            TerritoryShape(0, tuple(polys), centroid, area, tuple(flags))
+            TerritoryShape(0, tuple(polys), centroid, area, tuple(flags), label)
         )
     shapes.sort(key=lambda s: (round(s.centroid[1] / 16), round(s.centroid[0]), s.area_px))
     return [
-        TerritoryShape(i, s.polygons, s.centroid, s.area_px, s.flags)
+        TerritoryShape(i, s.polygons, s.centroid, s.area_px, s.flags, s.source_label)
         for i, s in enumerate(shapes, start=1)
     ]
 
