@@ -144,3 +144,75 @@ score a perfectly authored map 7 at 6 of 12. Fix in progress: `region_ids: []` p
 Map 100's legend **does** print region names beside most numerals (Umayyad 1, Idrisid 3, Bulgar 4,
 Byzantine 3, Khazars 1, Nedjed 3, …); only the scattered `+1` markers are nameless. Both prose
 rules are plainly legible. Bonus transcription there is easier than previously recorded, not harder.
+
+---
+
+## STATE AT END OF 2026-08-11
+
+**Topology: DONE for all 78 maps** (77 catalog + map 9). 4,643 territories, 9,019 edges, exact from
+D12's markup. Commit `d544ac6` / `ab062af`. No vision anywhere in that chain.
+
+**Schema v3** (`b3acbe0`): split confidence (bonus / association / per-member), name provenance
+(`printed` | `printed-unbindable` | `inferred` | `none-printed`), object members with per-territory
+evidence, base/overlay layers, and `map_specific` as a documented escape hatch for genuinely unique
+maps.
+
+**merge_legend gate**: recomputes `agrees_with_cluster` itself, refuses on disagreement (exit 2),
+writes `region_conflicts.json`. Status: map 1 merged (f=pass); map 7 refuses (4); map 100 refuses
+(23); map 25 out of scope until its legend regions are authored.
+
+### Why the gate exists — do not weaken it
+
+The 3-map pilot's four map-100 errors (Chernigov, Kerch, Edessa, Alamania; two changed a bonus
+value) left the totals reconciling identically at 141 + 9 = 150. **The aggregate count check cannot
+detect a swap.** Only the per-territory colour cross-check found them.
+
+Map 100's 23 conflicts decompose as **4 colour-isolated singletons** (Castile, Billungermark,
+Benevento, Rome — artifacts, same class as map 7's Metzger/Aurora/Butteville/Donald) plus **19
+genuine disagreements** needing the artwork. Only 1 of 23 involved an unreliable sample.
+
+### Map 25 — adjacency ≠ attack legality
+
+Unique among all 78: 102 of 146 directed adjacencies are one-way. Legend prints
+`CAVALRY / CANNOT ATTACK / ARTILLERY / CANNOT ATTACK / INFANTRY / CANNOT ATTACK / CAVALRY`. A
+three-class cyclic model fits **146/146 with zero violations** (18/18/19), reproduced independently
+twice. Stored as `class_0/1/2` — the structure is proven, the binding of a class to a printed unit
+is NOT (partial icon spot-check only).
+
+**Downstream consequence:** any metric treating adjacency as "where I can attack" is wrong on this
+map. 124 undirected edges govern movement; a directional rule governs attacks.
+
+### Vision calibration — why topology is not read from artwork
+
+| map | inter-rater Jaccard |
+|-|-|
+| 1 World Classic (standard Risk board, memorized) | 0.963 |
+| 7 Oregon Cities (unfamiliar) | **0.694** (routes: **0.526**) |
+
+Names agreed 35/35 and 42/42. **Vision reads text reliably and topology unreliably.** The map-1
+score was recitation, not reading. Vision is used ONLY for legends, names and bonuses.
+
+### Next
+
+1. Adjudicate map 100's 19 conflicts against the artwork (the 4 singletons are artifacts).
+2. Fan the legend read out over the remaining 75 maps, gate every one.
+3. **Human sign-off on bonuses.** Criterion d is `unverified` on all 78 and cannot move without a
+   person. An agent transcribing a legend is explicitly not sign-off, and bonuses have no
+   automated ground truth anywhere.
+
+### Schema limits still open
+
+Free-floating printed labels (map 100's "Map created by Dima" lives in `unresolved`), rule-to-
+instance linkage, a typographic evidence category, and class→unit binding without a full icon read.
+
+### Loose ends
+
+- `code/scripts/d12_index_games.py` — untracked, awaiting Jeremy's call. It bulk-scans
+  `/api/game/<id>` with a spoofed browser UA, 5 threads and no robots/permission gate, bypassing
+  every safeguard `D12Client` enforces. The ToS prohibits this without written permission, still
+  unanswered. Nothing in the repo depends on it.
+- **D12 permission follow-up due 2026-08-24.** It matters far less now (the topology it would have
+  granted is already collected) but still gates phases 2-6 of the main spec, where the actual
+  conversation-dynamics analysis lives.
+
+267 tests pass offline.
