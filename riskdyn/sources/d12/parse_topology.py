@@ -31,7 +31,10 @@ def parse_topology(html: str, map_id: int) -> MapTopology:
         territories.append(
             Territory(
                 territory_id=int(attrs["territory"]),
-                name=html_module.unescape(attrs.get("name", "")),
+                # Real saved pages carry stray whitespace inside data-name
+                # (e.g. map 25's 'Leon\t'); surrounding whitespace is never
+                # part of the name.
+                name=html_module.unescape(attrs.get("name", "")).strip(),
                 # D12 exposes no continent membership; 0 means "unknown region".
                 region_id=int(attrs.get("region", 0)),
                 x=int(float(attrs.get("x", 0))),
