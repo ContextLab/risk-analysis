@@ -113,17 +113,20 @@ def build_graph(
 ) -> dict:
     """Assemble graph.json content.
 
-    ``annotations["edges"]["confirmations"]`` entries
+    ``annotations["edge_confirmations"]`` entries
     (``{"a", "b", "kind", "by", "at", "rule"?, "one_way"?}``) override the
     geometric proposal and flip the edge to ``status: "confirmed"``.  A
     confirmation for a non-existent edge is an error (typo guard).
+
+    (Schema v1 kept these under ``edges["confirmations"]``; v2 renamed the
+    key because ``edges`` is now the authored edge LIST -- see
+    riskdyn.workbench.graph_build.)
     """
     edges = undirected_edges(topology)
     gaps = measure_edge_gaps(edges, rings_by_id, size)
 
     confirmations: dict[tuple[int, int], dict] = {}
-    ann_edges = (annotations or {}).get("edges", {})
-    for c in ann_edges.get("confirmations", []):
+    for c in (annotations or {}).get("edge_confirmations", []):
         key = (min(c["a"], c["b"]), max(c["a"], c["b"]))
         if key not in set(edges):
             raise ValueError(f"confirmation for non-existent edge {key}")

@@ -1,11 +1,1311 @@
 {
- "schema_version": 1,
+ "schema_version": 2,
  "map_id": 1,
- "notes": "World Classic. Names and adjacency come from the D12 fixture (tests/fixtures/game_map1_territories.html). Regions and bonus values below were read from the artwork's mini-map legend (bottom right), which prints one numeral per continent with NO region names -- association is by colour and position. Transcribed by a Claude agent vision pass on 2026-08-11; NOT yet confirmed by a human.",
+ "notes": "World Classic. Territories and the edge LIST come from D12's own markup (tests/fixtures/game_map1_territories.html, parse_topology) and are authoritative -- edge status 'confirmed' asserts EXISTENCE only. Edge 'kind' (shared-border vs route) was proposed by the geometric gap measurement in riskdyn.workbench.graphs and is NOT confirmed: kind_status stays 'proposed' until a human (or vision pass reviewed by a human) confirms each classification. Regions and bonus values were read from the artwork's mini-map legend (bottom right) by a Claude agent vision pass on 2026-08-11; NOT yet confirmed by a human.",
+ "territories": [
+  {
+   "territory_id": 5,
+   "name": "Northwest Territory",
+   "x": 92,
+   "y": 68,
+   "region_id": 1,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 7,
+   "name": "Ontario",
+   "x": 122,
+   "y": 126,
+   "region_id": 1,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 11,
+   "name": "Greenland",
+   "x": 322,
+   "y": 45,
+   "region_id": 1,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 28,
+   "name": "Quebec",
+   "x": 211,
+   "y": 135,
+   "region_id": 1,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 29,
+   "name": "Western United States",
+   "x": 42,
+   "y": 197,
+   "region_id": 1,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 30,
+   "name": "Eastern United States",
+   "x": 132,
+   "y": 180,
+   "region_id": 1,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 31,
+   "name": "Central America",
+   "x": 53,
+   "y": 277,
+   "region_id": 1,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 32,
+   "name": "Iceland",
+   "x": 374,
+   "y": 66,
+   "region_id": 3,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 33,
+   "name": "Venezuela",
+   "x": 152,
+   "y": 363,
+   "region_id": 2,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 34,
+   "name": "Peru",
+   "x": 180,
+   "y": 444,
+   "region_id": 2,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 35,
+   "name": "Brazil",
+   "x": 260,
+   "y": 438,
+   "region_id": 2,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 36,
+   "name": "Argentina",
+   "x": 201,
+   "y": 534,
+   "region_id": 2,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 37,
+   "name": "North Africa",
+   "x": 424,
+   "y": 258,
+   "region_id": 4,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 38,
+   "name": "Egypt",
+   "x": 522,
+   "y": 238,
+   "region_id": 4,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 39,
+   "name": "East Africa",
+   "x": 575,
+   "y": 350,
+   "region_id": 4,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 40,
+   "name": "Congo",
+   "x": 505,
+   "y": 373,
+   "region_id": 4,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 41,
+   "name": "South Africa",
+   "x": 518,
+   "y": 479,
+   "region_id": 4,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 42,
+   "name": "Madagascar",
+   "x": 607,
+   "y": 449,
+   "region_id": 4,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 43,
+   "name": "Britain",
+   "x": 402,
+   "y": 108,
+   "region_id": 3,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 44,
+   "name": "Scandinavia",
+   "x": 460,
+   "y": 74,
+   "region_id": 3,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 45,
+   "name": "Ukraine",
+   "x": 542,
+   "y": 114,
+   "region_id": 3,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 46,
+   "name": "Northern Europe",
+   "x": 457,
+   "y": 128,
+   "region_id": 3,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 47,
+   "name": "Southern Europe",
+   "x": 488,
+   "y": 170,
+   "region_id": 3,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 48,
+   "name": "Western Europe",
+   "x": 419,
+   "y": 151,
+   "region_id": 3,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 49,
+   "name": "Middle East",
+   "x": 580,
+   "y": 233,
+   "region_id": 5,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 50,
+   "name": "Kazakhstan",
+   "x": 647,
+   "y": 164,
+   "region_id": 5,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 51,
+   "name": "India",
+   "x": 705,
+   "y": 262,
+   "region_id": 5,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 52,
+   "name": "Ural",
+   "x": 650,
+   "y": 78,
+   "region_id": 5,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 53,
+   "name": "Siberia",
+   "x": 712,
+   "y": 80,
+   "region_id": 5,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 54,
+   "name": "Yakutsk",
+   "x": 810,
+   "y": 71,
+   "region_id": 5,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 55,
+   "name": "Irkutsk",
+   "x": 807,
+   "y": 115,
+   "region_id": 5,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 56,
+   "name": "Mongolia",
+   "x": 847,
+   "y": 152,
+   "region_id": 5,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 57,
+   "name": "China",
+   "x": 745,
+   "y": 191,
+   "region_id": 5,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 58,
+   "name": "Siam",
+   "x": 800,
+   "y": 282,
+   "region_id": 5,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 59,
+   "name": "Japan",
+   "x": 913,
+   "y": 196,
+   "region_id": 5,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 60,
+   "name": "Kamchatka",
+   "x": 869,
+   "y": 83,
+   "region_id": 5,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 61,
+   "name": "Indonesia",
+   "x": 849,
+   "y": 361,
+   "region_id": 6,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 62,
+   "name": "Papua New Guinea",
+   "x": 949,
+   "y": 390,
+   "region_id": 6,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 63,
+   "name": "Western Australia",
+   "x": 894,
+   "y": 461,
+   "region_id": 6,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 64,
+   "name": "Eastern Australia",
+   "x": 944,
+   "y": 468,
+   "region_id": 6,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 66,
+   "name": "Alaska",
+   "x": 7,
+   "y": 62,
+   "region_id": 1,
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 69,
+   "name": "Alberta",
+   "x": 53,
+   "y": 122,
+   "region_id": 1,
+   "source": "d12-markup",
+   "confidence": "high"
+  }
+ ],
+ "edges": [
+  {
+   "a": 5,
+   "b": 7,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 5,
+   "b": 11,
+   "kind": "route",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 5,
+   "b": 66,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 5,
+   "b": 69,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 7,
+   "b": 11,
+   "kind": "route",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 7,
+   "b": 28,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 7,
+   "b": 29,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 7,
+   "b": 30,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 7,
+   "b": 69,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 11,
+   "b": 28,
+   "kind": "route",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 11,
+   "b": 32,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 28,
+   "b": 30,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 29,
+   "b": 30,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 29,
+   "b": 31,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 29,
+   "b": 69,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 30,
+   "b": 31,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 31,
+   "b": 33,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 32,
+   "b": 43,
+   "kind": "route",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 32,
+   "b": 44,
+   "kind": "route",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 33,
+   "b": 34,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 33,
+   "b": 35,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 34,
+   "b": 35,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 34,
+   "b": 36,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 35,
+   "b": 36,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 35,
+   "b": 37,
+   "kind": "route",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 37,
+   "b": 38,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 37,
+   "b": 39,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 37,
+   "b": 40,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 37,
+   "b": 47,
+   "kind": "route",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 37,
+   "b": 48,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 38,
+   "b": 39,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 38,
+   "b": 47,
+   "kind": "route",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 38,
+   "b": 49,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 39,
+   "b": 40,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 39,
+   "b": 41,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 39,
+   "b": 42,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 39,
+   "b": 49,
+   "kind": "route",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 40,
+   "b": 41,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 41,
+   "b": 42,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 43,
+   "b": 44,
+   "kind": "route",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 43,
+   "b": 46,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 43,
+   "b": 48,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 44,
+   "b": 45,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 44,
+   "b": 46,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 45,
+   "b": 46,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 45,
+   "b": 47,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 45,
+   "b": 49,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 45,
+   "b": 50,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 45,
+   "b": 52,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 46,
+   "b": 47,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 46,
+   "b": 48,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 47,
+   "b": 48,
+   "kind": "route",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 47,
+   "b": 49,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 49,
+   "b": 50,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 49,
+   "b": 51,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 50,
+   "b": 51,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 50,
+   "b": 52,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 50,
+   "b": 57,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 51,
+   "b": 57,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 51,
+   "b": 58,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 52,
+   "b": 53,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 52,
+   "b": 57,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 53,
+   "b": 54,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 53,
+   "b": 55,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 53,
+   "b": 56,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 53,
+   "b": 57,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 54,
+   "b": 55,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 54,
+   "b": 60,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 55,
+   "b": 56,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 55,
+   "b": 60,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 56,
+   "b": 57,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 56,
+   "b": 59,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 56,
+   "b": 60,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 57,
+   "b": 58,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 58,
+   "b": 61,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 59,
+   "b": 60,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 60,
+   "b": 66,
+   "kind": "route",
+   "kind_status": "proposed",
+   "wraps": true,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 61,
+   "b": 62,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 61,
+   "b": 63,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 62,
+   "b": 63,
+   "kind": "route",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 62,
+   "b": 64,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 63,
+   "b": 64,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 66,
+   "b": 69,
+   "kind": "shared-border",
+   "kind_status": "proposed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  }
+ ],
+ "edge_confirmations": [],
+ "special_rules": [],
  "corrections": [
   {
    "op": "split_components",
-   "seed_ids": [11, 32],
+   "seed_ids": [
+    11,
+    32
+   ],
    "note": "Greenland and Iceland share one SAM mask (no separating mask exists); they are disjoint islands, so split the mask's connected components by nearest seed.",
    "by": "claude-agent",
    "at": "2026-08-11"
@@ -17,14 +1317,25 @@
    "name": "North America",
    "bonus": 5,
    "bonus_text_verbatim": "5",
-   "bonus_bbox": [646, 566, 20, 30],
+   "bonus_bbox": [
+    646,
+    566,
+    20,
+    30
+   ],
    "association": "by-colour",
    "confidence": "high",
    "source": "claude-agent (Fable 5) vision read of artwork legend",
    "note": "yellow continent on the legend mini-map",
    "territory_names": [
-    "Alaska", "Northwest Territory", "Alberta", "Ontario", "Quebec",
-    "Greenland", "Western United States", "Eastern United States",
+    "Alaska",
+    "Northwest Territory",
+    "Alberta",
+    "Ontario",
+    "Quebec",
+    "Greenland",
+    "Western United States",
+    "Eastern United States",
     "Central America"
    ]
   },
@@ -33,26 +1344,46 @@
    "name": "South America",
    "bonus": 2,
    "bonus_text_verbatim": "2",
-   "bonus_bbox": [662, 596, 20, 30],
+   "bonus_bbox": [
+    662,
+    596,
+    20,
+    30
+   ],
    "association": "by-colour",
    "confidence": "high",
    "source": "claude-agent (Fable 5) vision read of artwork legend",
    "note": "red continent on the legend mini-map",
-   "territory_names": ["Venezuela", "Peru", "Brazil", "Argentina"]
+   "territory_names": [
+    "Venezuela",
+    "Peru",
+    "Brazil",
+    "Argentina"
+   ]
   },
   {
    "region_id": 3,
    "name": "Europe",
    "bonus": 5,
    "bonus_text_verbatim": "5",
-   "bonus_bbox": [708, 560, 20, 30],
+   "bonus_bbox": [
+    708,
+    560,
+    20,
+    30
+   ],
    "association": "by-colour",
    "confidence": "high",
    "source": "claude-agent (Fable 5) vision read of artwork legend",
    "note": "blue/slate continent on the legend mini-map",
    "territory_names": [
-    "Iceland", "Britain", "Scandinavia", "Ukraine", "Northern Europe",
-    "Southern Europe", "Western Europe"
+    "Iceland",
+    "Britain",
+    "Scandinavia",
+    "Ukraine",
+    "Northern Europe",
+    "Southern Europe",
+    "Western Europe"
    ]
   },
   {
@@ -60,13 +1391,22 @@
    "name": "Africa",
    "bonus": 3,
    "bonus_text_verbatim": "3",
-   "bonus_bbox": [712, 596, 20, 30],
+   "bonus_bbox": [
+    712,
+    596,
+    20,
+    30
+   ],
    "association": "by-colour",
    "confidence": "high",
    "source": "claude-agent (Fable 5) vision read of artwork legend",
    "note": "orange continent on the legend mini-map",
    "territory_names": [
-    "North Africa", "Egypt", "East Africa", "Congo", "South Africa",
+    "North Africa",
+    "Egypt",
+    "East Africa",
+    "Congo",
+    "South Africa",
     "Madagascar"
    ]
   },
@@ -75,14 +1415,29 @@
    "name": "Asia",
    "bonus": 7,
    "bonus_text_verbatim": "7",
-   "bonus_bbox": [758, 564, 20, 30],
+   "bonus_bbox": [
+    758,
+    564,
+    20,
+    30
+   ],
    "association": "by-colour",
    "confidence": "high",
    "source": "claude-agent (Fable 5) vision read of artwork legend",
    "note": "green continent on the legend mini-map",
    "territory_names": [
-    "Middle East", "Kazakhstan", "India", "Ural", "Siberia", "Yakutsk",
-    "Irkutsk", "Mongolia", "China", "Siam", "Japan", "Kamchatka"
+    "Middle East",
+    "Kazakhstan",
+    "India",
+    "Ural",
+    "Siberia",
+    "Yakutsk",
+    "Irkutsk",
+    "Mongolia",
+    "China",
+    "Siam",
+    "Japan",
+    "Kamchatka"
    ]
   },
   {
@@ -90,20 +1445,35 @@
    "name": "Australia",
    "bonus": 2,
    "bonus_text_verbatim": "2",
-   "bonus_bbox": [782, 596, 20, 30],
+   "bonus_bbox": [
+    782,
+    596,
+    20,
+    30
+   ],
    "association": "by-colour",
    "confidence": "high",
    "source": "claude-agent (Fable 5) vision read of artwork legend",
    "note": "magenta continent on the legend mini-map",
    "territory_names": [
-    "Indonesia", "Papua New Guinea", "Western Australia", "Eastern Australia"
+    "Indonesia",
+    "Papua New Guinea",
+    "Western Australia",
+    "Eastern Australia"
    ]
   }
  ],
  "extra_bonuses": [],
- "edges": {"confirmations": []},
  "verification": {
-  "overlay_confirmed": {"verified": false, "by": null, "at": null},
-  "bonuses_confirmed": {"verified": false, "by": null, "at": null}
+  "overlay_confirmed": {
+   "verified": false,
+   "by": null,
+   "at": null
+  },
+  "bonuses_confirmed": {
+   "verified": false,
+   "by": null,
+   "at": null
+  }
  }
 }
