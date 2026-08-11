@@ -68,6 +68,19 @@
   Earlier 36/42 secretly matched Britain to an "Iceland" text blob; the
   current 36/42 matches Britain to its real island polygon.
 
-## Remaining
+## Final state (end of session)
 
-- suite run (background), 77-map run, commit, /tmp report.
+- Suite: 130 passed (121 pre-existing + 9 new). Bijection pinned at
+  36/42 with the exact failed-id set; determinism test does two full SAM
+  runs and passes on MPS.
+- Ocean rule finalized: exact-water-coloured masks (dist<10 to bg)
+  convicted on weak isolation OR border ownership OR size (catches SAM's
+  tiled ocean chunks); bg-LIKE masks need strong isolation and are
+  size-exempt below 0.5% of image (protects Britain).
+- Commits: 1288dbc, b7cdd08, 4d88226.
+- Full 77-map run launched in background
+  (`./.venv/bin/python -m riskdyn.segment.pipeline`); artifacts under
+  data/processed/maps/<id>/. Only maps 1/79/100/34 overlays were
+  human-inspected this session — the rest need individual review per the
+  design (that IS the deliverable: overlay.png + report.json per map).
+- Full report: /tmp/riskdyn-segment-stage1.md
