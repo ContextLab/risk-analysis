@@ -43,5 +43,11 @@ Commit: `9780366`. Full report: `/tmp/riskdyn-select-fix.md`.
 - Text-seed cap (16 px scaled) still unvalidated — waiting on text.py.
 - Tie-break falls back to input index only for masks identical in BOTH
   area and bbox; no such pair known in real pools, not scanned for.
-- Suite 155 passed after my commit; re-ran after the parallel agent's
-  pipeline commits landed (see session report for the final count).
+- Suite 155 passed after my commit `9780366`; coordinator re-ran the full
+  suite with the parallel agent's pipeline commits (`4baebb7`, `6577587`,
+  `f15a743`) in place: **160 passed**, zero failures.
+- Follow-up commit: `_main` no longer writes `overlay.png` (the pipeline is
+  the single intended writer; a hand-run once overwrote the pipeline's
+  overlay and shipped a contradictory artifact). The debug harness now
+  writes `select_overlay.png`; smoke-ran `--no-artifacts`: 41 polygons,
+  bijection 33/42, unchanged.
