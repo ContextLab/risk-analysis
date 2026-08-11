@@ -1,4 +1,5 @@
 import time
+import pytest
 from riskdyn.sources.d12.ratelimit import RateLimiter
 
 
@@ -23,3 +24,16 @@ def test_no_sleep_when_enough_time_already_passed():
     limiter.wait()
     time.sleep(0.06)
     assert limiter.wait() == 0.0
+
+
+def test_negative_interval_is_rejected():
+    # The module docstring says politeness is "not a tunable" — a negative
+    # interval would silently disable it rather than slow it down.
+    with pytest.raises(ValueError):
+        RateLimiter(-0.1)
+
+
+def test_zero_interval_remains_allowed():
+    # Zero means "no delay" and is used deliberately in fast tests; it must
+    # not be caught by the negative-interval guard.
+    assert RateLimiter(0.0).wait() == 0.0

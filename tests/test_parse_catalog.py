@@ -3,7 +3,9 @@ from riskdyn.sources.d12.parse_catalog import parse_catalog
 
 def test_parses_every_map_in_the_catalog(fixtures_dir):
     maps = parse_catalog((fixtures_dir / "maps_page.html").read_text())
-    assert len(maps) >= 70          # 77 at capture time; the site adds maps
+    # The fixture is frozen and committed, so the site-growth hedge (">= 70")
+    # no longer applies: it must be exactly the 77 maps captured in the fixture.
+    assert len(maps) == 77
     assert len({m.map_id for m in maps}) == len(maps)
 
 

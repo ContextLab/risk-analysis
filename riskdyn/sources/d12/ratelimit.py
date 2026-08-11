@@ -10,6 +10,14 @@ import time
 
 class RateLimiter:
     def __init__(self, min_interval_seconds: float) -> None:
+        if min_interval_seconds < 0:
+            # Politeness is "not a tunable" (see module docstring): a
+            # negative interval would silently disable it rather than
+            # slow it down, so reject it outright. Zero is fine — it's
+            # used deliberately in fast tests to mean "no delay".
+            raise ValueError(
+                f"min_interval_seconds must be >= 0, got {min_interval_seconds}"
+            )
         self.min_interval_seconds = min_interval_seconds
         self._last_call: float | None = None
 
