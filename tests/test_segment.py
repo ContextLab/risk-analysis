@@ -84,45 +84,116 @@ def map1_result():
     return run_map(1)
 
 
-# The three merged pairs the pipeline currently cannot separate, each
-# diagnosed by hand (2026-08-10):
+# Label anchors that can fail the buffer=0 bijection, each diagnosed by
+# hand (2026-08-10, re-verified after the red-team rework):
 #   Greenland(11)/Iceland(32)  -- D12 renders Iceland's label anchor on top
-#       of Greenland's landmass, so faithful geometry can never give the
-#       anchor its own polygon;
-#   S. Africa(41)/Madagascar(42) -- Madagascar's anchor sits in open water
-#       nearer South Africa's coast than the island;
-#   Irkutsk(55)/Mongolia(56)   -- SAM splits the hatched green region into
-#       horizontal strips misaligned with the faint printed border.
-KNOWN_MERGED = {11, 32, 41, 42, 55, 56}
+#       of Greenland's landmass (verified by zoomed crop), so faithful
+#       geometry can never give the anchor its own polygon;
+#   S. Africa(41)/Madagascar(42) -- Madagascar's anchor is printed in the
+#       Mozambique Channel 3.8 px off the MAINLAND coast (which really
+#       extends to x~603 at that row) and ~15 px from the island, so
+#       nearest-label gap closing merges it into South Africa's polygon;
+#   Mongolia(56) -- D12 prints the anchor 1.0 px from Irkutsk's mask and
+#       1.4 px from Mongolia's, on the shared drawn border stroke; the
+#       contested-pixel rule leaves it unclaimed rather than guessing
+#       (both polygons themselves are correct);
+#   Britain(43)/Indonesia(61)/W. Australia(63)/Alaska(66) -- island/edge
+#       labels D12 prints in open water (13.8/11.2/4.1/~20 px offshore);
+#       their polygons exist and are correct; only the buffered secondary
+#       matching can associate these anchors.
+KNOWN_UNMATCHED_B0 = {11, 32, 41, 42, 43, 56, 61, 63, 66}
 
 
 def test_map1_bijection(map1_result):
-    """The stage-1 gate: 42 label points <-> 42 distinct polygons.
+    """The stage-1 gate, measured HONESTLY: no coastal buffer.
 
-    Honest current standing: every anchor lands in exactly one polygon, and
-    36/42 map bijectively; the six non-bijective anchors are the three
-    characterized merged pairs above.  This test pins that exact state so
-    any regression (or improvement) fails loudly and gets re-examined.
+    The headline bijection is computed on the polygons actually written
+    out.  Floors, not pins: improvement never fails the suite, regression
+    does.  Any newly-failing anchor outside the characterized set above
+    also fails loudly.
     """
     bij = map1_result.report["bijection"]
     assert bij["n_labels"] == 42
-    assert bij["n_in_exactly_one"] == 42, bij["failures"]
+    assert bij["n_in_exactly_one"] >= 37, bij["failures"]
+    assert bij["n_bijective"] >= 33, bij["failures"]
     failed_ids = {f["territory_id"] for f in bij["failures"]}
-    assert failed_ids == KNOWN_MERGED, bij["failures"]
-    assert bij["n_bijective"] == 36, bij["failures"]
+    assert failed_ids <= KNOWN_UNMATCHED_B0, bij["failures"]
+
+
+def test_map1_bijection_buffered_secondary(map1_result):
+    """Buffer-assisted matching (secondary diagnostic, never the headline).
+
+    With near-shore water claimed to the nearest territory for LABEL
+    MATCHING ONLY (the emitted polygons are untouched), offshore island
+    labels resolve.  This floor preserves the strength of the old pinned
+    36/42 figure.
+    """
+    bb = map1_result.report["bijection_buffered"]
+    assert bb["buffer_px"] > 0
+    assert bb["n_labels"] == 42
+    assert bb["n_in_exactly_one"] >= 42
+    assert bb["n_bijective"] >= 36, bb["failures"]
+
+
+def test_map1_polygon_count_sane(map1_result):
+    """Polygon count within a stated factor of the catalog's territory
+    count.  num_territories is a warning signal, never a filter, but a
+    count exploding past this factor means the mask soup leaked through."""
+    n = len(map1_result.shapes)
+    expected = map1_result.report["expected_territories"]
+    assert expected == 42
+    assert n >= expected, f"only {n} polygons for {expected} territories"
+    assert n <= 2.5 * expected, f"{n} polygons for {expected} territories"
+
+
+def test_map1_junk_fraction_bounded(map1_result):
+    """The fraction of polygons containing no ground-truth anchor stays
+    below a stated threshold (junk: title letters, name pills, fragments;
+    also counts real-but-unlabelled decorative islands)."""
+    from riskdyn.segment.geometry import polygons_containing
+
+    pts = load_label_points(FIXTURE)
+    anchored = set()
+    for p in pts:
+        for hit in polygons_containing(map1_result.shapes, p.x, p.y):
+            anchored.add(hit)
+    n = len(map1_result.shapes)
+    frac_anchorless = 1.0 - len(anchored) / n
+    assert frac_anchorless <= 0.70, (
+        f"{n - len(anchored)}/{n} polygons contain no anchor"
+    )
 
 
 def test_map1_ocean_is_not_a_territory(map1_result):
-    """Open-ocean points must fall inside no territory polygon."""
+    """No polygon may be made of water-coloured pixels.
+
+    The real form of the check: for EVERY emitted label, the fraction of
+    its pixels within RGB distance 35 of the map's background colour must
+    stay below the conviction threshold -- not just at a few hand-picked
+    probe points.  (The probes are kept as a cheap sanity layer.)
+    """
+    import numpy as np
+
     from riskdyn.segment.geometry import polygons_containing
 
-    # Mid-Atlantic, south of Africa, and bottom-left open water on map 1.
+    cat = load_catalog()
+    image = load_map_image(image_path(1), (cat[1].width, cat[1].height))
+    label_map = map1_result.label_map
+    bg_color = np.median(image[label_map == 0], axis=0)
+    for label in range(1, int(label_map.max()) + 1):
+        m = label_map == label
+        if not m.any():
+            continue
+        dpix = np.linalg.norm(image[m].astype(np.float32) - bg_color, axis=1)
+        water_frac = float((dpix < 35).mean())
+        assert water_frac <= 0.60, (
+            f"label {label} is {water_frac:.0%} water-coloured pixels"
+        )
+    # Cheap probe layer: mid-Atlantic, south of Africa, bottom-left water.
     ocean_points = [(350, 500), (500, 640), (60, 640)]
     for x, y in ocean_points:
         hits = polygons_containing(map1_result.shapes, x, y)
         assert hits == [], f"ocean point ({x},{y}) inside territories {hits}"
-    # The label map agrees: those pixels are background.
-    for x, y in ocean_points:
         assert map1_result.label_map[y, x] == 0
 
 
@@ -138,22 +209,30 @@ def test_map1_artifacts_written(map1_result):
 
 def test_same_image_same_output_across_runs():
     """Determinism: two independent SAM runs give identical territories."""
-    from riskdyn.segment.candidates import paint_label_map, select_masks
-    from riskdyn.segment.geometry import claim_coastal_margin, extract_territories
+    from riskdyn.segment.candidates import (
+        CandidateParams,
+        drop_water_labels,
+        paint_label_map,
+        select_masks,
+        split_merged_labels,
+    )
+    from riskdyn.segment.geometry import close_label_gaps, extract_territories
     from riskdyn.segment.sam import SamMaskGenerator
 
     cat = load_catalog()
     image = load_map_image(image_path(1), (cat[1].width, cat[1].height))
 
-    from riskdyn.segment.candidates import CandidateParams
-
-    buffer_px = CandidateParams().coastal_buffer_px
+    p = CandidateParams()
     runs = []
     for _ in range(2):
         raw = SamMaskGenerator().generate(image)  # no cache: real re-run
         kept, _ = select_masks(raw, image.shape[:2], image=image)
         label_map, _ = paint_label_map(kept, image.shape[:2], image=image)
-        label_map = claim_coastal_margin(label_map, buffer_px)
+        label_map, _ = drop_water_labels(label_map, image)
+        label_map, _ = split_merged_labels(label_map, image)
+        label_map = close_label_gaps(
+            label_map, image, p.gap_close_px, p.land_claim_px, p.land_color_dist
+        )
         runs.append((raw, extract_territories(label_map)))
 
     raw_a, shapes_a = runs[0]
