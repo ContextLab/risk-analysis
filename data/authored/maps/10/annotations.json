@@ -1,0 +1,1198 @@
+{
+ "schema_version": 2,
+ "map_id": 10,
+ "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_ids is [] and regions is empty until authored from the artwork.",
+ "territories": [
+  {
+   "territory_id": 326,
+   "name": "Sels",
+   "x": 78,
+   "y": 165,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 327,
+   "name": "Saudia",
+   "x": 61,
+   "y": 240,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 328,
+   "name": "Samdo",
+   "x": 144,
+   "y": 182,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 329,
+   "name": "Sawwe",
+   "x": 258,
+   "y": 217,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 330,
+   "name": "Saun",
+   "x": 173,
+   "y": 270,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 331,
+   "name": "Eino",
+   "x": 423,
+   "y": 112,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 332,
+   "name": "Eke",
+   "x": 369,
+   "y": 156,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 333,
+   "name": "Euces",
+   "x": 437,
+   "y": 165,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 334,
+   "name": "Ejand",
+   "x": 449,
+   "y": 234,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 335,
+   "name": "Enoaf",
+   "x": 466,
+   "y": 292,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 336,
+   "name": "Escla",
+   "x": 540,
+   "y": 157,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 337,
+   "name": "Afnan",
+   "x": 858,
+   "y": 81,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 338,
+   "name": "Almwan",
+   "x": 948,
+   "y": 121,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 339,
+   "name": "Alia",
+   "x": 642,
+   "y": 114,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 340,
+   "name": "Arnol",
+   "x": 758,
+   "y": 162,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 341,
+   "name": "Adnet",
+   "x": 851,
+   "y": 147,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 342,
+   "name": "Aeger",
+   "x": 945,
+   "y": 174,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 343,
+   "name": "Aitus",
+   "x": 658,
+   "y": 237,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 344,
+   "name": "Asni",
+   "x": 727,
+   "y": 214,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 345,
+   "name": "Arner",
+   "x": 875,
+   "y": 226,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 346,
+   "name": "Alfron",
+   "x": 719,
+   "y": 266,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 347,
+   "name": "Amet",
+   "x": 804,
+   "y": 312,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 348,
+   "name": "Als",
+   "x": 963,
+   "y": 272,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 349,
+   "name": "Nael",
+   "x": 208,
+   "y": 336,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 350,
+   "name": "Nayle",
+   "x": 192,
+   "y": 386,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 351,
+   "name": "Nessa",
+   "x": 291,
+   "y": 370,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 352,
+   "name": "Nasga",
+   "x": 104,
+   "y": 444,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 353,
+   "name": "Nonjon",
+   "x": 211,
+   "y": 460,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 354,
+   "name": "Nauve",
+   "x": 342,
+   "y": 411,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 355,
+   "name": "Nuldmo",
+   "x": 377,
+   "y": 447,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 356,
+   "name": "Noldoff",
+   "x": 402,
+   "y": 360,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 357,
+   "name": "Faulk",
+   "x": 492,
+   "y": 352,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 358,
+   "name": "Falis",
+   "x": 524,
+   "y": 429,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 359,
+   "name": "Fiora",
+   "x": 643,
+   "y": 459,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 360,
+   "name": "Foit",
+   "x": 771,
+   "y": 427,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 361,
+   "name": "Titus",
+   "x": 853,
+   "y": 362,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 362,
+   "name": "Tald",
+   "x": 940,
+   "y": 398,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 363,
+   "name": "Toreen",
+   "x": 929,
+   "y": 438,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 364,
+   "name": "Tapoun",
+   "x": 24,
+   "y": 425,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 365,
+   "name": "Atec",
+   "x": 676,
+   "y": 175,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 366,
+   "name": "Frisino",
+   "x": 703,
+   "y": 390,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  }
+ ],
+ "edges": [
+  {
+   "a": 326,
+   "b": 327,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 326,
+   "b": 328,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 327,
+   "b": 328,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 327,
+   "b": 330,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 327,
+   "b": 348,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 328,
+   "b": 329,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 328,
+   "b": 330,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 329,
+   "b": 332,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 329,
+   "b": 334,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 330,
+   "b": 349,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 331,
+   "b": 332,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 331,
+   "b": 333,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 332,
+   "b": 333,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 332,
+   "b": 334,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 333,
+   "b": 334,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 333,
+   "b": 336,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 334,
+   "b": 335,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 335,
+   "b": 357,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 336,
+   "b": 339,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 336,
+   "b": 365,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 337,
+   "b": 338,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 337,
+   "b": 339,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 337,
+   "b": 340,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 337,
+   "b": 341,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 337,
+   "b": 342,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 338,
+   "b": 342,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 339,
+   "b": 340,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 339,
+   "b": 365,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 340,
+   "b": 341,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 340,
+   "b": 344,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 340,
+   "b": 345,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 340,
+   "b": 365,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 341,
+   "b": 342,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 341,
+   "b": 345,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 342,
+   "b": 345,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 343,
+   "b": 344,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 343,
+   "b": 346,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 343,
+   "b": 365,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 344,
+   "b": 345,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 344,
+   "b": 346,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 344,
+   "b": 365,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 345,
+   "b": 346,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 345,
+   "b": 348,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 346,
+   "b": 347,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 347,
+   "b": 361,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 349,
+   "b": 350,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 349,
+   "b": 351,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 350,
+   "b": 351,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 350,
+   "b": 352,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 350,
+   "b": 353,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 351,
+   "b": 353,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 351,
+   "b": 354,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 352,
+   "b": 353,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 352,
+   "b": 364,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 353,
+   "b": 354,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 353,
+   "b": 355,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 354,
+   "b": 355,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 354,
+   "b": 356,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 355,
+   "b": 356,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 356,
+   "b": 357,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 357,
+   "b": 358,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 357,
+   "b": 359,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 357,
+   "b": 366,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 358,
+   "b": 359,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 359,
+   "b": 360,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 359,
+   "b": 366,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 360,
+   "b": 361,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 360,
+   "b": 363,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 360,
+   "b": 366,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 361,
+   "b": 362,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 361,
+   "b": 363,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 362,
+   "b": 363,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 363,
+   "b": 364,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  }
+ ],
+ "edge_confirmations": [],
+ "special_rules": [],
+ "corrections": [],
+ "regions": [],
+ "extra_bonuses": [],
+ "verification": {
+  "overlay_confirmed": {
+   "verified": false,
+   "by": null,
+   "at": null
+  },
+  "bonuses_confirmed": {
+   "verified": false,
+   "by": null,
+   "at": null
+  }
+ }
+}

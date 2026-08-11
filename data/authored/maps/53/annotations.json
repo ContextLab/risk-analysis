@@ -1,0 +1,733 @@
+{
+ "schema_version": 2,
+ "map_id": 53,
+ "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_ids is [] and regions is empty until authored from the artwork.",
+ "territories": [
+  {
+   "territory_id": 2315,
+   "name": "Alaska",
+   "x": 4,
+   "y": 67,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2316,
+   "name": "Argentina",
+   "x": 201,
+   "y": 534,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2317,
+   "name": "Australia",
+   "x": 915,
+   "y": 486,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2321,
+   "name": "Brazil",
+   "x": 209,
+   "y": 391,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2322,
+   "name": "Canada",
+   "x": 104,
+   "y": 115,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2323,
+   "name": "Central America",
+   "x": 53,
+   "y": 277,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2324,
+   "name": "China",
+   "x": 793,
+   "y": 219,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2325,
+   "name": "Congo",
+   "x": 505,
+   "y": 373,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2326,
+   "name": "East Africa",
+   "x": 575,
+   "y": 350,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2327,
+   "name": "East Siberia",
+   "x": 806,
+   "y": 85,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2328,
+   "name": "Europe Mainland",
+   "x": 471,
+   "y": 131,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2329,
+   "name": "Great Britain",
+   "x": 404,
+   "y": 109,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2330,
+   "name": "Greenland",
+   "x": 322,
+   "y": 45,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2331,
+   "name": "India",
+   "x": 705,
+   "y": 262,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2332,
+   "name": "Indonesia",
+   "x": 849,
+   "y": 360,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2333,
+   "name": "Kazakhstan",
+   "x": 647,
+   "y": 164,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2334,
+   "name": "Middle East",
+   "x": 579,
+   "y": 233,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2335,
+   "name": "Mongolia",
+   "x": 847,
+   "y": 152,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2336,
+   "name": "North Africa",
+   "x": 443,
+   "y": 258,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2337,
+   "name": "Papua New Guinea",
+   "x": 949,
+   "y": 389,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2338,
+   "name": "Peru",
+   "x": 180,
+   "y": 444,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2339,
+   "name": "Scandinavia",
+   "x": 460,
+   "y": 74,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2340,
+   "name": "South Africa",
+   "x": 518,
+   "y": 479,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2341,
+   "name": "Ukraine",
+   "x": 542,
+   "y": 114,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2342,
+   "name": "United States",
+   "x": 77,
+   "y": 192,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2343,
+   "name": "West Siberia",
+   "x": 688,
+   "y": 80,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  }
+ ],
+ "edges": [
+  {
+   "a": 2315,
+   "b": 2322,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2315,
+   "b": 2327,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2316,
+   "b": 2321,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2316,
+   "b": 2338,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2317,
+   "b": 2332,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2317,
+   "b": 2337,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2321,
+   "b": 2323,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2321,
+   "b": 2336,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2321,
+   "b": 2338,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2322,
+   "b": 2330,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2322,
+   "b": 2342,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2323,
+   "b": 2342,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2324,
+   "b": 2331,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2324,
+   "b": 2332,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2324,
+   "b": 2333,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2324,
+   "b": 2335,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2324,
+   "b": 2343,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2325,
+   "b": 2326,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2325,
+   "b": 2336,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2325,
+   "b": 2340,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2326,
+   "b": 2334,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2326,
+   "b": 2336,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2326,
+   "b": 2340,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2327,
+   "b": 2335,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2327,
+   "b": 2343,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2328,
+   "b": 2329,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2328,
+   "b": 2334,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2328,
+   "b": 2336,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2328,
+   "b": 2339,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2328,
+   "b": 2341,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2329,
+   "b": 2339,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2330,
+   "b": 2339,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2331,
+   "b": 2333,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2331,
+   "b": 2334,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2332,
+   "b": 2337,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2333,
+   "b": 2334,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2333,
+   "b": 2341,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2333,
+   "b": 2343,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2334,
+   "b": 2336,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2334,
+   "b": 2341,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2335,
+   "b": 2343,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2339,
+   "b": 2341,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2341,
+   "b": 2343,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  }
+ ],
+ "edge_confirmations": [],
+ "special_rules": [],
+ "corrections": [],
+ "regions": [],
+ "extra_bonuses": [],
+ "verification": {
+  "overlay_confirmed": {
+   "verified": false,
+   "by": null,
+   "at": null
+  },
+  "bonuses_confirmed": {
+   "verified": false,
+   "by": null,
+   "at": null
+  }
+ }
+}

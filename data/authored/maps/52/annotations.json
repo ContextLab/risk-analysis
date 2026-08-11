@@ -1,0 +1,638 @@
+{
+ "schema_version": 2,
+ "map_id": 52,
+ "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_ids is [] and regions is empty until authored from the artwork.",
+ "territories": [
+  {
+   "territory_id": 2291,
+   "name": "Anchor Point",
+   "x": 756,
+   "y": 651,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2292,
+   "name": "Rocky Shore",
+   "x": 595,
+   "y": 638,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2293,
+   "name": "Williamsburg",
+   "x": 310,
+   "y": 619,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2294,
+   "name": "Arcadia",
+   "x": 218,
+   "y": 632,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2295,
+   "name": "Rockland",
+   "x": 90,
+   "y": 584,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2296,
+   "name": "Hawk Corner",
+   "x": 32,
+   "y": 402,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2297,
+   "name": "Monta\u00f1a Negra",
+   "x": 156,
+   "y": 267,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2298,
+   "name": "Welston Spring",
+   "x": 172,
+   "y": 423,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2299,
+   "name": "Ridge Spa",
+   "x": 221,
+   "y": 345,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2300,
+   "name": "Cazadora",
+   "x": 306,
+   "y": 410,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2301,
+   "name": "Costa del Pirata",
+   "x": 403,
+   "y": 565,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2302,
+   "name": "Newport",
+   "x": 430,
+   "y": 440,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2303,
+   "name": "St. Louis",
+   "x": 282,
+   "y": 251,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2304,
+   "name": "Dark Rock",
+   "x": 221,
+   "y": 137,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2305,
+   "name": "Chesapeake",
+   "x": 379,
+   "y": 142,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2306,
+   "name": "Grayridge",
+   "x": 299,
+   "y": 72,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2307,
+   "name": "High Point",
+   "x": 356,
+   "y": 4,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2308,
+   "name": "Ballston",
+   "x": 486,
+   "y": 46,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2309,
+   "name": "Suffolk",
+   "x": 457,
+   "y": 188,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2310,
+   "name": "Baytown",
+   "x": 425,
+   "y": 295,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2311,
+   "name": "Portsmouth",
+   "x": 551,
+   "y": 178,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2312,
+   "name": "Saratoga",
+   "x": 602,
+   "y": 33,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2313,
+   "name": "Raider Cove",
+   "x": 652,
+   "y": 102,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 2314,
+   "name": "Pirate Landing",
+   "x": 772,
+   "y": 21,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  }
+ ],
+ "edges": [
+  {
+   "a": 2291,
+   "b": 2292,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2291,
+   "b": 2293,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2292,
+   "b": 2293,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2292,
+   "b": 2313,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2293,
+   "b": 2294,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2293,
+   "b": 2301,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2294,
+   "b": 2295,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2294,
+   "b": 2296,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2295,
+   "b": 2296,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2296,
+   "b": 2297,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2296,
+   "b": 2306,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2297,
+   "b": 2298,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2297,
+   "b": 2299,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2297,
+   "b": 2304,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2298,
+   "b": 2299,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2299,
+   "b": 2300,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2300,
+   "b": 2301,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2300,
+   "b": 2302,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2300,
+   "b": 2310,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2301,
+   "b": 2302,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2303,
+   "b": 2304,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2303,
+   "b": 2305,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2304,
+   "b": 2305,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2304,
+   "b": 2306,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2305,
+   "b": 2309,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2306,
+   "b": 2307,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2306,
+   "b": 2308,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2307,
+   "b": 2308,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2308,
+   "b": 2312,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2309,
+   "b": 2310,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2309,
+   "b": 2311,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2309,
+   "b": 2312,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2310,
+   "b": 2311,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2312,
+   "b": 2313,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2312,
+   "b": 2314,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 2313,
+   "b": 2314,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  }
+ ],
+ "edge_confirmations": [],
+ "special_rules": [],
+ "corrections": [],
+ "regions": [],
+ "extra_bonuses": [],
+ "verification": {
+  "overlay_confirmed": {
+   "verified": false,
+   "by": null,
+   "at": null
+  },
+  "bonuses_confirmed": {
+   "verified": false,
+   "by": null,
+   "at": null
+  }
+ }
+}

@@ -1,0 +1,780 @@
+{
+ "schema_version": 2,
+ "map_id": 44,
+ "notes": "Imported from a saved D12 game page by riskdyn.workbench.import_page on 2026-08-11. Territories and the edge LIST come from D12's own territory markup and are authoritative -- edge status 'confirmed' asserts EXISTENCE only; kind stays 'unknown'/'unconfirmed' until classified. Continent membership is absent from D12's markup (issue #4): region_ids is [] and regions is empty until authored from the artwork.",
+ "territories": [
+  {
+   "territory_id": 1914,
+   "name": "Osur",
+   "x": 342,
+   "y": 36,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1915,
+   "name": "Paresova",
+   "x": 955,
+   "y": 708,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1916,
+   "name": "Coreta",
+   "x": 856,
+   "y": 582,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1917,
+   "name": "Agrona",
+   "x": 813,
+   "y": 666,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1918,
+   "name": "Etribus",
+   "x": 649,
+   "y": 692,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1919,
+   "name": "Ibenas",
+   "x": 320,
+   "y": 557,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1920,
+   "name": "Afrius",
+   "x": 837,
+   "y": 130,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1921,
+   "name": "Antas",
+   "x": 758,
+   "y": 38,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1922,
+   "name": "Ursopa",
+   "x": 701,
+   "y": 12,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1923,
+   "name": "Olmana",
+   "x": 645,
+   "y": 91,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1924,
+   "name": "Bythasul",
+   "x": 576,
+   "y": 15,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1925,
+   "name": "Amatras",
+   "x": 526,
+   "y": 109,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1926,
+   "name": "Arum",
+   "x": 708,
+   "y": 420,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1927,
+   "name": "Anglova",
+   "x": 613,
+   "y": 426,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1928,
+   "name": "Engalius",
+   "x": 374,
+   "y": 265,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1929,
+   "name": "Eulia",
+   "x": 461,
+   "y": 646,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1930,
+   "name": "Engona",
+   "x": 250,
+   "y": 137,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1931,
+   "name": "Utis",
+   "x": 539,
+   "y": 454,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1932,
+   "name": "Rhodunia",
+   "x": 465,
+   "y": 395,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1933,
+   "name": "Ethano",
+   "x": 353,
+   "y": 469,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1934,
+   "name": "Estalon",
+   "x": 920,
+   "y": 392,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1935,
+   "name": "Oland",
+   "x": 182,
+   "y": 507,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1936,
+   "name": "Anosis",
+   "x": 217,
+   "y": 389,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1937,
+   "name": "Agrevon",
+   "x": 61,
+   "y": 456,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1938,
+   "name": "Terraga",
+   "x": 121,
+   "y": 388,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1939,
+   "name": "Ordova",
+   "x": 192,
+   "y": 316,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1940,
+   "name": "Amoris",
+   "x": 262,
+   "y": 219,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1941,
+   "name": "Minalis",
+   "x": 423,
+   "y": 596,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1942,
+   "name": "Arcias",
+   "x": 140,
+   "y": 183,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  },
+  {
+   "territory_id": 1943,
+   "name": "Bahar",
+   "x": 76,
+   "y": 128,
+   "region_ids": [],
+   "source": "d12-markup",
+   "confidence": "high"
+  }
+ ],
+ "edges": [
+  {
+   "a": 1914,
+   "b": 1925,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1914,
+   "b": 1930,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1915,
+   "b": 1916,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1915,
+   "b": 1917,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1916,
+   "b": 1917,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1916,
+   "b": 1926,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1916,
+   "b": 1934,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1917,
+   "b": 1918,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1918,
+   "b": 1929,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1919,
+   "b": 1929,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1919,
+   "b": 1933,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1919,
+   "b": 1935,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1919,
+   "b": 1941,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1920,
+   "b": 1921,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1920,
+   "b": 1926,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1920,
+   "b": 1934,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1921,
+   "b": 1922,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1921,
+   "b": 1923,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1922,
+   "b": 1923,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1922,
+   "b": 1924,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1923,
+   "b": 1924,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1923,
+   "b": 1925,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1924,
+   "b": 1925,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1925,
+   "b": 1928,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1926,
+   "b": 1927,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1927,
+   "b": 1931,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1928,
+   "b": 1932,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1928,
+   "b": 1939,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1929,
+   "b": 1941,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1930,
+   "b": 1940,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1930,
+   "b": 1942,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1931,
+   "b": 1932,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1931,
+   "b": 1941,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1932,
+   "b": 1933,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1932,
+   "b": 1941,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1933,
+   "b": 1941,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1935,
+   "b": 1936,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1936,
+   "b": 1937,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1936,
+   "b": 1938,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1936,
+   "b": 1939,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1937,
+   "b": 1938,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1938,
+   "b": 1939,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1939,
+   "b": 1940,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  },
+  {
+   "a": 1942,
+   "b": 1943,
+   "kind": "unknown",
+   "kind_status": "unconfirmed",
+   "wraps": false,
+   "rule": null,
+   "status": "confirmed",
+   "source": "d12-markup",
+   "note": ""
+  }
+ ],
+ "edge_confirmations": [],
+ "special_rules": [],
+ "corrections": [],
+ "regions": [],
+ "extra_bonuses": [],
+ "verification": {
+  "overlay_confirmed": {
+   "verified": false,
+   "by": null,
+   "at": null
+  },
+  "bonuses_confirmed": {
+   "verified": false,
+   "by": null,
+   "at": null
+  }
+ }
+}

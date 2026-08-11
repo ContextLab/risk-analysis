@@ -18,7 +18,26 @@ from __future__ import annotations
 
 import difflib
 import re
+import unicodedata
 from dataclasses import dataclass, field
+
+# Characters NFKD does not decompose to an ASCII base letter.  Without these,
+# stripping non-ASCII would delete the letter entirely: "Ålesund" and "Ølesund"
+# would both fold to "lesund".  18 of the catalog's 78 maps carry accented
+# territory names, so this is the common case, not an edge case.
+NONDECOMPOSING = {
+    "ø": "o",
+    "æ": "ae",
+    "œ": "oe",
+    "ß": "ss",
+    "đ": "d",
+    "ð": "d",
+    "ł": "l",
+    "þ": "th",
+    "ı": "i",
+    "ŋ": "n",
+    "ħ": "h",
+}
 
 # Token-level expansions applied after punctuation stripping.  These make the
 # artwork's abbreviations and the markup's canonical names converge on one
@@ -59,11 +78,18 @@ _PUNCT_RE = re.compile(r"[^a-z0-9]+")
 def normalize_name(name: str) -> str:
     """Fold a printed or canonical territory name to a comparable form.
 
-    Lowercases, drops punctuation, then expands directional and common
-    abbreviations token-wise so "W. Europe" and "Western Europe" both become
-    "west europe".
+    Lowercases, folds accents to their ASCII base letter, drops punctuation,
+    then expands directional and common abbreviations token-wise so "W. Europe"
+    and "Western Europe" both become "west europe".
+
+    Accent folding must preserve the base letter: "Åland" and "Öland" are two
+    distinct Baltic islands on map 56, and stripping non-ASCII outright would
+    fold both to "land" and merge them.
     """
-    tokens = [t for t in _PUNCT_RE.split(name.lower()) if t]
+    lowered = "".join(NONDECOMPOSING.get(c, c) for c in name.lower())
+    decomposed = unicodedata.normalize("NFKD", lowered)
+    folded = "".join(c for c in decomposed if not unicodedata.combining(c))
+    tokens = [t for t in _PUNCT_RE.split(folded) if t]
     out: list[str] = []
     for token in tokens:
         out.extend(TOKEN_EXPANSIONS.get(token, token).split())

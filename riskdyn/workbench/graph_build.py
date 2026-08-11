@@ -43,8 +43,10 @@ CLI:  ./.venv/bin/python -m riskdyn.workbench.graph_build <map_id>
 from __future__ import annotations
 
 import argparse
+import dataclasses
 import json
 import pathlib
+import sys
 from typing import Any
 
 from riskdyn.segment import catalog as cat
@@ -248,15 +250,23 @@ def _connected_components(node_ids: list[int], edges: list[dict]) -> list[set[in
 # plan v4 criteria (b, e, f, d)
 # --------------------------------------------------------------------------
 
-def _crit_b(territories: list[dict], expected: int) -> dict[str, Any]:
+def _crit_b(territories: list[dict], expected: int | None) -> dict[str, Any]:
+    """``expected`` is None for maps absent from the catalog (map 9 has artwork
+    and a playable game but no catalog entry).  Without the expected count
+    there is nothing to check the territory count against, so the criterion is
+    unverified -- never a pass on the strength of the other checks alone."""
     names = [t.get("name") for t in territories]
     unnamed = sum(1 for n in names if not n)
     named = [n for n in names if n]
     duplicated = sorted({n for n in named if named.count(n) > 1})
-    ok = len(territories) == expected and not unnamed and not duplicated
+    clean = not unnamed and not duplicated
+    if expected is None:
+        status = "unverified" if clean else "fail"
+    else:
+        status = "pass" if (len(territories) == expected and clean) else "fail"
     return {
         "criterion": "b: every playable territory has exactly one node, correctly named",
-        "status": "pass" if ok else "fail",
+        "status": status,
         "expected_count": expected,
         "found_count": len(territories),
         "unnamed_territories": unnamed,
@@ -287,7 +297,7 @@ def _crit_e(edges: list[dict]) -> dict[str, Any]:
 
 
 def _crit_f(
-    territories: list[dict], regions: list[dict], expected_regions: int
+    territories: list[dict], regions: list[dict], expected_regions: int | None
 ) -> dict[str, Any]:
     """Region membership is many-to-many: pass when the distinct region ids
     used across all territories' region_ids match the catalog's num_regions
@@ -303,10 +313,16 @@ def _crit_f(
     unused_defined = sorted(defined - used)
     multi = [t["territory_id"] for t in territories if len(t["region_ids"]) > 1]
     none = [t["territory_id"] for t in territories if not t["region_ids"]]
-    ok = len(used) == expected_regions and not unused_defined
+    if expected_regions is None:
+        # Uncatalogued map: no expected region count exists to check against.
+        # Absent regions are still a fail -- that is a fact about the data, not
+        # something the missing catalog entry excuses.
+        status = "fail" if not used else "unverified"
+    else:
+        status = "pass" if (len(used) == expected_regions and not unused_defined) else "fail"
     return {
         "criterion": "f: region membership is correct",
-        "status": "pass" if ok else "fail",
+        "status": status,
         "expected_regions": expected_regions,
         "distinct_regions_used": len(used),
         "defined_regions_unused": unused_defined,
@@ -457,6 +473,43 @@ def _write_overlay(
 # the build
 # --------------------------------------------------------------------------
 
+@dataclasses.dataclass(frozen=True)
+class _UncataloguedSummary:
+    """Stand-in for a map the catalog does not list.
+
+    D12's map ids are not contiguous -- 1-104 with 27 gaps -- and the gaps
+    still serve artwork and still host playable games (map 9 has 30
+    territories). Image dimensions come from the artwork itself, and the
+    expected territory and region counts are None so the checks that need them
+    report unverified rather than silently passing.
+    """
+
+    map_id: int
+    width: int
+    height: int
+    name: str = "(not in catalog)"
+    num_territories: None = None
+    num_regions: None = None
+
+
+def _summary_or_fallback(map_id: int):
+    try:
+        return cat.load_catalog()[map_id]
+    except KeyError:
+        pass
+    from PIL import Image
+
+    with Image.open(cat.image_path(map_id)) as im:
+        width, height = im.size
+    print(
+        f"WARNING: map {map_id} is not in the catalog; territory and region "
+        f"counts cannot be cross-checked (criteria b and f report unverified). "
+        f"Image size {width}x{height} read from the artwork.",
+        file=sys.stderr,
+    )
+    return _UncataloguedSummary(map_id=map_id, width=width, height=height)
+
+
 def build_graph_map(
     map_id: int,
     out_root: pathlib.Path | None = None,
@@ -465,7 +518,7 @@ def build_graph_map(
     """Graphs-only build for one map; returns the report dict."""
     ann_path = (authored_root or AUTHORED_ROOT) / str(map_id) / "annotations.json"
     out_dir = (out_root or PROCESSED_ROOT) / str(map_id)
-    summary = cat.load_catalog()[map_id]
+    summary = _summary_or_fallback(map_id)
     doc = load_annotations_v2(ann_path, map_id)
     validate_annotations(doc, summary.width, summary.height)
     out_dir.mkdir(parents=True, exist_ok=True)

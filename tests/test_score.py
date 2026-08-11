@@ -41,6 +41,58 @@ def test_normalize_is_insensitive_to_punctuation_and_case():
     assert normalize_name("Papua New  Guinea!") == "papua new guinea"
 
 
+def test_accents_fold_to_their_base_letter_without_merging_names():
+    """Åland and Öland are distinct territories on map 56.
+
+    Stripping non-ASCII outright folds both to "land" and silently merges two
+    real territories. 18 of the catalog's 78 maps carry accented names.
+    """
+    assert normalize_name("Åland") == "aland"
+    assert normalize_name("Öland") == "oland"
+    assert normalize_name("Åland") != normalize_name("Öland")
+
+
+@pytest.mark.parametrize(
+    "accented,plain",
+    [
+        ("Žemaitija", "Zemaitija"),
+        ("Ōsaka", "Osaka"),
+        ("España", "Espana"),
+        ("Genève", "Geneve"),
+        ("Ærø", "Aero"),
+    ],
+)
+def test_accented_and_plain_spellings_normalize_alike(accented, plain):
+    assert normalize_name(accented) == normalize_name(plain)
+
+
+def test_every_real_territory_name_survives_normalization():
+    """No authored map may contain two territories whose names collide.
+
+    A collision means the scorer treats two distinct territories as one, which
+    corrupts alignment and every edge score that depends on it.
+    """
+    import json
+    import pathlib
+
+    authored = pathlib.Path(__file__).parent.parent / "data" / "authored" / "maps"
+    if not authored.is_dir():
+        pytest.skip("no authored maps in this checkout")
+    collisions = []
+    for path in sorted(authored.rglob("annotations.json")):
+        doc = json.loads(path.read_text())
+        seen: dict[str, str] = {}
+        for territory in doc.get("territories", []):
+            norm = normalize_name(territory["name"])
+            assert norm, f"{path.parent.name}: {territory['name']!r} normalized to empty"
+            if norm in seen:
+                collisions.append(
+                    f"map {path.parent.name}: {seen[norm]!r} vs {territory['name']!r}"
+                )
+            seen[norm] = territory["name"]
+    assert collisions == []
+
+
 def test_align_names_matches_all_42_from_artwork_abbreviations(topology):
     """The printed forms on the artwork must align to the canonical markup names.
 
