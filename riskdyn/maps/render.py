@@ -331,7 +331,12 @@ def _build_figure(
         if leader:
             # Displaced far enough that association is ambiguous: thin leader
             # line back to the node, stopping short of the marker edge.
-            arrowprops = dict(arrowstyle="-", linewidth=0.5, color="0.45",
+            # Dotted, not solid: adjacency edges are solid grey lines, and a
+            # solid leader reads as a false border (a reader counting a
+            # territory's neighbours would miscount). The dash pattern, not
+            # hue, carries the distinction so it survives greyscale print.
+            arrowprops = dict(arrowstyle="-", linewidth=0.6, color="0.45",
+                              linestyle=(0, (1.2, 2.0)), capstyle="round",
                               shrinkA=2, shrinkB=math.sqrt(_NODE_AREA_PT2) / 2.0 + 1.0)
         artist = ax.annotate(
             text, positions[node],

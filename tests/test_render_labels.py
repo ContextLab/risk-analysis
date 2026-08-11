@@ -128,6 +128,37 @@ render_map(world_classic(), {str(tmp_path / "sub.svg")!r}, width=1021, height=68
     assert in_process.read_bytes() == (tmp_path / "sub.svg").read_bytes()
 
 
+def test_leader_lines_are_visibly_distinct_from_adjacency_edges():
+    """Leader lines must not read as map borders.
+
+    Adjacency edges are solid; a solid leader crossing the Europe cluster
+    looks like a false adjacency and lets a reader miscount neighbours.
+    The distinction must be carried by the rendered artist's dash pattern
+    (not hue alone), so it survives greyscale print.
+    """
+    fig, labels = _build_figure(world_classic(), width=1021, height=689)
+    try:
+        leaders = [a.arrow_patch for a in labels
+                   if getattr(a, "arrow_patch", None) is not None]
+        # World Classic's Europe cluster forces displaced labels, so this
+        # topology must produce at least one leader for the test to bite.
+        assert leaders, "expected at least one leader line on World Classic"
+        for patch in leaders:
+            linestyle = patch.get_linestyle()
+            assert linestyle not in ("-", "solid"), (
+                f"leader line drawn solid ({linestyle!r}); it is visually "
+                "indistinguishable from an adjacency edge"
+            )
+            # A dash tuple like (offset, (on, off)) must actually have gaps.
+            if isinstance(linestyle, tuple):
+                offset, dashes = linestyle
+                assert dashes is not None and any(gap > 0 for gap in dashes[1::2]), (
+                    f"dash pattern {linestyle!r} has no gaps; renders solid"
+                )
+    finally:
+        plt.close(fig)
+
+
 def test_dense_synthetic_map_no_overlaps_within_time_bound(tmp_path):
     topology = dense_grid()
     assert len(topology.territories) == 150
