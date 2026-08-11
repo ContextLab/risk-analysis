@@ -109,50 +109,96 @@ def close_label_gaps(
     return out
 
 
+Polygon = tuple[tuple[float, float], ...]
+
+# Minimum pixel area for a disconnected component of a territory to earn its
+# own polygon, as a fraction of the image area.  Scale-relative on purpose:
+# on the 630x650 World Classic artwork this is ~20 px, well below Indonesia's
+# smallest real island (512 px) and well above anti-aliasing slivers a few
+# pixels wide.  A territory's LARGEST component is always emitted regardless,
+# so no territory can vanish under this rule.
+MIN_COMPONENT_FRAC = 5e-5
+
+
 @dataclass(frozen=True)
 class TerritoryShape:
     index: int                      # 1-based, stable ordering (see below)
-    polygon: tuple[tuple[float, float], ...]  # simplified outline, image px
-    centroid: tuple[float, float]   # pixel-mass centroid
-    area_px: int                    # pixel count, not polygon area
+    polygons: tuple[Polygon, ...]   # simplified outlines, image px, largest
+    #   connected component first (descending pixel area)
+    centroid: tuple[float, float]   # pixel-mass centroid over ALL components
+    area_px: int                    # pixel count over ALL components
     flags: tuple[str, ...] = ()     # human-review flags
 
+    @property
+    def polygon(self) -> Polygon:
+        """Largest component's outline (back-compat single-polygon view)."""
+        return self.polygons[0]
 
-def extract_territories(label_map: np.ndarray) -> list[TerritoryShape]:
-    """Vectorize each label into one simplified polygon.
+
+def _vectorize_component(mask: np.ndarray) -> tuple[Polygon, bool]:
+    """One connected component -> (simplified outline, degenerate?)."""
+    contours, _ = cv2.findContours(
+        mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE
+    )
+    contour = max(contours, key=cv2.contourArea)
+    peri = cv2.arcLength(contour, True)
+    eps = max(1.0, 0.0015 * peri)
+    approx = cv2.approxPolyDP(contour, eps, True)
+    degenerate = len(approx) < 3
+    if degenerate:
+        approx = contour  # degenerate simplification; keep raw outline
+    return tuple((float(p[0][0]), float(p[0][1])) for p in approx), degenerate
+
+
+def extract_territories(
+    label_map: np.ndarray, min_component_frac: float = MIN_COMPONENT_FRAC
+) -> list[TerritoryShape]:
+    """Vectorize each label into one or more simplified polygons.
+
+    A territory may genuinely span several disconnected components
+    (archipelagos: Indonesia is a chain of islands under one label).  Every
+    component at least ``min_component_frac`` of the image area gets its own
+    polygon, grouped under the one territory; the largest component is kept
+    unconditionally so a territory can never disappear entirely.
 
     Territories are re-indexed deterministically by reading order of their
     centroids (top-to-bottom, left-to-right, on a 16 px row grid) so the same
     label map always yields the same indices regardless of paint order.
     """
+    h, w = label_map.shape
+    min_area = max(1, int(round(min_component_frac * h * w)))
     shapes = []
     for label in range(1, int(label_map.max()) + 1):
         mask = (label_map == label).astype(np.uint8)
         area = int(mask.sum())
         if area == 0:
             continue
-        contours, _ = cv2.findContours(
-            mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE
+        n_comp, comp = cv2.connectedComponents(mask, connectivity=4)
+        # Descending pixel area, component id as deterministic tie-break.
+        comp_areas = sorted(
+            ((int((comp == c).sum()), -c) for c in range(1, n_comp)),
+            reverse=True,
         )
-        if not contours:
-            continue
-        contour = max(contours, key=cv2.contourArea)
-        peri = cv2.arcLength(contour, True)
-        eps = max(1.0, 0.0015 * peri)
-        approx = cv2.approxPolyDP(contour, eps, True)
+        kept = [(a, -negc) for a, negc in comp_areas if a >= min_area]
+        if not kept:  # never drop a territory outright
+            kept = [(comp_areas[0][0], -comp_areas[0][1])]
+        polys = []
         flags = []
-        if len(approx) < 3:
-            approx = contour  # degenerate simplification; keep raw outline
-            flags.append("degenerate-simplification")
-        poly = tuple((float(p[0][0]), float(p[0][1])) for p in approx)
+        for _, c in kept:
+            poly, degenerate = _vectorize_component(
+                (comp == c).astype(np.uint8)
+            )
+            if degenerate and "degenerate-simplification" not in flags:
+                flags.append("degenerate-simplification")
+            polys.append(poly)
         ys, xs = np.nonzero(mask)
         centroid = (float(xs.mean()), float(ys.mean()))
         shapes.append(
-            TerritoryShape(0, poly, centroid, area, tuple(flags))
+            TerritoryShape(0, tuple(polys), centroid, area, tuple(flags))
         )
     shapes.sort(key=lambda s: (round(s.centroid[1] / 16), round(s.centroid[0]), s.area_px))
     return [
-        TerritoryShape(i, s.polygon, s.centroid, s.area_px, s.flags)
+        TerritoryShape(i, s.polygons, s.centroid, s.area_px, s.flags)
         for i, s in enumerate(shapes, start=1)
     ]
 
@@ -160,18 +206,26 @@ def extract_territories(label_map: np.ndarray) -> list[TerritoryShape]:
 def polygons_containing(
     shapes: list[TerritoryShape], x: float, y: float
 ) -> list[int]:
-    """Indices of territories whose polygon contains (x, y) (edges count)."""
+    """Indices of territories ANY of whose polygons contains (x, y)
+    (edges count)."""
     hits = []
     for s in shapes:
-        cnt = np.array(s.polygon, dtype=np.float32).reshape(-1, 1, 2)
-        if cv2.pointPolygonTest(cnt, (float(x), float(y)), False) >= 0:
-            hits.append(s.index)
+        for poly in s.polygons:
+            cnt = np.array(poly, dtype=np.float32).reshape(-1, 1, 2)
+            if cv2.pointPolygonTest(cnt, (float(x), float(y)), False) >= 0:
+                hits.append(s.index)
+                break
     return hits
 
 
-def _path_d(polygon: tuple[tuple[float, float], ...]) -> str:
+def _ring_d(polygon: Polygon) -> str:
     pts = [f"{x:.1f},{y:.1f}" for x, y in polygon]
     return "M " + " L ".join(pts) + " Z"
+
+
+def _path_d(polygons: tuple[Polygon, ...]) -> str:
+    """One SVG path ``d`` with one closed subpath per component."""
+    return " ".join(_ring_d(p) for p in polygons)
 
 
 def write_svg(
@@ -179,7 +233,12 @@ def write_svg(
     size: tuple[int, int],
     path: str | pathlib.Path,
 ) -> None:
-    """Emit territories.svg: one <path> per territory with id/centroid/area."""
+    """Emit territories.svg: ONE <path> per territory.
+
+    A multi-component territory is one ``<path>`` whose ``d`` holds several
+    ``M ... Z`` subpaths (rather than a group of paths), so a territory keeps
+    a single element identity; ``data-n-polygons`` records the count.
+    """
     w, h = size
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
@@ -189,8 +248,9 @@ def write_svg(
     for s in shapes:
         cx, cy = s.centroid
         lines.append(
-            f'  <path id="territory-{s.index}" d="{_path_d(s.polygon)}" '
+            f'  <path id="territory-{s.index}" d="{_path_d(s.polygons)}" '
             f'data-centroid="{cx:.1f},{cy:.1f}" data-area-px="{s.area_px}" '
+            f'data-n-polygons="{len(s.polygons)}" '
             f'fill="none" stroke="black" stroke-width="1"/>'
         )
     lines.append("</svg>")

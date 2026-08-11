@@ -61,14 +61,16 @@ def draw_overlay(
     small = _font(12)
 
     for s in shapes:
-        pts = [(x, y) for x, y in s.polygon]
-        if len(pts) >= 3:
-            draw.line(pts + [pts[0]], fill=(0, 0, 0, 255), width=4)
+        for poly in s.polygons:
+            pts = [(x, y) for x, y in poly]
+            if len(pts) >= 3:
+                draw.line(pts + [pts[0]], fill=(0, 0, 0, 255), width=4)
     for s in shapes:
-        pts = [(x, y) for x, y in s.polygon]
-        if len(pts) >= 3:
-            color = (255, 64, 64, 255) if s.index in flagged else (255, 255, 0, 255)
-            draw.line(pts + [pts[0]], fill=color, width=2)
+        color = (255, 64, 64, 255) if s.index in flagged else (255, 255, 0, 255)
+        for poly in s.polygons:
+            pts = [(x, y) for x, y in poly]
+            if len(pts) >= 3:
+                draw.line(pts + [pts[0]], fill=color, width=2)
 
     for s in shapes:
         cx, cy = s.centroid
