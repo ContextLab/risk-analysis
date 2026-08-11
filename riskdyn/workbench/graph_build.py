@@ -44,6 +44,7 @@ from __future__ import annotations
 
 import argparse
 import dataclasses
+import hashlib
 import json
 import pathlib
 import sys
@@ -184,6 +185,60 @@ def _human_signoff(conf: dict | None) -> bool:
         and bool(by)
         and "agent" not in by.lower()
         and not by.lower().startswith("claude")
+    )
+
+
+def bonus_payload(
+    regions_flat: list[dict],
+    extra_bonuses: list | None = None,
+    special_rules: list | None = None,
+) -> dict:
+    """The exact bonus data a human sign-off covers, in canonical form.
+
+    ``regions_flat`` is the flat annotations-region shape (region_id,
+    bonus, bonus_text_verbatim, ...); only the value-bearing keys enter
+    the payload, so cosmetic edits (notes, bboxes) do not invalidate a
+    sign-off but any change to a confirmed VALUE does.
+    """
+    return {
+        "regions": sorted(
+            (
+                {
+                    "region_id": r["region_id"],
+                    "bonus": r.get("bonus"),
+                    "bonus_text_verbatim": r.get("bonus_text_verbatim"),
+                }
+                for r in regions_flat
+            ),
+            key=lambda e: e["region_id"],
+        ),
+        "extra_bonuses": extra_bonuses or [],
+        "special_rules": special_rules or [],
+    }
+
+
+def payload_sha256(payload: dict) -> str:
+    """Canonical sha256 of a payload dict (sorted keys, no whitespace)."""
+    return hashlib.sha256(
+        json.dumps(payload, sort_keys=True, separators=(",", ":")).encode()
+    ).hexdigest()
+
+
+def bonus_payload_sha256(doc: dict) -> str:
+    """sha256 of the bonus payload as derivable from an annotations doc.
+
+    This is what ``_crit_d`` recomputes on every build: if it no longer
+    matches the ``payload_sha256`` recorded at sign-off time, the data
+    changed after the human approved it and the sign-off is STALE -- a
+    stale approval outliving the data it approved is the same class of
+    defect as an aggregate count that cannot see a swap.
+    """
+    return payload_sha256(
+        bonus_payload(
+            doc.get("regions") or [],
+            doc.get("extra_bonuses"),
+            doc.get("special_rules"),
+        )
     )
 
 
@@ -339,7 +394,10 @@ def _crit_f(
 
 
 def _crit_d(
-    bonuses_doc: dict, regions: list[dict], verification: dict | None
+    bonuses_doc: dict,
+    regions: list[dict],
+    verification: dict | None,
+    current_payload_sha256: str,
 ) -> dict[str, Any]:
     values = {
         e["region_id"]: e["value"]
@@ -353,15 +411,22 @@ def _crit_d(
     ]
     conf = (verification or {}).get("bonuses_confirmed") or {}
     human_ok = _human_signoff(conf)
+    # A sign-off only counts while the data it approved is byte-for-byte the
+    # data on disk: the recorded payload_sha256 must match the recomputed
+    # one.  A sign-off with no hash at all cannot be checked, so it never
+    # counts as current.
+    stale = human_ok and conf.get("payload_sha256") != current_payload_sha256
     if missing:
         status = "fail"
-    elif human_ok:
+    elif human_ok and not stale:
         status = "pass"
     else:
         status = "unverified"
     return {
         "criterion": "d: bonuses and special rules are accurate",
         "status": status,
+        "payload_sha256": current_payload_sha256,
+        "stale_signoff": stale,
         "regions_without_bonus": missing,
         "n_extra_bonuses": len(
             [e for e in bonuses_doc.get("bonuses", []) if e.get("kind") != "region"]
@@ -369,13 +434,23 @@ def _crit_d(
         "n_special_rules": len(bonuses_doc.get("special_rules", [])),
         "human_confirmation": (
             {"confirmed": True, "by": conf.get("by"), "at": conf.get("at")}
-            if human_ok
+            if human_ok and not stale
             else {
                 "confirmed": False,
                 "needs": (
-                    "a human must check bonuses.json against the artwork and "
-                    "confirm via annotations.json verification."
-                    "bonuses_confirmed; an agent transcription is not sign-off"
+                    (
+                        "the bonus data changed since the sign-off by "
+                        f"{conf.get('by')!r} at {conf.get('at')} (recorded "
+                        "payload_sha256 no longer matches); a human must "
+                        "re-review and re-confirm"
+                    )
+                    if stale
+                    else (
+                        "a human must check bonuses.json against the artwork "
+                        "and confirm via annotations.json verification."
+                        "bonuses_confirmed; an agent transcription is not "
+                        "sign-off"
+                    )
                 ),
             }
         ),
@@ -604,7 +679,10 @@ def build_graph_map(
     crit_b = _crit_b(territories, summary.num_territories)
     crit_e = _crit_e(edges)
     crit_f = _crit_f(territories, doc.get("regions", []), summary.num_regions)
-    crit_d = _crit_d(bonuses_doc, doc.get("regions", []), verification)
+    crit_d = _crit_d(
+        bonuses_doc, doc.get("regions", []), verification,
+        bonus_payload_sha256(doc),
+    )
     statuses = [c["status"] for c in (crit_b, crit_e, crit_f, crit_d)]
     report = {
         "schema_version": 1,
