@@ -1,0 +1,109 @@
+{
+ "schema_version": 1,
+ "map_id": 1,
+ "notes": "World Classic. Names and adjacency come from the D12 fixture (tests/fixtures/game_map1_territories.html). Regions and bonus values below were read from the artwork's mini-map legend (bottom right), which prints one numeral per continent with NO region names -- association is by colour and position. Transcribed by a Claude agent vision pass on 2026-08-11; NOT yet confirmed by a human.",
+ "corrections": [
+  {
+   "op": "split_components",
+   "seed_ids": [11, 32],
+   "note": "Greenland and Iceland share one SAM mask (no separating mask exists); they are disjoint islands, so split the mask's connected components by nearest seed.",
+   "by": "claude-agent",
+   "at": "2026-08-11"
+  }
+ ],
+ "regions": [
+  {
+   "region_id": 1,
+   "name": "North America",
+   "bonus": 5,
+   "bonus_text_verbatim": "5",
+   "bonus_bbox": [646, 566, 20, 30],
+   "association": "by-colour",
+   "confidence": "high",
+   "source": "claude-agent (Fable 5) vision read of artwork legend",
+   "note": "yellow continent on the legend mini-map",
+   "territory_names": [
+    "Alaska", "Northwest Territory", "Alberta", "Ontario", "Quebec",
+    "Greenland", "Western United States", "Eastern United States",
+    "Central America"
+   ]
+  },
+  {
+   "region_id": 2,
+   "name": "South America",
+   "bonus": 2,
+   "bonus_text_verbatim": "2",
+   "bonus_bbox": [662, 596, 20, 30],
+   "association": "by-colour",
+   "confidence": "high",
+   "source": "claude-agent (Fable 5) vision read of artwork legend",
+   "note": "red continent on the legend mini-map",
+   "territory_names": ["Venezuela", "Peru", "Brazil", "Argentina"]
+  },
+  {
+   "region_id": 3,
+   "name": "Europe",
+   "bonus": 5,
+   "bonus_text_verbatim": "5",
+   "bonus_bbox": [708, 560, 20, 30],
+   "association": "by-colour",
+   "confidence": "high",
+   "source": "claude-agent (Fable 5) vision read of artwork legend",
+   "note": "blue/slate continent on the legend mini-map",
+   "territory_names": [
+    "Iceland", "Britain", "Scandinavia", "Ukraine", "Northern Europe",
+    "Southern Europe", "Western Europe"
+   ]
+  },
+  {
+   "region_id": 4,
+   "name": "Africa",
+   "bonus": 3,
+   "bonus_text_verbatim": "3",
+   "bonus_bbox": [712, 596, 20, 30],
+   "association": "by-colour",
+   "confidence": "high",
+   "source": "claude-agent (Fable 5) vision read of artwork legend",
+   "note": "orange continent on the legend mini-map",
+   "territory_names": [
+    "North Africa", "Egypt", "East Africa", "Congo", "South Africa",
+    "Madagascar"
+   ]
+  },
+  {
+   "region_id": 5,
+   "name": "Asia",
+   "bonus": 7,
+   "bonus_text_verbatim": "7",
+   "bonus_bbox": [758, 564, 20, 30],
+   "association": "by-colour",
+   "confidence": "high",
+   "source": "claude-agent (Fable 5) vision read of artwork legend",
+   "note": "green continent on the legend mini-map",
+   "territory_names": [
+    "Middle East", "Kazakhstan", "India", "Ural", "Siberia", "Yakutsk",
+    "Irkutsk", "Mongolia", "China", "Siam", "Japan", "Kamchatka"
+   ]
+  },
+  {
+   "region_id": 6,
+   "name": "Australia",
+   "bonus": 2,
+   "bonus_text_verbatim": "2",
+   "bonus_bbox": [782, 596, 20, 30],
+   "association": "by-colour",
+   "confidence": "high",
+   "source": "claude-agent (Fable 5) vision read of artwork legend",
+   "note": "magenta continent on the legend mini-map",
+   "territory_names": [
+    "Indonesia", "Papua New Guinea", "Western Australia", "Eastern Australia"
+   ]
+  }
+ ],
+ "extra_bonuses": [],
+ "edges": {"confirmations": []},
+ "verification": {
+  "overlay_confirmed": {"verified": false, "by": null, "at": null},
+  "bonuses_confirmed": {"verified": false, "by": null, "at": null}
+ }
+}
