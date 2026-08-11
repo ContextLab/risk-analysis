@@ -55,12 +55,22 @@ class CandidateParams:
     pill_max_frac: float = 0.08     # contained detail is at most this much of parent
     pill_min_aspect: float = 1.8    # ... and wide-short like a printed name
     pill_max_height: int = 40       # ... at most two text lines tall
-    ocean_color_dist: float = 30.0  # RGB distance to background estimate
-    ocean_ring_frac: float = 0.60   # surrounded-by-background fraction
+    ocean_color_dist: float = 30.0  # RGB distance: "background-like"
+    ocean_exact_dist: float = 10.0  # RGB distance: "is literally the water"
+    ocean_ring_frac: float = 0.60   # surrounded-by-open-background fraction
+    ocean_bg_erosion: int = 7       # erode background so thin border-line
+    #   gaps between adjacent territories do not count as "open water"
+    ocean_small_exempt_frac: float = 0.005  # background-LIKE masks smaller
+    #   than this fraction of the image are never dropped: islands whose
+    #   palette resembles the water (World Classic's Britain, dist 14)
+    ocean_exact_ring_frac: float = 0.45  # exact-water masks are dropped on
+    #   much weaker evidence of isolation ...
+    ocean_exact_border_frac: float = 0.05  # ... or if they own real border
+    ocean_exact_big_frac: float = 0.03  # ... or are simply huge
     remnant_keep_frac: float = 0.45  # painted survivors must keep this much
     fringe_margin: float = 15.0     # how decisively ocean-like a fringe pixel must be
     fringe_keep_min: float = 0.60   # never trim a mask below this fraction
-    coastal_buffer_px: int = 12     # near-shore water claimed by nearest territory
+    coastal_buffer_px: int = 14     # near-shore water claimed by nearest territory
 
 
 def fill_holes(mask: np.ndarray) -> np.ndarray:
@@ -222,17 +232,62 @@ def select_masks(
         background = ~covered
         if background.any():
             bg_color = np.median(image[background], axis=0)
-            kernel = np.ones((5, 5), np.uint8)
+            # Only *open* background counts as water: eroding removes the
+            # thin unclaimed slivers along drawn border lines, which would
+            # otherwise make every bordered territory look ocean-surrounded
+            # (fatal on near-monochrome maps like Arctic Circle).
+            k = p.ocean_bg_erosion
+            bg_core = cv2.erode(
+                background.astype(np.uint8), np.ones((k, k), np.uint8)
+            ).astype(bool)
+            # The ring is an annulus 5..12 px out from the mask: far enough
+            # that it clears both the mask itself (bg_core erodes 3-4 px
+            # around every mask) and thin border-line gaps, close enough to
+            # sample the mask's true surroundings.
+            inner_k = np.ones((11, 11), np.uint8)
+            outer_k = np.ones((25, 25), np.uint8)
+            small_exempt = p.ocean_small_exempt_frac * image_area
             keep_flags = [True] * len(masks)
             for i, m in enumerate(masks):
-                med = np.median(image[m.mask], axis=0)
-                if np.linalg.norm(med - bg_color) >= p.ocean_color_dist:
+                dist = float(
+                    np.linalg.norm(np.median(image[m.mask], axis=0) - bg_color)
+                )
+                if dist >= p.ocean_color_dist:
                     continue
-                ring = cv2.dilate(m.mask.astype(np.uint8), kernel).astype(bool) & ~m.mask
-                n_ring = int(ring.sum())
-                if n_ring and int((ring & background).sum()) > p.ocean_ring_frac * n_ring:
+                exact = dist < p.ocean_exact_dist
+                if not exact and m.area < small_exempt:
+                    continue  # small bg-LIKE mask: plausibly an island
+                m8 = m.mask.astype(np.uint8)
+                ring = cv2.dilate(m8, outer_k).astype(bool) & ~cv2.dilate(
+                    m8, inner_k
+                ).astype(bool)
+                n_ring = max(int(ring.sum()), 1)
+                ring_bg = int((ring & bg_core).sum()) / n_ring
+                border_own = (
+                    int(m.mask[0, :].sum())
+                    + int(m.mask[-1, :].sum())
+                    + int(m.mask[:, 0].sum())
+                    + int(m.mask[:, -1].sum())
+                ) / border_len
+                if exact:
+                    # Literally water-coloured.  SAM tiles big oceans into
+                    # chunks whose rings are walled in by sibling chunks and
+                    # coastlines, so isolation evidence is weakened and
+                    # border ownership / sheer size also convict.
+                    drop = (
+                        ring_bg > p.ocean_exact_ring_frac
+                        or border_own > p.ocean_exact_border_frac
+                        or m.area > p.ocean_exact_big_frac * image_area
+                    )
+                else:
+                    drop = ring_bg > p.ocean_ring_frac
+                if drop:
                     keep_flags[i] = False
-                    warnings.append(f"dropped background-coloured blob at {m.bbox}")
+                    warnings.append(
+                        f"dropped background-coloured blob at {m.bbox} "
+                        f"(dist {dist:.0f}, ring_bg {ring_bg:.2f}, "
+                        f"border {border_own:.2f})"
+                    )
             masks = [m for m, f in zip(masks, keep_flags) if f]
 
     if not masks:

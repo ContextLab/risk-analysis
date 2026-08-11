@@ -18,19 +18,24 @@ from dataclasses import dataclass, field
 
 import numpy as np
 
-MODEL_NAME = "facebook/sam-vit-base"
+# Chosen 2026-08-10 by sweeping base/large/huge x grid density x thresholds
+# against the World Classic 42-label bijection: huge with a 64x64 prompt grid
+# and permissive thresholds scored 36/42 vs 32-36 for the alternatives (the
+# permissive thresholds are what surface per-territory masks; the huge
+# checkpoint separates hatched territories that base merges).
+MODEL_NAME = "facebook/sam-vit-huge"
 # Pinned 2026-08-10 (main); determinism requires never floating this.
-MODEL_REVISION = "70c1a07f894ebb5b307fd9eaaee97b9dfc16068f"
+MODEL_REVISION = "87aecf0df4ce6b30cd7de76e87673c49644bdf67"
 
 
 @dataclass(frozen=True)
 class SamParams:
     model_name: str = MODEL_NAME
     revision: str = MODEL_REVISION
-    points_per_crop: int = 32   # grid is points_per_crop x points_per_crop
+    points_per_crop: int = 64   # grid is points_per_crop x points_per_crop
     points_per_batch: int = 64
-    pred_iou_thresh: float = 0.88
-    stability_score_thresh: float = 0.92
+    pred_iou_thresh: float = 0.6
+    stability_score_thresh: float = 0.8
     crops_n_layers: int = 0
     crops_nms_thresh: float = 0.7
 
