@@ -85,6 +85,81 @@ def calibrate(candidate: dict, fixture_path: pathlib.Path = MAP1_FIXTURE) -> dic
     }
 
 
+def compare_candidates(doc_a: dict, doc_b: dict) -> dict:
+    """Inter-rater agreement between two independent readings of one map.
+
+    Used where no ground truth exists -- which is every map but map 1.  High
+    agreement does NOT prove correctness (two readers can share a blind spot),
+    but low agreement does prove unreliability, so this bounds trust from
+    above rather than establishing it.
+    """
+    a_names = {t["territory_id"]: t["name"] for t in doc_a["territories"]}
+    b_names = {t["territory_id"]: t["name"] for t in doc_b["territories"]}
+    a_edges = [(e["a"], e["b"]) for e in doc_a["edges"]]
+    b_edges = [(e["a"], e["b"]) for e in doc_b["edges"]]
+
+    alignment = align_names(a_names, b_names)
+    # score_edges' reference/candidate asymmetry is only labeling here: "false
+    # positive" means a-only and "false negative" means b-only.  Neither is
+    # authoritative.
+    score = score_edges(a_edges, b_edges, alignment)
+    union = score.true_positive + score.false_positive + score.false_negative
+    return {
+        "territories": {"a": len(a_names), "b": len(b_names)},
+        "names": {
+            "agreed": len(alignment.matched),
+            "exact": alignment.exact,
+            "fuzzy": len(alignment.matched) - alignment.exact,
+            "a_only": [a_names[c] for c in alignment.unmatched_candidate],
+            "b_only": [b_names[r] for r in alignment.unmatched_reference],
+        },
+        "edges": {
+            "both": score.true_positive,
+            "a_only": score.false_positive,
+            "b_only": score.false_negative,
+            "unscorable": score.unscorable,
+            "jaccard": round(score.true_positive / union, 3) if union else None,
+            "a_total": len(_undirected_pairs(a_edges)),
+            "b_total": len(_undirected_pairs(b_edges)),
+        },
+        "positions": score_positions(
+            {
+                t["territory_id"]: (float(t["x"]), float(t["y"]))
+                for t in doc_a["territories"]
+            },
+            {
+                t["territory_id"]: (float(t["x"]), float(t["y"]))
+                for t in doc_b["territories"]
+            },
+            alignment,
+        ),
+    }
+
+
+def _undirected_pairs(edges) -> set:
+    return {(min(a, b), max(a, b)) for a, b in edges if a != b}
+
+
+def _format_comparison(report: dict) -> str:
+    n, e = report["names"], report["edges"]
+    lines = [
+        f"territories: A {report['territories']['a']}  B {report['territories']['b']}",
+        f"names:       {n['agreed']} agreed ({n['exact']} exact, {n['fuzzy']} fuzzy), "
+        f"{len(n['a_only'])} only in A, {len(n['b_only'])} only in B",
+        f"edges:       A {e['a_total']}  B {e['b_total']}  "
+        f"agreed {e['both']}  A-only {e['a_only']}  B-only {e['b_only']}  "
+        f"unscorable {e['unscorable']}",
+        f"             Jaccard agreement {e['jaccard']}",
+        f"nodes:       median {report['positions']['median_px']} px apart, "
+        f"max {report['positions']['max_px']} px",
+    ]
+    if n["a_only"]:
+        lines.append("only in A: " + ", ".join(n["a_only"]))
+    if n["b_only"]:
+        lines.append("only in B: " + ", ".join(n["b_only"]))
+    return "\n".join(lines)
+
+
 def _format(report: dict) -> str:
     n, e = report["names"], report["edges"]
     lines = [
@@ -116,11 +191,24 @@ def _format(report: dict) -> str:
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("candidate", type=pathlib.Path)
+    parser.add_argument(
+        "--against",
+        type=pathlib.Path,
+        default=None,
+        help="second candidate: report inter-rater agreement instead of "
+        "scoring against map 1 ground truth",
+    )
     parser.add_argument("--json", type=pathlib.Path, default=None)
     args = parser.parse_args(argv)
 
-    report = calibrate(load_candidate(args.candidate))
-    print(_format(report))
+    if args.against:
+        report = compare_candidates(
+            load_candidate(args.candidate), load_candidate(args.against)
+        )
+        print(_format_comparison(report))
+    else:
+        report = calibrate(load_candidate(args.candidate))
+        print(_format(report))
     if args.json:
         args.json.write_text(json.dumps(report, indent=1))
     return 0
