@@ -127,3 +127,13 @@ def test_allows_bare_path_with_query_string():
 def test_blocks_disallowed_path_with_query_string():
     # /userlist?page=2 is a bare path with query; the path component /userlist is disallowed
     assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed("/userlist?page=2") is False
+
+
+@pytest.mark.parametrize("path", ["/game/", "/user/", "/game", "/user"])
+def test_directory_root_paths_are_blocked(path):
+    # posixpath.normpath (inside canonicalize_path) strips the trailing slash
+    # from "/game/", turning it into "/game", and "/game".startswith("/game/")
+    # is False — a bypass of the "Disallow: /game/" rule that would let the
+    # raw "/game/" path go on the wire. Directory roots must be blocked
+    # (fail-closed is correct: nothing in riskdyn ever needs these paths).
+    assert RobotsPolicy.parse(REAL_ROBOTS).is_allowed(path) is False

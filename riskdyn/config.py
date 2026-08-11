@@ -30,6 +30,14 @@ class PermissionRecord:
 
     @classmethod
     def load(cls, path: str | pathlib.Path) -> "PermissionRecord | None":
+        """Load a PermissionRecord from a JSON grant file, or None if it doesn't exist.
+
+        ``allowed_prefixes: ["/"]`` (a blanket grant covering the entire
+        site) is intentionally permitted, not a validation gap: the site
+        operator may choose to authorize everything at once instead of
+        enumerating every path, and this loader trusts that written grant
+        exactly as it trusts any narrower one.
+        """
         path = pathlib.Path(path)
         if not path.exists():
             return None
@@ -77,7 +85,17 @@ class PermissionRecord:
         canonical = canonicalize_path(path)
         if canonical is None:
             return False
-        return any(canonical.startswith(prefix) for prefix in self.allowed_prefixes)
+        # Same trailing-slash matching as RobotsPolicy.is_allowed (see that
+        # docstring): without it this asymmetry fails closed instead of
+        # open (a "/game/" grant wouldn't cover a "/game/" request), which
+        # is harmless here but inconsistent with the robots gate that shares
+        # this same canonicalize_path. Match both forms so the two gates
+        # agree.
+        canonical_slash = canonical + "/"
+        return any(
+            canonical.startswith(prefix) or canonical_slash.startswith(prefix)
+            for prefix in self.allowed_prefixes
+        )
 
 
 @dataclass

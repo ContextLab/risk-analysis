@@ -185,6 +185,25 @@ def test_load_rejects_negative_rate_limit(tmp_path):
         PermissionRecord.load(p)
 
 
+def test_covers_directory_root_matches_its_own_prefix(tmp_path):
+    """A "/game/" grant must cover a request for "/game/" itself.
+
+    canonicalize_path strips the trailing slash (posixpath.normpath), so
+    without matching both the canonical path and canonical-path-plus-slash,
+    "/game/".startswith("/game/") is False and the grant would (harmlessly,
+    but inconsistently with the robots gate) fail to cover its own prefix.
+    """
+    p = tmp_path / "perm.json"
+    p.write_text(json.dumps({
+        "granted_by": "D12 admin",
+        "granted_on": "2026-08-24",
+        "allowed_prefixes": ["/game/"],
+        "rate_limit_seconds": 3.0,
+    }))
+    rec = PermissionRecord.load(p)
+    assert rec.covers("/game/") is True
+
+
 def test_load_accepts_blanket_grant(tmp_path):
     """Verify that allowed_prefixes: ['/'] is permitted (blanket grant)."""
     p = tmp_path / "perm.json"

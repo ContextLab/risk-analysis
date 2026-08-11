@@ -47,4 +47,15 @@ class RobotsPolicy:
         canonical = canonicalize_path(path)
         if canonical is None:
             return False
-        return not any(canonical.startswith(rule) for rule in self.disallowed)
+        # posixpath.normpath (inside canonicalize_path) strips a trailing
+        # slash, so a directory-root request like "/game/" canonicalizes to
+        # "/game", and "/game".startswith("/game/") is False — a bypass of
+        # the "/game/" rule. Matching against the canonical path AND the
+        # canonical path with a trailing slash appended closes that hole
+        # without touching canonicalization itself (other code depends on
+        # normpath's stripping behavior).
+        canonical_slash = canonical + "/"
+        return not any(
+            canonical.startswith(rule) or canonical_slash.startswith(rule)
+            for rule in self.disallowed
+        )
