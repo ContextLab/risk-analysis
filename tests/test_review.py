@@ -83,12 +83,13 @@ def _copy_map(
 
 @pytest.fixture
 def sandbox(tmp_path):
-    """Server over COPIES of maps 1 (merged regions + legend), 100 (open
-    conflicts + unmerged legend) and 2 (no legend at all)."""
+    """Server over COPIES of maps 1 (merged regions + legend), 7 and 100
+    (open conflicts + unmerged legends) and 2 (no legend at all)."""
     ta = tmp_path / "authored"
     tp = tmp_path / "processed"
     _copy_map(ta, tp, 1)
     _copy_map(ta, tp, 2)
+    _copy_map(ta, tp, 7, ("region_conflicts.json", "region_sample.json"))
     _copy_map(ta, tp, 100, ("region_conflicts.json", "region_sample.json"))
     app = review.ReviewApp(
         reviewer="Test Reviewer", authored_root=ta, processed_root=tp
@@ -279,32 +280,34 @@ def test_adjudication_is_recorded_for_the_right_territory(sandbox):
     conflicts = json.loads(
         (tp / "100" / "region_conflicts.json").read_text()
     )
-    castile = next(c for c in conflicts["conflicts"] if c["name"] == "Castile")
+    leon = next(c for c in conflicts["conflicts"] if c["name"] == "Leon")
+    # precondition: Leon is a genuine disagreement, not a warning
+    assert leon["legend_region_id"] != leon["cluster_majority_region_id"]
     status, res = _post(
         base,
-        {"map_id": 100, "kind": "conflict", "territory": "Castile",
-         "ruling": "legend", "note": "singleton artifact"},
+        {"map_id": 100, "kind": "conflict", "territory": "Leon",
+         "ruling": "legend", "note": "checked the artwork"},
     )
     assert status == 200, res
     entries = _ann(ta, 100)["verification"]["conflicts_adjudicated"]
     assert len(entries) == 1
     e = entries[0]
-    assert e["territory"] == "Castile"
+    assert e["territory"] == "Leon"
     assert e["ruling"] == "legend"
-    assert e["region_id"] == castile["legend_region_id"]
+    assert e["region_id"] == leon["legend_region_id"]
     assert e["by"] == "Test Reviewer"
     assert e["at"]
     # re-adjudicating replaces, never duplicates
     status, _ = _post(
         base,
-        {"map_id": 100, "kind": "conflict", "territory": "Castile",
+        {"map_id": 100, "kind": "conflict", "territory": "Leon",
          "ruling": "colour"},
     )
     assert status == 200
     entries = _ann(ta, 100)["verification"]["conflicts_adjudicated"]
     assert len(entries) == 1
     assert entries[0]["ruling"] == "colour"
-    assert entries[0]["region_id"] == castile["cluster_majority_region_id"]
+    assert entries[0]["region_id"] == leon["cluster_majority_region_id"]
 
 
 def test_adjudication_refuses_unknown_territory(sandbox):
@@ -315,6 +318,71 @@ def test_adjudication_refuses_unknown_territory(sandbox):
     )
     assert status == 404
     assert "no open conflict" in res["error"]
+
+
+def test_conflicts_split_into_decisions_and_warnings(sandbox):
+    # measured on the real files: map 100 = 19 genuine disagreements + 4
+    # same-region singleton artifacts; map 7 = 4 genuine + 0
+    base = sandbox["base"]
+    status, body = _get(base, "/map/100")
+    assert status == 200
+    html = body.decode()
+    assert "19 decision(s) needed, 4 warning(s)" in html
+    assert "0 of 19 decided" in html
+    assert html.count("legend is right (y)") == 19
+    assert (
+        "4 cluster-quality warning(s) (legend and colour agree) — "
+        "no decision needed" in html
+    )
+    # the four same-region entries are listed as warnings, without buttons
+    for name in ("Castile", "Billungermark", "Benevento", "Rome"):
+        assert name in html
+    warn_block = html.split("<details>")[1].split("</details>")[0]
+    assert "legend is right" not in warn_block
+    assert "Castile" in warn_block
+
+    status, body = _get(base, "/map/7")
+    assert status == 200
+    html7 = body.decode()
+    assert "4 decision(s) needed" in html7
+    assert "warning(s)" not in html7.split("<h2>")[2]  # conflicts heading
+    assert html7.count("legend is right (y)") == 4
+    assert "cluster-quality warning" not in html7
+
+
+def test_index_counts_decisions_not_warnings(sandbox):
+    status, body = _get(sandbox["base"], "/")
+    assert status == 200
+    html = body.decode()
+    assert "19 open" in html  # map 100: decisions only
+    assert "23 open" not in html
+    assert "+4 warn" in html  # the warnings stay visible, small
+
+
+def test_warning_entry_refuses_a_ruling(sandbox):
+    ta = sandbox["authored"]
+    before = (ta / "100" / "annotations.json").read_bytes()
+    status, res = _post(
+        sandbox["base"],
+        {"map_id": 100, "kind": "conflict", "territory": "Castile",
+         "ruling": "legend"},
+    )
+    assert status == 400
+    assert "nothing to rule on" in res["error"]
+    assert (ta / "100" / "annotations.json").read_bytes() == before
+
+
+def test_conflict_position_counts_adjudications(sandbox):
+    base = sandbox["base"]
+    status, _ = _post(
+        base,
+        {"map_id": 100, "kind": "conflict", "territory": "Leon",
+         "ruling": "colour"},
+    )
+    assert status == 200
+    status, body = _get(base, "/map/100")
+    assert status == 200
+    assert "1 of 19 decided" in body.decode()
 
 
 # --------------------------------------------------------------------------
@@ -366,7 +434,7 @@ def test_atomic_write_preserves_unrelated_keys(sandbox):
     before = json.loads(path.read_text())
     status, _ = _post(
         base,
-        {"map_id": 100, "kind": "conflict", "territory": "Castile",
+        {"map_id": 100, "kind": "conflict", "territory": "Leon",
          "ruling": "legend"},
     )
     assert status == 200

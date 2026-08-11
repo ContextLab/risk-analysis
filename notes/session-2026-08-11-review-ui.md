@@ -41,11 +41,32 @@ Date: 2026-08-11
 - Refuses to record without `--by`, and refuses agent identities
   (via `_human_signoff`).
 
+## Refinement (same day): decisions vs cluster-quality warnings
+
+Coordinator feedback: entries where `legend_region_id ==
+cluster_majority_region_id` (the colour-isolated singletons: map 100's
+Castile, Billungermark, Benevento, Rome) are not membership disputes —
+both sides resolve to the same region — so asking for a ruling wastes
+attention. `ReviewApp.split_conflicts` now splits flagged entries:
+
+- decisions (legend != colour majority): ruling buttons as before,
+  sorted suspect-colour-first (sample_reliable False, then low
+  patch_consistency), with a live "k of N decided" position counter.
+  This count is what the index and the section heading show
+  (map 100: 19, map 7: 4).
+- warnings (same region on both sides): collapsed `<details>`
+  disclosure, listed with reason + reliability but NO buttons; the
+  server refuses a ruling on them (400 "nothing to rule on").
+
+merge_legend is deliberately unchanged: the automated merge still
+refuses on all flagged entries, warnings included.
+
 ## Tests
 
-`tests/test_review.py` — 14 tests, real server on a real socket, real
-data, no mocks; decision tests run on copies under tmp_path. Full suite:
-281 passed, 5 network-deselected (was 267 before this task).
+`tests/test_review.py` — 18 tests, real server on a real socket, real
+data, no mocks; decision tests run on copies under tmp_path (now also
+copies map 7). Full suite: 285 passed, 5 network-deselected (was 267
+before this task).
 
 ## State of the data (unchanged by this session)
 

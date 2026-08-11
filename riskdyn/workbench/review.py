@@ -208,6 +208,50 @@ class ReviewApp:
             )
         )
 
+    # -- conflicts: decisions vs cluster-quality warnings ------------------
+
+    @staticmethod
+    def split_conflicts(conflicts: dict | None) -> tuple[list[dict], list[dict]]:
+        """(decisions, warnings), most actionable first.
+
+        A flagged entry is a DECISION only when the legend and the colour
+        majority disagree about which region the territory is in.  When
+        both resolve to the SAME region (the singleton-cluster artifacts:
+        the flag is a cluster-quality observation, not a membership
+        dispute) it is a WARNING: still listed -- silently dropping it
+        would hide a real signal about sampling quality -- but there is
+        nothing to rule on, so no ruling is asked for.
+
+        Decisions sort likely-colour-method-errors first: an unreliable
+        sample or low patch_consistency means the colour side is the
+        suspect one, and that class is common and fast to dispatch.
+
+        The merge gate itself is deliberately UNCHANGED: merge_legend
+        still refuses on every flagged entry, warnings included --
+        refusing on a cluster-quality warning is correct for an automated
+        merge; this split is purely about not demanding a human ruling
+        where there is no dispute.
+        """
+        entries = (conflicts or {}).get("conflicts", [])
+        decisions = [
+            c for c in entries
+            if c["legend_region_id"] != c["cluster_majority_region_id"]
+        ]
+        warnings = [
+            c for c in entries
+            if c["legend_region_id"] == c["cluster_majority_region_id"]
+        ]
+        decisions.sort(
+            key=lambda c: (
+                c.get("sample_reliable") is not False,  # unreliable first
+                c.get("patch_consistency")
+                if c.get("patch_consistency") is not None
+                else 1.0,
+                c["name"],
+            )
+        )
+        return decisions, warnings
+
     # -- per-map status for the index -------------------------------------
 
     def signoff_state(self, map_id: int, ann: dict | None = None) -> dict:
@@ -249,15 +293,12 @@ class ReviewApp:
         }
         conflicts = self.load_conflicts(map_id)
         n_conf = conflicts["n_conflicts"] if conflicts else 0
+        decisions, warnings = self.split_conflicts(conflicts)
         adjudicated = {
             e.get("territory")
             for e in (verification.get("conflicts_adjudicated") or [])
         }
-        open_conf = (
-            sum(1 for c in conflicts["conflicts"] if c["name"] not in adjudicated)
-            if conflicts
-            else 0
-        )
+        open_conf = sum(1 for c in decisions if c["name"] not in adjudicated)
         rows, source = self.bonus_rows(map_id, ann)
         legend_file_exists = self.legend_file(map_id).is_file()
         signoff = self.signoff_state(map_id, ann)
@@ -271,6 +312,8 @@ class ReviewApp:
             "criteria": {k: v["status"] for k, v in crit.items()},
             "stale": crit["d"].get("stale_signoff", False) or signoff["stale"],
             "n_conflicts": n_conf,
+            "n_decisions": len(decisions),
+            "n_warnings": len(warnings),
             "open_conflicts": open_conf,
             "has_legend": bool(rows),
             "legend_file_exists": legend_file_exists,
@@ -525,6 +568,14 @@ class ReviewApp:
             raise ReviewError(
                 404, f"map {map_id} has no open conflict for {territory!r}"
             )
+        if record["legend_region_id"] == record["cluster_majority_region_id"]:
+            raise ReviewError(
+                400,
+                f"{territory!r} is a cluster-quality warning, not a "
+                "disagreement: the legend and the colour majority both "
+                f"resolve to region {record['legend_region_id']}, so there "
+                "is nothing to rule on",
+            )
         if ruling == "legend":
             region_id = record["legend_region_id"]
         elif ruling == "colour":
@@ -611,6 +662,9 @@ input{background:#0f1114;color:#e8e8e8;border:1px solid #444;
 .result{color:#5fd38a;margin-left:.6rem;font-size:.85rem}
 #help{display:none;position:fixed;right:1rem;bottom:1rem;background:#20242b;
       border:1px solid #46617e;border-radius:8px;padding:1rem;z-index:9}
+.warnitem{border:1px dashed #6a5a2a;border-radius:6px;padding:.6rem;
+          margin:.5rem 0;background:#1c1a14}
+details summary{cursor:pointer;color:#e0b25f;margin:.6rem 0}
 .legendctx img{max-width:100%;border:1px solid #444;background:#fff}
 .overlaywrap img{max-width:100%;border:1px solid #444}
 .small{color:#9aa;font-size:.82rem}
@@ -646,6 +700,12 @@ async function post(payload, item, btn){
   item.classList.add('done');
   const out = item.querySelector('.result');
   if (out) out.textContent = res.recorded || 'recorded';
+  if (item.classList.contains('conflict-item')) {
+    const pos = document.getElementById('conflict-pos');
+    if (pos) pos.textContent =
+      document.querySelectorAll('.conflict-item.done').length + ' of ' +
+      document.querySelectorAll('.conflict-item').length + ' decided';
+  }
   if (res.verified) {
     const b = document.getElementById('bonus-state');
     if (b) b.textContent = 'ALL REGIONS DECIDED — signed off';
@@ -791,12 +851,20 @@ def render_index(app: ReviewApp) -> str:
             so_txt, so_cls = "legend read defines no bonus regions", "small"
         else:
             so_txt, so_cls = "no legend read yet", "small"
-        conf_txt = (
-            f"{r['open_conflicts']} open"
-            + (f" / {r['n_conflicts']}" if r["n_conflicts"] != r["open_conflicts"] else "")
-            if r["n_conflicts"]
-            else "—"
-        )
+        # the index counts DECISIONS; same-region warnings are noted small
+        conf_parts = []
+        if r["n_decisions"]:
+            conf_parts.append(
+                f"{r['open_conflicts']} open"
+                + (
+                    f" of {r['n_decisions']}"
+                    if r["open_conflicts"] != r["n_decisions"]
+                    else ""
+                )
+            )
+        if r["n_warnings"]:
+            conf_parts.append(f"+{r['n_warnings']} warn")
+        conf_txt = " ".join(conf_parts) if conf_parts else "—"
         body_rows.append(
             f"<tr onclick=\"location='/map/{r['map_id']}'\">"
             f"<td data-sort='{r['map_id']}'>{r['map_id']}</td>"
@@ -971,8 +1039,7 @@ def _conflict_section(app: ReviewApp, map_id: int, ann: dict) -> str:
         sw = f"<span class='swatch' style='background:{_esc(hexv)}'></span>" if hexv else ""
         return f"{sw}region {rid}" + (f" ({_esc(name)})" if name else "")
 
-    items = []
-    for c in conflicts["conflicts"]:
+    def meta_html(c: dict) -> str:
         tid = c["territory_id"]
         cid = c["cluster_id"]
         cluster_hex = clusters.get(cid, {}).get("mean_hex")
@@ -987,6 +1054,23 @@ def _conflict_section(app: ReviewApp, map_id: int, ann: dict) -> str:
             if c.get("cluster_size") == 1
             else ""
         )
+        return (
+            f"<b>{_esc(c['name'])}</b> "
+            f"<span class='small'>territory {tid}</span>{singleton}<br>"
+            f"legend claims: {region_label(c['legend_region_id'])}<br>"
+            f"colour implies: {csw}cluster {cid} &rarr; "
+            f"{region_label(c['cluster_majority_region_id'])}"
+            f"{' <span class=badge>tied plurality</span>' if c.get('ambiguous_majority') else ''}<br>"
+            f"<span class='small'>{_esc(c['reason'])}</span><br>"
+            f"<span class='small'>sample_reliable={_esc(c.get('sample_reliable'))} "
+            f"&middot; patch_consistency={_esc(c.get('patch_consistency'))}</span>"
+        )
+
+    decisions, warnings = app.split_conflicts(conflicts)
+
+    # -- group 1: genuine disagreements, one ruling each ------------------
+    items = []
+    for c in decisions:
         prior = adjudicated.get(c["name"])
         done = " done" if prior else ""
         prior_txt = (
@@ -997,20 +1081,10 @@ def _conflict_section(app: ReviewApp, map_id: int, ann: dict) -> str:
         )
         base = {"kind": "conflict", "map_id": map_id, "territory": c["name"]}
         items.append(
-            f"<div class='item{done}'>"
-            f"<div><img src='/crop/territory/{map_id}/{tid}.png' "
+            f"<div class='item conflict-item{done}'>"
+            f"<div><img src='/crop/territory/{map_id}/{c['territory_id']}.png' "
             f"alt='{_esc(c['name'])}'></div>"
-            "<div class='meta'>"
-            f"<b>{_esc(c['name'])}</b> "
-            f"<span class='small'>territory {tid}</span>{singleton}<br>"
-            f"legend claims: {region_label(c['legend_region_id'])}<br>"
-            f"colour implies: {csw}cluster {cid} &rarr; "
-            f"{region_label(c['cluster_majority_region_id'])}"
-            f"{' <span class=badge>tied plurality</span>' if c.get('ambiguous_majority') else ''}<br>"
-            f"<span class='small'>{_esc(c['reason'])}</span><br>"
-            f"<span class='small'>sample_reliable={_esc(c.get('sample_reliable'))} "
-            f"&middot; patch_consistency={_esc(c.get('patch_consistency'))}</span>"
-            "</div>"
+            f"<div class='meta'>{meta_html(c)}</div>"
             "<div class='actions'>"
             f"<button class='yes' onclick='decide(this)' "
             f"data-d=\"{_jattr({**base, 'ruling': 'legend'})}\">legend is right (y)</button>"
@@ -1023,12 +1097,43 @@ def _conflict_section(app: ReviewApp, map_id: int, ann: dict) -> str:
             f"{prior_txt}"
             "</div></div>"
         )
-    return (
-        f"<p class='small'>{conflicts['n_conflicts']} conflict(s) from the "
-        "legend-vs-colour cross-check; singletons are marked — they are "
-        "predictable artifacts and should be fast to dispatch.</p>"
-        + "".join(items)
-    )
+    n_done = sum(1 for c in decisions if c["name"] in adjudicated)
+    if decisions:
+        intro = (
+            "<p class='small'><b id='conflict-pos'>"
+            f"{n_done} of {len(decisions)} decided</b> &middot; "
+            f"{len(decisions)} decision(s) needed — the legend read and the "
+            "colour clustering disagree about the region. Likely "
+            "colour-method errors first (unreliable or low-consistency "
+            "samples are the suspect ones).</p>"
+        )
+    else:
+        intro = (
+            "<div class='banner plain'>No decisions needed: every flagged "
+            "entry resolves to the same region on both sides (see the "
+            "warnings below).</div>"
+        )
+
+    # -- group 2: cluster-quality warnings, nothing to rule on ------------
+    warn_html = ""
+    if warnings:
+        warn_items = "".join(
+            f"<div class='warnitem'>{meta_html(c)}</div>" for c in warnings
+        )
+        warn_html = (
+            "<details><summary>"
+            f"{len(warnings)} cluster-quality warning(s) (legend and colour "
+            "agree) — no decision needed</summary>"
+            "<p class='small'>These entries are flagged by the merge gate "
+            "because their colour cluster is isolated or otherwise "
+            "suspect, but the legend and the colour majority resolve to "
+            "the SAME region: there is no membership dispute to rule on. "
+            "They are listed because they carry a real signal about "
+            "sampling quality. The automated merge still refuses on them "
+            "— that behaviour is unchanged and correct.</p>"
+            f"{warn_items}</details>"
+        )
+    return intro + "".join(items) + warn_html
 
 
 def _graph_section(app: ReviewApp, map_id: int, ann: dict) -> str:
@@ -1095,7 +1200,16 @@ def render_map(app: ReviewApp, map_id: int) -> str:
         f"{status['n_edges']} edges &middot; {crit}</p>"
         "<h2>1 · Bonuses (the priority)</h2>"
         + _bonus_section(app, map_id, ann)
-        + "<h2>2 · Region conflicts</h2>"
+        + (
+            "<h2>2 · Region conflicts — "
+            f"{status['n_decisions']} decision(s) needed"
+            + (
+                f", {status['n_warnings']} warning(s)"
+                if status["n_warnings"]
+                else ""
+            )
+            + "</h2>"
+        )
         + _conflict_section(app, map_id, ann)
         + "<h2>3 · Graph overlays</h2>"
         + _graph_section(app, map_id, ann)
